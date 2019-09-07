@@ -55,7 +55,7 @@ Window = WINWORD.EXE
 ReleaseRun1 = 773, 206
 ReleaseRun2 = 771, 142
 MoveWindow1 = 5, 332, 950, 684
-MoveWindow2 = 
+MoveWindow2 =
 ;adjust columb
 AdjustA1 = L, 97, 192, 115, 192, 2
 AdjustB1 = L, 96, 403, 2
@@ -67,7 +67,7 @@ Aclass1 = ahk_class WindowsForms10.Window.8.app.0.202c666
 Cbox2 = WindowsForms10.COMBOBOX.app.0.33c0d9d1
 Aclass2 = ahk_class WindowsForms10.Window.8.app.0.33c0d9d
 attatchmentNumb = 0
-Lotnumber = %Year%0001	
+Lotnumber = %Year%0001
 
 if (A_ComputerName = "NYC-QCLAB1-PC" or "NYC-QCLAB2-PC") {
 	SetTimer, MalwareClose
@@ -78,7 +78,7 @@ IfWinactive, Ahk2Exe ahk_class #32770
 	Send {enter}
 	Winminimize, Ahk2Exe for AutoHotkey ahk_class AutoHotkeyGUI
 }
-IfWinExist, Ahk2Exe for AutoHotkey ahk_class AutoHotkeyGUI 
+IfWinExist, Ahk2Exe for AutoHotkey ahk_class AutoHotkeyGUI
 	Winminimize, Ahk2Exe for AutoHotkeyahk_class AutoHotkeyGUI
 sleep 200
 WinActivate, STARLIMS10.Live
@@ -109,13 +109,21 @@ else,
   SetCapsLockState, OfF
 return
 
-
-
-
-
 return ;\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/  End of Autorun  /\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/
+
+
+
+
+
+
+
+
+
+
+
+
 Numpadsub & numpad3::
-	loop, 3 
+	loop, 3
 	{
 		click, %changerep2% Left, 1
 		WinWait, Replicates Number, , 2
@@ -132,11 +140,42 @@ Numpadsub & numpad3::
 		sendinput {down}
 	}
 		return
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 ;{ :::::::::::::::::::::::::::::::::::::::::Help Screen::::::::::::::::::::::::::
 Home::
 	Msgbox, , Things to do, ____________ View Process Sample Tab of LIMS ___________________________________ `n`n -Press [ NumPad( / ) ]  to search for an Item Number `n -Press [ NumPad( * )  ]  to  search for Bulk Liquid `n -Press and Roll [ Mouse Wheel Down ] to attatch a file `n`n____________ Create Batch Tab of LIMS ___________________________________________ `n(doesnt always work depending on the computers cashe)`n -Press [ NumPad( * ) ]  to create Bulk Liquid batch `n -Press [ NumPad( - ) ] to create a Raw Material  `n`n____________ My Service Group Pending Test tab of LIMS ________________________`n`n -Press [ End ] to make the `"Run#`" column fit `n -Press [ NumPad( - ) ]  to search for a Raw Material `n -Press [ Middle Click ] or [ Numpad( + ) & Numpad( Enter ) ] to auto-select result`n -Press and Roll [ Mouse Wheel Down ] to attatch a file `n`n____________ Miscellaneous _______________________________________________________ `n`n -The [ Numpad( Enter ) ] is usable in more places `n -Press [ Numpad( + ) & Numpad( 0 ) ] at the same time to open the calculator`n -Press [ Insert ] to set the digits in the middle of the lot# (currently: `"%lotnumber%___`") `n`n`n :::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::`nIt helps if you dont have the `"Menu Bar`" and `"Favorites Bar`" showing in Internet Explorer because it lowers the screen by 30 pixels.`n`n`tThis works on the non-Internet Explorer version of LIMS now`n::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::`nver. %version%
 	return
 ;}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 ;{____________________________________________Functions______________________
 Bulk_Liquid(select, samplegroup, grouptemplate) { ;||||||||||||||||numpad multiply
@@ -248,7 +287,7 @@ Attatch(SGattachment, PVattachment) {  ;|||||||||||||||||middle mouse & wheeldow
 				send {enter}
 				sendinput {tab}
 				Blockinput, off
-				return	
+				return
 		}
 	Else
 		Click, %add% left, 1
@@ -301,7 +340,7 @@ Auto_Select(Aclass, Cbox) {  ;||||||||||||||||Middle Mouse / Numpad plus & numpa
 		{
 			Pick := Selection[3]
 		}
-		else 
+		else
 		{
 			send {delete}
 		}
@@ -313,7 +352,7 @@ Auto_Select(Aclass, Cbox) {  ;||||||||||||||||Middle Mouse / Numpad plus & numpa
 
 }
 Change_Rep(changerep, Reps) {  ;|||||||||||||||| Numpadmult + # change reps
-loop, 3 
+loop, 3
 {
 	mousegetpos xx, yy
 	sendinput {Lbutton}
@@ -360,7 +399,7 @@ AttatchCOA(PVattachment) {   ;||||||||||||||||Attatch COA loops
 		COAcount-=1
 		GoDown = {down %COAcount%}
 		Blockinput, off
-		return	
+		return
 		}
 SubmitAttatchment() {
 		Sendinput {enter}
@@ -398,8 +437,8 @@ Raw_MaterialCOA(select, x) {   ;||||||||||||||||numpad subtract
 
 
 
-; [][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][]EXPERIMENTAL[[][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][]][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][]  
-#IfWinActive, 
+; [][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][]EXPERIMENTAL[[][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][]][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][]
+#IfWinActive,
 
 +Capslock::
 SetTimer, CheckBecameActive, Off
@@ -409,11 +448,11 @@ Capslock::SetTimer, CheckBecameActive, 600
 
 
 
-	
+
 #Ifwinactive, Release update  2019 - Excel ahk_exe EXCEL.EXE
 Capslock::SetCapsLockState, Off
-	
-#ifwinactive, 
+
+#ifwinactive,
 Numlock & Numpad0::
 	IfWinExist, Release update  2019 - Excel ahk_exe EXCEL.EXE
 	{
@@ -422,7 +461,7 @@ Numlock & Numpad0::
 	}
 	return
 
-Experiment:		
+Experiment:
 
 #IfWinActive, Audit Trail ahk_exe SeqEdit.exe
 Numlock & numpaddiv::
@@ -484,7 +523,7 @@ ShutdownTime:
 	return
 COAnumber := []
 
-loop, read, H:\QC LAB\MH\BatchCOA.txt, 
+loop, read, H:\QC LAB\MH\BatchCOA.txt,
 {
 	loop, parse, A_LoopReadLine, `n
 	{
@@ -528,12 +567,12 @@ loop, read, H:\QC LAB\MH\BatchCOA.txt,
 			COAcount-=1
 			GoDown-=1
 			Blockinput, off
-			return	
+			return
 		}
 
 
 
-;msgbox % lotnumber . COAnumber[1] "`n" lotnumber . COAnumber[2] "`n" Lotnumber  COAnumber[3] "`n" 
+;msgbox % lotnumber . COAnumber[1] "`n" lotnumber . COAnumber[2] "`n" Lotnumber  COAnumber[3] "`n"
 return
 
 
@@ -544,7 +583,7 @@ Numpadsub & Numpaddot:: ; ::::::::::auto add scanned COAs
 	InputBox, COAcount, COA, how many COAs , , 240, 180,, 0000
 	NumberofCOA = %COAcount%
 	COAcount-=1
-	GoDown = {down %COAcount%}	
+	GoDown = {down %COAcount%}
 	while COAcount > 0
 	{
 		WinWaitActive, STARLIMS10.Live
@@ -601,7 +640,7 @@ Numlock & right:: ;{ |||||||||| release run
 ; }
 NumpadAdd & NumpadDiv:: ;{
 InputBox, AutoFillCount, AutoFill, how many results? , , 240, 180,, 0000
-loop, %autofillcount% 
+loop, %autofillcount%
 {
 	sendinput, {space}
 	WinWaitActive, Resent List ahk_exe xv.exe, , 3
@@ -624,7 +663,7 @@ loop, %autofillcount%
 			send {down}
 			continue
 		}
-	sleep 200	
+	sleep 200
 	Auto_Select(Aclass2, Cbox2)
 	sleep 200
 	sendinput {alt down}o{alt up}
@@ -638,8 +677,8 @@ return ;}
 
 ;{::::::::::::::::::::::::::::::::: ::review run Loop :::::::::::::::::::::::::
 Numlock & up::
-		 
-		loop, 400 
+
+		loop, 400
 		{
 			MouseGetPos, xpos, ypos
 		PixelGetColor, ReleaseRunColor, %xpos%, %ypos%, Slow
@@ -647,7 +686,7 @@ Numlock & up::
 		sleep 50
 		}
 		return
-		
+
 Numlock & Down::
 	InputBox, ReviewRunLoop, how many,, , 240, 180
 	if ErrorLevel
@@ -655,7 +694,7 @@ Numlock & Down::
 	Loop, %reviewRunLoop%
 		{
 		Click, 771, 144 Left, 1
-		sleep 9000			
+		sleep 9000
 		winwait, Warning, , 4
 			if errorlevel {
 				sleep 2000
@@ -663,14 +702,14 @@ Numlock & Down::
 				sleep 5000
 				continue
 			}
-		else {	
-			winclose, Warning 
+		else {
+			winclose, Warning
 			sleep 2000
 			sendinput {down}
 		}
 		sleep 5000
 		}
-	return	
+	return
 ;}
 #Persistent
 ToolTip, Timed ToolTip`nThis will be displayed for 5 seconds.
@@ -683,7 +722,7 @@ return
 
 
 ;{::::::::::::::::::::::::::::::::::: adjust columb ::::::::::::::::::::::::::::::::::
-End:: 
+End::
 	MouseClickDrag, L, 97, 120, 115, 122, 2
 	sleep 250
 	Mouseclick, L, 96, 342, 2
@@ -719,8 +758,8 @@ Numlock & pgup::
 		}
 		WinMove, ahk_exe AcroRd32.exe,, 5, 332, 950, 684
 		Winwait, STARLIMS10.Live (Master)
-		
-		
+
+
 		return
 	return
 ;ClosePDF:
@@ -752,7 +791,7 @@ Numlock & pgup::
 ;}
 
 ;{:::::::::::::::::::::::::::select batches/lots/material number:::::::::::::::::::::::::::
-	#IfWinActive, Select batches 
+	#IfWinActive, Select batches
 Numlock & numpadmult::
 	Click, %Search1% left, 1
 	sendinput {tab 3}%BulkLiquid%
@@ -765,13 +804,13 @@ Numpaddiv::
 	Click, %Search1% left, 1
 	sendinput {right}{tab 2}{enter}{right}mat{space}{enter}{tab 2}{down 3}{right 4}
 	return
-Numlock::winclose, Select batches 
+Numlock::winclose, Select batches
 numpadenter::!o ;sendinput {tab}{shift down}{tab 6}{shift Up}{enter}
 Enter::!o ;Sendinput {tab}{shift down}{tab 6}{shift Up}{enter}
 #ifwinactive, Lot template login,
-numpadenter::!o 
-Enter::!o 
-;}	
+numpadenter::!o
+Enter::!o
+;}
 
 ;{:::::::::::::::::::::::::::::::::::create batch window:::::::::::::::::::::::::::::::
 #IfWinActive, Select Login Method
@@ -825,8 +864,8 @@ NumpadEnter::SubmitAttatchment() ;}
 
 ;{:::::::::::::::::::::::::::::::::::::::repetitive shit:::::::::::::::::::::::::::::::::::::::
 #IfWinActive, STARLIMS10.Live (Master)
-Numpadadd & Right::sendinput, {tab}{right 5}avg of ten{enter}{left 5}	
-Mbutton & Wheelup::	
+Numpadadd & Right::sendinput, {tab}{right 5}avg of ten{enter}{left 5}
+Mbutton & Wheelup::
 	sendinput avg of ten{enter}
 	return
 
@@ -852,7 +891,7 @@ Numpadmult & Numpad2::
 	}
 	sleep 200
 	sendinput {alt down}o{alt up}
-	return	
+	return
 Numpadmult & Numpad3::
 	Inputbox, MultiEnter1, Type 1st value to enter 9x,, , 300, 100, , 0
 	Inputbox, MultiEnter2, Type 2nd value to enter 9x,, , 300, 100, , 0
@@ -864,7 +903,7 @@ Numpadmult & Numpad3::
 		}
 	}
 	sleep 200
-	sendinput {alt down}o{alt up} 
+	sendinput {alt down}o{alt up}
 	return
 Numpadmult & Numpad4::
 	Inputbox, MultiEnter1, Type 1st value to enter 9x,, , 300, 100, , 0
@@ -947,22 +986,22 @@ Numpadmult & Numpad7::
 	sendinput {alt down}o{alt up}
 	return
 
-	
+
 NumpadEnter::
 enter::sendinput !o
-#IfWinActive, Replicates Number 
+#IfWinActive, Replicates Number
 NumpadEnter::
 	enter::sendinput {tab}{space}
 	#Ifwinactive,--    ;}
 
-  
+
 
 
 ;{:::::::::::::::::::::::::::::::::::::::open close close apps :::::::::::::::::
 #ifwinactive, Mat Worksheets - Excel ahk_exe EXCEL.EXE
 Launch_App2::WinMinimize,
 #ifwinactive, Mail ahk_exe iexplore.exe
-Launch_Mail::WinMinimize, 
+Launch_Mail::WinMinimize,
 #ifwinactive, STARLIMS10.Live (Master) ahk_exe xv.exe
 Mbutton & Rbutton::^LButton
 Browser_Home::WinMinimize,
@@ -976,14 +1015,14 @@ Mbutton & Rbutton::^LButton
 Launch_Mail::winactivate, Mail ahk_exe iexplore.exe
 
 Numlock & Numpadadd::
-	IfWinExist, Mat Worksheets - Excel ahk_exe EXCEL.EXE 
+	IfWinExist, Mat Worksheets - Excel ahk_exe EXCEL.EXE
 		winactivate, Mat Worksheets - Excel ahk_exe EXCEL.EXE
 
 	else
 		run, H:\QC LAB\MH\Mat Worksheets.xlsx
 	return
 
-;} 
+;}
 
 ;{:::::::::::::::::::::::::::::::::::::: Options ::::::::::::::::::::::::::::::::::::
 Numpadadd::Sendinput, {shift down}={shift Up}
@@ -1002,7 +1041,7 @@ F11 & F10::exitapp
 
 Insert::
 	InputBox, FillerZeros, Lot Code, How many filler zeros in the current lot numbers , , 240, 180,, 0000
-	Lotnumber = %Year%%FillerZeros%	
+	Lotnumber = %Year%%FillerZeros%
 	return
 NumLock & numpad7::
 	traytip, , Autoclosing Scanner window, 2
@@ -1096,11 +1135,11 @@ Capslock & b::sendinput {CtrlDown}{left}{CtrlUp}
 
 
 #IfWinActive, Find and Replace ahk_exe EXCEL.EXE
-	numpadEnter::sendinput, {alt down}i{alt up} 
+	numpadEnter::sendinput, {alt down}i{alt up}
 	numpadsub::sendinput, {alt down}n{alt up}%lotnumber%
 	numpadadd & Numpadenter::sendinput {esc}{ctrldown}{right}{ctrlup}{right}P{ctrldown}f{CtrlUp}%lotnumber%
-	
-#ifwinactive, ahk_exe EXCEL.EXE 
+
+#ifwinactive, ahk_exe EXCEL.EXE
 	Numpadadd & numpad0::sendinput {ctrldown}f{ctrlup}{AltDown}th{altup}w{enter}{altdown}n{altup}%lotnumber%
 	Numpadadd & NumpadDot::sendinput {ctrldown}f{ctrlup}{AltDown}th{altup}w{enter}{altdown}n{altup}{Delete}
 	Capslock::CapsLock
@@ -1155,7 +1194,7 @@ Numlock & Numpaddiv::sendinput, houghm{tab}%bpcsPassword%{enter 2}b83{enter 2}ap
 		sendinput !m{enter}
 		return
 		#IfWinActive
-		#Ifwinactive, Release update 
+		#Ifwinactive, Release update
 		\::
 		Numpadadd::Sendinput {tab}%lotnumber%
 	#ifwinactive
@@ -1179,7 +1218,7 @@ Numlock & Numpaddiv::sendinput, houghm{tab}%bpcsPassword%{enter 2}b83{enter 2}ap
 	Tab::sendinput {space 4}
 #IfWinActive, iCloud Notes - Mozilla Firefox
 	Tab::sendinput {space 4}
-	;Rbutton & LButton::WinActivate, ahk_class IEFrame	
+	;Rbutton & LButton::WinActivate, ahk_class IEFrame
 	;Rbutton::Click, Right
 #IfWinActive, ahk_exe notepad.exe
 	;Mbutton & Wheelup:: sendinput #j
@@ -1190,7 +1229,7 @@ Numlock & Numpaddiv::sendinput, houghm{tab}%bpcsPassword%{enter 2}b83{enter 2}ap
 		IfEqual MMX,1, WinActivate, ahk_class IEFrame
 		Return
 	#IfWinActive
- 
+
 #ifwinnotexist, ahk_exe calc.exe
 	F10::
 	NumpadAdd & Numpad0::
@@ -1212,7 +1251,7 @@ Numlock & Numpaddiv::sendinput, houghm{tab}%bpcsPassword%{enter 2}b83{enter 2}ap
 		}
 		return
 	Numlock::Delete
- 
+
 #IfWinExist, ahk_exe calc.exe
 	NumpadAdd & Numpad0::
 		WinActivate, ahk_exe calc.exe
@@ -1220,7 +1259,7 @@ Numlock & Numpaddiv::sendinput, houghm{tab}%bpcsPassword%{enter 2}b83{enter 2}ap
 		#ifwinactive
 
 
-	;Rbutton & LButton::WinActivate, ahk_class IEFrame	
+	;Rbutton & LButton::WinActivate, ahk_class IEFrame
 ;Rbutton::Click, Right
 Numlock & Numpadsub::exitapp
 	#ifwinactive,
@@ -1240,14 +1279,14 @@ F11::
 
 
 
-	
-	
-	
-	
-	
 
-	
-		
+
+
+
+
+
+
+
 /*    Defunked
 
 ;{ |||||||turn off pump and set shutdown after run
@@ -1263,8 +1302,8 @@ F11::
 
 
 
-;{;::::::::::::::::::::::::::auto select group [not active] :::::::::::::::::::::::::::::::::::::::	
-	
+;{;::::::::::::::::::::::::::auto select group [not active] :::::::::::::::::::::::::::::::::::::::
+
 	Mbutton::
 	Click,
 	Click, 2
@@ -1277,8 +1316,8 @@ F11::
 		gosub Resent
 	return
 
-	
-#ifwinactive, Resent List	
+
+#ifwinactive, Resent List
 Resent:
 Space::
 Mbutton::
@@ -1302,7 +1341,7 @@ Mbutton::
 	{
 		Pick := Selection[3]
 	}
-	else 
+	else
 	{
 		send {delete}
 	}
@@ -1333,8 +1372,8 @@ Numpadadd & Numpad3::
 		gosub OpenResult
 }
 return
-	
-^Down::	
+
+^Down::
 OpenResult:
 Send {space}
 	WinWait, Resent List, , 3
@@ -1355,7 +1394,7 @@ Send {space}
 	Else
 		Sleep 200
 	return
- 
+
 
 NextResult:
 	Send {space}
@@ -1375,8 +1414,8 @@ NextResult:
 	Else
 		Sleep 200
 	return
-	
-;}	
+
+;}
 
 
 
@@ -1427,7 +1466,7 @@ else {
 			Click, %add%, %add% left, 1
 			WinWait, Open ahk_class #32770, , 3
 		if ErrorLevel
-		{	
+		{
 			return
 		}
 		Else
