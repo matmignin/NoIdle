@@ -33,6 +33,8 @@ PVAttachment1 = 650, 400
 PVAttachment2 = 650, 334
 SGAttachment1 = 350, 383
 SGAttachment2 = 350, 316
+pickScanner = sc
+pickComponent = com
 ChangeRep1 = 673, 383
 ChangeRep2 = 673, 316
 Add = 55, 55
@@ -260,7 +262,7 @@ Item_Number(select) { ;||||||||||||||||numpad divide
 		sendinput {right}{tab 2}{enter}{right}mat{space}{enter}{tab 2}{down 3}{right 4}
 	return
 }
-Attatch(SGattachment, PVattachment) {  ;|||||||||||||||||middle mouse & wheeldown / numpad add + dot
+Attatch(SGattachment, PVattachment, pick) {  ;|||||||||||||||||middle mouse & wheeldown / numpad add + dot
 	global
 	click, %SGattachment% Left, 1
 	WinWait, Attachments, , 0.5
@@ -282,39 +284,39 @@ Attatch(SGattachment, PVattachment) {  ;|||||||||||||||||middle mouse & wheeldow
 			Else
 				sleep 200
 				Blockinput, On
-				sendinput {tab 7}sc
-				sleep 200
-				send {enter}
+				sendinput {tab 7}%pick%
+				send {enter}{enter}
 				sendinput {tab}
 				Blockinput, off
 				return
 		}
-	Else
-		Click, %add% left, 1
-		WinWait, Open, , 2
-		if ErrorLevel
-			{
-				return
-			}
-	Else
-		sleep 200
-		sendinput, {tab 7}sc
-		send {enter}
-		sendinput, {tab}
-		sleep 300
-		winwaitclose, Open ahk_class #32770 ahk_exe xv.exe
-		sleep 500
-		winwait, ahk_class WindowsForms10.Window.8.app.0.33c0d9d ahk_exe xv.exe, , 3
-		if ErrorLevel {
-			sleep 400
-			Winactivate, ahk_class WindowsForms10.Window.8.app.0.33c0d9d ahk_exe xv.exe
-			sleep 100
-			ControlClick, Done, ahk_class WindowsForms10.Window.8.app.0.33c0d9d ahk_exe xv.exe
-			return
-		}
-		else
-			ControlClick, Done, ahk_class WindowsForms10.Window.8.app.0.33c0d9d ahk_exe xv.exe
-		return
+			Else
+				Click, %add% left, 1
+				WinWait, Open, , 2
+				if ErrorLevel
+					{
+						return
+					}
+			Else
+				sleep 200
+				sendinput, {tab 7}%pick%
+				send {enter}{enter}
+				sendinput, {tab}
+				sleep 300
+						winwaitclose, Open ahk_class #32770 ahk_exe xv.exe
+						sleep 500
+						winwait, ahk_class WindowsForms10.Window.8.app.0.33c0d9d ahk_exe xv.exe, , 3
+						if ErrorLevel {
+							sleep 400
+							Winactivate, ahk_class WindowsForms10.Window.8.app.0.33c0d9d ahk_exe xv.exe
+							sleep 100
+							ControlClick, Done, ahk_class WindowsForms10.Window.8.app.0.33c0d9d ahk_exe xv.exe
+							return
+						}
+						else
+							ControlClick, Done, ahk_class WindowsForms10.Window.8.app.0.33c0d9d ahk_exe xv.exe
+						return
+
 }
 
 Auto_Select(Aclass, Cbox) {  ;||||||||||||||||Middle Mouse / Numpad plus & numpad enter
@@ -622,7 +624,11 @@ NumpadDiv::Item_Number(select2)
 NumpadMult::Bulk_Liquid(select2, samplegroup2, grouptemplate2)
 
 Mbutton & WheelDown::Attatch(SGattachment2, PVattachment2, pickScanner)
-Mbutton & Wheelup::Attatch(SGattachment2, PVattachment2, pickComponent)
+Mbutton & Wheelup::
+	Attatch(SGattachment2, PVattachment2, pickComponent)
+	sleep 100
+	sendinput, {ctrldown}e{ctrlup}
+	return
 Numpadmult & numpad0::Change_Rep(changerep2, 10)
 Numpadmult & numpad1::Change_Rep(changerep2, 1)
 Numpadmult & numpad2::Change_Rep(changerep2, 2)
@@ -631,7 +637,7 @@ NumpadAdd & NumpadEnter:: ;{
 	Auto_Select(Aclass2, Cbox2)
 	return ;}
 NumpadAdd & Numpad1:: ;{
-	loop, 1 
+	loop, 1
 	{
 		sendinput, {space}
 		Auto_Select(Aclass2, Cbox2)
@@ -639,7 +645,7 @@ NumpadAdd & Numpad1:: ;{
 	}
 	return ;}
 NumpadAdd & Numpad2:: ;{
-	loop, 2  
+	loop, 2
 	{
 		sendinput, {space}
 		Auto_Select(Aclass2, Cbox2)
@@ -647,7 +653,7 @@ NumpadAdd & Numpad2:: ;{
 	}
 	return ;}
 NumpadAdd & Numpad3:: ;{
-	loop, 3 
+	loop, 3
 	{
 		sendinput, {space}
 		Auto_Select(Aclass2, Cbox2)
@@ -655,7 +661,7 @@ NumpadAdd & Numpad3:: ;{
 	}
 	return ;}
 NumpadAdd & Numpad4:: ;{
-	loop, 4 
+	loop, 4
 	{
 		sendinput, {space}
 		Auto_Select(Aclass2, Cbox2)
@@ -663,18 +669,18 @@ NumpadAdd & Numpad4:: ;{
 	}
 	return ;}
 NumpadAdd & Numpad5:: ;{
-	loop, 5 
+	loop, 5
 	{
 		sendinput, {space}
 		Auto_Select(Aclass2, Cbox2)
 		sleep 400
 	}
-	return ;}	
-	
-	
-	
-	
-	
+	return ;}
+
+
+
+
+
 Mbutton:: ;{  ||||||||||  autoselect
 	Click,
 	Click, 2
@@ -1133,7 +1139,11 @@ NumpadDiv::Item_Number(select1)
 NumpadMult::Bulk_Liquid(select1, samplegroup1, grouptemplate1)
 NumpadAdd & NumpadDot::
 Mbutton & WheelDown::Attatch(SGattachment1, PVattachment1, pickScanner)
-Mbutton & WheelDown::Attatch(SGattachment1, PVattachment1, pickComponent)
+Mbutton & Wheelup::
+	Attatch(SGattachment1, PVattachment1, pickComponent)
+	sleep 100
+	sendinput, {ctrldown}e{ctrlup}
+	return
 Numpadmult & numpad0::Change_Rep(changerep1, 10)
 Numpadmult & numpad1::Change_Rep(changerep1, 1)
 Numpadmult & numpad2::Change_Rep(changerep1, 2)
@@ -1162,10 +1172,15 @@ End:: ;{;Adjust columb
 
 ;{:::::::::::::::::::::::::::::::::::::other programs::::::::::::::::::::::::::::::::::::::::
 #IfWinActive, ahk_exe ahk_exe Ssms.exe
+F11::
+		sendinput, {ctrldown}s{ctrlup}
+		run, H:\QC LAB\MH\Stuff\AHK\EditCode.exe
+		ExitApp
+		Return
 
 numpadenter::
-enter::Sendinput {F5}
-+enter::sendinput {enter}
++enter::Sendinput {F5}
+enter::sendinput {enter}
 
 #IfWinActive, ahk_exe firefox.exe
 ;rbutton::mouseclick, R
@@ -1321,4 +1336,3 @@ F11::
 		run, H:\QC LAB\MH\Stuff\AHK\EditCode.exe
 		ExitApp
 		Return
-
