@@ -487,7 +487,7 @@ Numlock & numpaddiv::sendinput mat{tab}kilgore7744{enter}
 ;Rbutton::^LButton
 ;rbutton & WheelUp::Click, 770, 144 L
 ;rbutton & Wheeldown::Click, 770, 165 L
-;rbutton & Lbutton::Click, 413, 384 L
+Mbutton & Rbutton::Click, 413, 384 L
 
 
 #IfWinActive, ahk_exe chrome.exe
