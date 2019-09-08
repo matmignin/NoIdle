@@ -380,7 +380,9 @@ AttatchCOA(PVattachment) {   ;||||||||||||||||Attatch COA loops
 	WinWait, Attachments, , 5
 	if ErrorLevel
 		{
-			return
+			sleep 200
+			Click, %add% left, 1
+			sleep 200
 		}
 	Else
 		Click, %add% left, 1
@@ -405,7 +407,7 @@ AttatchCOA(PVattachment) {   ;||||||||||||||||Attatch COA loops
 		}
 SubmitAttatchment() {
 		Sendinput {enter}
-		sleep 200
+		sleep 300
 		winwait, Attachments, , 4
 		if ErrorLevel {
 			ControlClick, Done, Attachments
