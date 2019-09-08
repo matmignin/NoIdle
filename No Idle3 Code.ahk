@@ -1,4 +1,4 @@
-Version = 3.17
+Version = 3.19
 ;{ ::::::::::::::::::::::::::::::::::::::variables and opening stuff::::::::::::::::::::::::::::::::::::::::
 #Persistent
 #SingleInstance force
@@ -439,7 +439,8 @@ Raw_MaterialCOA(select, x) {   ;||||||||||||||||numpad subtract
 
 ; [][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][]EXPERIMENTAL[[][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][]][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][]
 #IfWinActive,
-
+up & /::Sendinput ?
+up::Sendinput {up}
 +Capslock::
 SetTimer, CheckBecameActive, Off
 SetCapsLockState, on
@@ -629,6 +630,51 @@ NumpadAdd & NumpadEnter:: ;{
 	sendinput, {space}
 	Auto_Select(Aclass2, Cbox2)
 	return ;}
+NumpadAdd & Numpad1:: ;{
+	loop, 1 
+	{
+		sendinput, {space}
+		Auto_Select(Aclass2, Cbox2)
+		sleep 400
+	}
+	return ;}
+NumpadAdd & Numpad2:: ;{
+	loop, 2  
+	{
+		sendinput, {space}
+		Auto_Select(Aclass2, Cbox2)
+		sleep 400
+	}
+	return ;}
+NumpadAdd & Numpad3:: ;{
+	loop, 3 
+	{
+		sendinput, {space}
+		Auto_Select(Aclass2, Cbox2)
+		sleep 400
+	}
+	return ;}
+NumpadAdd & Numpad4:: ;{
+	loop, 4 
+	{
+		sendinput, {space}
+		Auto_Select(Aclass2, Cbox2)
+		sleep 400
+	}
+	return ;}
+NumpadAdd & Numpad5:: ;{
+	loop, 5 
+	{
+		sendinput, {space}
+		Auto_Select(Aclass2, Cbox2)
+		sleep 400
+	}
+	return ;}	
+	
+	
+	
+	
+	
 Mbutton:: ;{  ||||||||||  autoselect
 	Click,
 	Click, 2
