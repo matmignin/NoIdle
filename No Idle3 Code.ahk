@@ -377,20 +377,20 @@ loop, 3
 AttatchCOA(PVattachment) {   ;||||||||||||||||Attatch COA loops
 	global
 	click, %PVattachment% Left, 1
-	WinWait, Attachments, , 4
+	WinWait, Attachments, , 5
 	if ErrorLevel
 		{
 			return
 		}
 	Else
 		Click, %add% left, 1
-		WinWait, Open, , 3
+		WinWait, Open, , 4
 		if ErrorLevel
 		{
 			return
 		}
 	Else
-		sleep 200
+		sleep 300
 		Blockinput, On
 		sendinput {tab 7}sc
 		sleep 200
@@ -406,7 +406,7 @@ AttatchCOA(PVattachment) {   ;||||||||||||||||Attatch COA loops
 SubmitAttatchment() {
 		Sendinput {enter}
 		sleep 200
-		winwait, Attachments, , 3
+		winwait, Attachments, , 4
 		if ErrorLevel {
 			ControlClick, Done, Attachments
 			return
