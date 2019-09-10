@@ -71,6 +71,11 @@ Aclass2 = ahk_class WindowsForms10.Window.8.app.0.33c0d9d
 attatchmentNumb = 0
 Lotnumber = %Year%0001
 
+
+;#include variables.ahk
+
+
+
 if (A_ComputerName = "NYC-QCLAB1-PC" or "NYC-QCLAB2-PC") {
 	SetTimer, MalwareClose
 }
@@ -526,6 +531,8 @@ ShutdownTime:
 	sleep 600000
 	Shutdown, 4
 	return
+
+;|||||||||||||||||||||||||||auto add COA from list
 COAnumber := []
 
 loop, read, H:\QC LAB\MH\BatchCOA.txt,
@@ -816,13 +823,7 @@ Numlock & pgup::
 
 		return
 	return
-;ClosePDF:
-;#IfWinActive, ahk_class AcrobatSDIWindow ahk_exe AcroRd32.exe
-;Numlock & pgup::;
-;	WinClose, ahk_class AcrobatSDIWindow ahk_exe AcroRd32.exe
-;	sleep 200
-;	sendinput {esc 2}
-;	Return
+
 #IfWinActive, ahk_exe AcroRd32.exe
 Numlock & pgup::
 	WinClose, ahk_exe AcroRd32.exe
@@ -1185,9 +1186,7 @@ numpadenter::
 enter::sendinput {enter}
 
 #IfWinActive, ahk_exe firefox.exe
-;rbutton::mouseclick, R
-;rbutton & Wheeldown:: sendinput {ctrldown}w{ctrlup}
-;rbutton & Wheelup:: WinActivate, STARLIMS10.Live (Master) ahk_exe xv.exe
+
 Capslock::return
 Capslock & j::sendinput {down}
 Capslock & k::sendinput {up}
@@ -1328,8 +1327,6 @@ Numlock & Numpaddiv::sendinput, houghm{tab}%bpcsPassword%{enter 2}b83{enter 2}ap
 		#ifwinactive
 
 
-	;Rbutton & LButton::WinActivate, ahk_class IEFrame
-;Rbutton::Click, Right
 Numlock & Numpadsub::exitapp
 	#ifwinactive,
 
