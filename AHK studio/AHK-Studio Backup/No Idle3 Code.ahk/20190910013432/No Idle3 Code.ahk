@@ -1,4 +1,4 @@
-Version = 4.01
+Version = 3.19
 ;{ ::
 
 #include variables.ahk
@@ -8,13 +8,6 @@ Version = 4.01
 if (A_ComputerName = "NYC-QCLAB1-PC" or "NYC-QCLAB2-PC") {
 	SetTimer, MalwareClose
 }
-
-
-MalwareClose:
-IfWinExist, OfficeScan
-	WinClose, OfficeScan
-return
-
 IfWinactive, Ahk2Exe ahk_class #32770
 {
 	WinActivate, Ahk2Exe ahk_class #32770
@@ -25,7 +18,6 @@ IfWinExist, Ahk2Exe for AutoHotkey ahk_class AutoHotkeyGUI
 	Winminimize, Ahk2Exe for AutoHotkeyahk_class AutoHotkeyGUI
 sleep 200
 WinActivate, STARLIMS10.Live
-
 
 traytip, , Hit [ Home ] key for more info, 2
 ;}
@@ -1050,7 +1042,10 @@ Numlock & Delete::
 	ControlClick, WindowsForms10.STATIC.app.0.202c66626 Select, STARLIMS10.Live,,,, NA
 	return
 
-
+MalwareClose:
+	IfWinExist, OfficeScan
+	WinClose, OfficeScan
+	return
 ScannerClose:
 	IfWinActive, EPSON Scan
 	Send, {ALT DOWN}{TAB}{ALT UP}

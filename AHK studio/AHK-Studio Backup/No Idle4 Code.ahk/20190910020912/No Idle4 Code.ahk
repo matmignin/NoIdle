@@ -2,29 +2,8 @@ Version = 4.01
 ;{ ::
 
 #include variables.ahk
+#include, unimportant_code
 
-
-
-if (A_ComputerName = "NYC-QCLAB1-PC" or "NYC-QCLAB2-PC") {
-	SetTimer, MalwareClose
-}
-
-
-MalwareClose:
-IfWinExist, OfficeScan
-	WinClose, OfficeScan
-return
-
-IfWinactive, Ahk2Exe ahk_class #32770
-{
-	WinActivate, Ahk2Exe ahk_class #32770
-	Send {enter}
-	Winminimize, Ahk2Exe for AutoHotkey ahk_class AutoHotkeyGUI
-}
-IfWinExist, Ahk2Exe for AutoHotkey ahk_class AutoHotkeyGUI
-	Winminimize, Ahk2Exe for AutoHotkeyahk_class AutoHotkeyGUI
-sleep 200
-WinActivate, STARLIMS10.Live
 
 
 traytip, , Hit [ Home ] key for more info, 2
@@ -1261,3 +1240,4 @@ F11::
 		Return
 
 #Include Variables.ahk
+#Include unimportant code.html
