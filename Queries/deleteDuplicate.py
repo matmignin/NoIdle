@@ -2,9 +2,9 @@
 
 import openpyxl
 
-wb1 = openpyxl.load_workbook('RawMaterial.xlsx')
+wb1 = openpyxl.load_workbook('AllandEverything.xlsx')
 ws1 = wb1.active
-ws2 = wb1.create_sheet("unique2")
+ws2 = wb1.create_sheet("unique")
 
 values = []
 for i in range(2,ws1.max_row+1):
@@ -17,4 +17,4 @@ for i in range(2,ws1.max_row+1):
 for value in values:
     ws2.append([value])
 
-wb1.save('RawMaterial.xlsx')
+wb1.save('AllandEverything.xlsx')
