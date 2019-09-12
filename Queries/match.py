@@ -2,8 +2,10 @@
 
 import pandas as pd
 
-df = pd.read_excel('AllandEverythingFull.xlsx')
-df.drop_duplicates(['MATCODE'], keep='first', inplace=True)
+df1 = pd.read_excel('RecentProductsNew.xlsx', sheet_name='unique Bulk Liquid')
+df2 = pd.read_excel('MATnameTYPE.xlsx', sheet_name='MatNameType')
 
-df.to_excel("AllandEverythingNew.xlsx", sheet_name='unique')
+merged_df = df2.merge(df1, how = 'inner', on = ['MATCODE'])
+
+merged_df.to_excel("RecentProductsMerge.xlsx", sheet_name='BLmerge')
 
