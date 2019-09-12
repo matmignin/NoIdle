@@ -7,45 +7,7 @@ Version = 4.01
 
 
 
-return ;\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/  End of Autorun  /\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+return 
 
 
 
@@ -318,10 +280,10 @@ NumpadDiv::Item_Number(select2)
 NumpadMult::Bulk_Liquid(select2, samplegroup2, grouptemplate2)
 Mbutton & WheelDown::Attatch(SGattachment2, PVattachment2, pickScanner)
 Mbutton & Wheelup::
-	Attatch(SGattachment2, PVattachment2, pickComponent)
-	sleep 100
-	sendinput, {ctrldown}e{ctrlup}
-	return
+Attatch(SGattachment2, PVattachment2, pickComponent)
+sleep 100
+sendinput, {ctrldown}e{ctrlup}
+return
 Numpadmult & numpad0::Change_Rep(changerep2, 10)
 Numpadmult & numpad1::Change_Rep(changerep2, 1)
 Numpadmult & numpad2::Change_Rep(changerep2, 2)
@@ -377,7 +339,7 @@ NumpadAdd & Numpad5:: ;{
 	Numlock & right:: ;{ |||||||||| release run
 		Click, 771, 141 Left, 1
 	return ;}
-NumpadAdd & NumpadDiv:: ;{
+	NumpadAdd & NumpadDiv:: ;{
 		InputBox, AutoFillCount, AutoFill, how many results? , , 240, 180,, 0000
 		loop, %autofillcount%
 		{
@@ -415,7 +377,7 @@ NumpadAdd & NumpadDiv:: ;{
 ;} 
 	
 ;{
-Numpadsub & Numpaddot:: ; ::::::::::auto add scanned COAs
+	Numpadsub & Numpaddot:: ; ::::::::::auto add scanned COAs
 	InputBox, COAcount, COA, how many COAs , , 240, 180,, 0000
 	NumberofCOA = %COAcount%
 	COAcount-=1
@@ -448,170 +410,169 @@ Numpadsub & Numpaddot:: ; ::::::::::auto add scanned COAs
 
 
 
-	
-	
-	
-	
-	
-	
-	
-	
-;{:::::::::::::::::::::::::::::::::::::review Run::::::::::::::::::::::::::::::::::::::::
-	
-	Numlock & up:: ;{::::::::::::::::: ::review run Loop
-		loop, 400
-		{
-			MouseGetPos, xpos, ypos
-			PixelGetColor, ReleaseRunColor, %xpos%, %ypos%, Slow
-			traytip, color, %ReleaseRunColor%, 1
-			sleep 50
-		}
-		return
-		
-		Numlock & Down::
-		InputBox, ReviewRunLoop, how many,, , 240, 180
-		if ErrorLevel
-			Return
-		Loop, %reviewRunLoop%
-		{
-			Click, 771, 144 Left, 1
-			sleep 9000
-			winwait, Warning, , 4
-			if errorlevel {
-				sleep 2000
-				sendinput {down}
-				sleep 5000
-				continue
-			}
-			else {
-				winclose, Warning
-				sleep 2000
-				sendinput {down}
-			}
-			sleep 5000
-		}
-		return
-;}
-		
-		ReviewRun:
-		Numlock & pgup::
-;ReviewRun(ReviewAttachment, AttachmentWindow,
-		Click, %ReviewAttachment2%  Left, 1
-		WinWait, Attachments, , 2
-		if ErrorLevel {
-			Click, %ReviewAttachment3%  Left, 1
-			return
-		}
-		sleep 200
-		WinMove, Attachments,, 861, 605, 798, 385
-		Sendinput {tab 3}{enter}
-	;sleep 1000
-		WinWait, ahk_exe AcroRd32.exe, , 2
-		if ErrorLevel {
-			msgbox, there is no attatchment
-			sleep 200
-			winclose, Attachments
-			return
-		}
-		WinMove, ahk_exe AcroRd32.exe,, 5, 332, 950, 684
-		Winwait, STARLIMS10.Live (Master)
-		
-		
-		return
-		return
-		
-		#IfWinActive, ahk_exe AcroRd32.exe
-		Numlock & pgup::
-		WinClose, ahk_exe AcroRd32.exe
-		sleep 200
-		Winclose, Attachments
-		Return
-		#IfWinActive, ahk_exe EXCEL.EXE
-		Numlock & pgup::
-		WinClose, ahk_exe EXCEL.EXE
-		sleep 200
-		Winclose, Attachments
-		Return
-		#IfWinActive, ahk_exe WINWORD.EXE
-		Numlock & pgup::
-		WinClose, ahk_exe WINWORD.EXE
-		sleep 200
-		Winclose, Attachments
-		Return
-		
-;}
-		
-		
-		
-		
-		
-		
-		
-;{:::::::::::::::::::::::::::select batches/lots/material number:::::::::::::::::::::::::::
-		#IfWinActive, Select batches
-		Numlock & numpadmult::
-		Click, %Search1% left, 1
-		sendinput {tab 3}%BulkLiquid%
-		return
-		Numlock & Numpadsub::
-		Click, %Search1% left, 1
-		sendinput {tab 3}%lotnumber%
-		return
-		Numpaddiv::
-		Click, %Search1% left, 1
-		sendinput {right}{tab 2}{enter}{right}mat{space}{enter}{tab 2}{down 3}{right 4}
-		return
 
-;}
-		
-;{:::::::::::::::::::::::::::::::::::create batch window:::::::::::::::::::::::::::::::
-		#IfWinActive, Select Login Method
-		numpadMult::
-		InputBox, Bulknumber, Item Number, Enter the BULK LIQUID Item Number., , 240, 180
-		if ErrorLevel
-			Return
-		else
-			sendinput {tab}{tab}{enter}
-		Click, %samplegroup% Left, 1
-		sendinput b{enter}
-		Click, %grouptemplate% Left, 1
-		send %Bulknumber%
-		Sendinput {enter}{tab}%BulkLiquid%
-		return
-		numpadSub::
-		InputBox, itemnumber, Item Number, Enter the RAW MATERIAL Item Number., , 240, 180
-		if ErrorLevel
-			Return
-		else
-			sendinput {tab}{tab}{enter}
-		Click, %samplegroup% Left, 1
-		sendinput r{enter}
-		Click, %grouptemplate% Left, 1
-		send %itemnumber%
-		sendinput {enter}{tab}%lotnumber%
-		return
-;}
-		
-;{:::::::::::::::::::::::::::::::::::::attatchments:::::::::::::::::::::::::::::::::::::::::
-		#ifwinactive, Attachments,
-		Numlock::Winclose, Attachments
-		#IfWinActive, Attachments ahk_class WindowsForms10
-		Mbutton::
-		Click, %add% left, 1
-		
-		WinWait, Open , , 2
-		if ErrorLevel
-		{
-			return
-		}
-		Else
-			sendinput {tab 7}
-		sendinput {up 7}{space}
+
+
+
+
+
+
+
+;{:::::::::::::::::::::::::::::::::::::review Run::::::::::::::::::::::::::::::::::::::::
+
+Numlock & up:: ;{::::::::::::::::: ::review run Loop
+	loop, 400
+	{
+		MouseGetPos, xpos, ypos
+		PixelGetColor, ReleaseRunColor, %xpos%, %ypos%, Slow
+		traytip, color, %ReleaseRunColor%, 1
+		sleep 50
+	}
+	return
+	
+	Numlock & Down::
+	InputBox, ReviewRunLoop, how many,, , 240, 180
+	if ErrorLevel
 		Return
-		#ifwinactive, Open
-		Mbutton::
-		Sendinput, {LButton}
-	NumpadEnter::SubmitAttatchment() ;}
+	Loop, %reviewRunLoop%
+	{
+		Click, 771, 144 Left, 1
+		sleep 9000
+		winwait, Warning, , 4
+		if errorlevel {
+			sleep 2000
+			sendinput {down}
+			sleep 5000
+			continue
+		}
+		else {
+			winclose, Warning
+			sleep 2000
+			sendinput {down}
+		}
+		sleep 5000
+	}
+	return
+;}
+	
+	ReviewRun:
+	Numlock & pgup::
+;ReviewRun(ReviewAttachment, AttachmentWindow,
+	Click, %ReviewAttachment2%  Left, 1
+	WinWait, Attachments, , 2
+	if ErrorLevel {
+		Click, %ReviewAttachment3%  Left, 1
+		return
+	}
+	sleep 200
+	WinMove, Attachments,, 861, 605, 798, 385
+	Sendinput {tab 3}{enter}
+	;sleep 1000
+	WinWait, ahk_exe AcroRd32.exe, , 2
+	if ErrorLevel {
+		msgbox, there is no attatchment
+		sleep 200
+		winclose, Attachments
+		return
+	}
+	WinMove, ahk_exe AcroRd32.exe,, 5, 332, 950, 684
+	Winwait, STARLIMS10.Live (Master)
+	
+	
+	return
+	return
+	
+	#IfWinActive, ahk_exe AcroRd32.exe
+	Numlock & pgup::
+	WinClose, ahk_exe AcroRd32.exe
+	sleep 200
+	Winclose, Attachments
+	Return
+	#IfWinActive, ahk_exe EXCEL.EXE
+	Numlock & pgup::
+	WinClose, ahk_exe EXCEL.EXE
+	sleep 200
+	Winclose, Attachments
+	Return
+	#IfWinActive, ahk_exe WINWORD.EXE
+	Numlock & pgup::
+	WinClose, ahk_exe WINWORD.EXE
+	sleep 200
+	Winclose, Attachments
+	Return
+	
+;}
+	
+	
+	
+	
+	
+	
+	
+;{:::::::::::::::::::::::::::select batches/lots/material number:::::::::::::::::::::::::::
+	#IfWinActive, Select batches
+	Numlock & numpadmult::
+	Click, %Search1% left, 1
+	sendinput {tab 3}%BulkLiquid%
+	return
+	Numlock & Numpadsub::
+	Click, %Search1% left, 1
+	sendinput {tab 3}%lotnumber%
+	return
+	Numpaddiv::
+	Click, %Search1% left, 1
+	sendinput {right}{tab 2}{enter}{right}mat{space}{enter}{tab 2}{down 3}{right 4}
+	return
+	
+;}
+	
+;{:::::::::::::::::::::::::::::::::::create batch window:::::::::::::::::::::::::::::::
+	#IfWinActive, Select Login Method
+	numpadMult::
+	InputBox, Bulknumber, Item Number, Enter the BULK LIQUID Item Number., , 240, 180
+	if ErrorLevel
+		Return
+	else
+		sendinput {tab}{tab}{enter}
+	Click, %samplegroup% Left, 1
+	sendinput b{enter}
+	Click, %grouptemplate% Left, 1
+	send %Bulknumber%
+	Sendinput {enter}{tab}%BulkLiquid%
+	return
+	numpadSub::
+	InputBox, itemnumber, Item Number, Enter the RAW MATERIAL Item Number., , 240, 180
+	if ErrorLevel
+		Return
+	else
+		sendinput {tab}{tab}{enter}
+	Click, %samplegroup% Left, 1
+	sendinput r{enter}
+	Click, %grouptemplate% Left, 1
+	send %itemnumber%
+	sendinput {enter}{tab}%lotnumber%
+	return
+;}
+	
+;{:::::::::::::::::::::::::::::::::::::attatchments:::::::::::::::::::::::::::::::::::::::::
+	#ifwinactive, Attachments,
+	Numlock::Winclose, Attachments
+	#IfWinActive, Attachments ahk_class WindowsForms10
+	Mbutton::
+	Click, %add% left, 1
+	
+	WinWait, Open , , 2
+	if ErrorLevel
+	{
+		return
+	}
+	Else
+		sendinput {tab 7}
+	sendinput {up 7}{space}
+	Return
+	#ifwinactive, Open
+	Mbutton::Sendinput, {LButton}
+	;NumpadEnter::SubmitAttatchment() ;}
 	
 	
 ;z{:::::::::::::::::::::::::::::::::::::::repetitive shit:::::::::::::::::::::::::::::::::::::::
@@ -744,4 +705,5 @@ Numpadsub & Numpaddot:: ; ::::::::::auto add scanned COAs
 	
 	
 	
-
+	
+	

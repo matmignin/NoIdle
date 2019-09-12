@@ -53,14 +53,14 @@ return
 
 
 ;{:::::::::::::::::::::::::::::::::::::other programs::::::::::::::::::::::::::::::::::::::::
-#IfWinActive, ahk_exe ahk_exe Ssms.exe
+#IfWinActive, ahk_exe Ssms.exe
 F11::
 sendinput, {ctrldown}s{ctrlup}
 run, H:\QC LAB\MH\Stuff\AHK\EditCode.exe
 ExitApp
 Return
 
-numpadenter::
+NumpadEnter::Sendinput {F5}
 +enter::Sendinput {F5}
 enter::sendinput {enter}
 
@@ -194,4 +194,3 @@ NumpadAdd & Numpad0::
 WinActivate, ahk_exe calc.exe
 return
 #ifwinactive
-	
