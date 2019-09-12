@@ -185,30 +185,26 @@ Auto_Select(Aclass, Cbox) {  ;||||||||||||||||Middle Mouse / Numpad plus & numpa
 	}
 	
 }
-Change_Rep(changerep, Reps, numberOf) {  ;|||||||||||||||| Numpadmult + # change reps
+Change_Rep(changerep, Reps) {  ;|||||||||||||||| Numpadmult + # change reps
 	mousegetpos xx, yy
 	yy -= 18
-	loop, %numberOf%
+	loop, 3
 	{
 		sleep 400
 		sendinput {Lbutton}
 		click, %changerep% Left, 1
-		sleep 200
-		WinWait, Replicates Number, , 3
+		WinWait, Replicates Number, , 2
 		if ErrorLevel
-		{
-			sleep 400
-			click, %changerep% Left, 1
-			sleep 200
-		}
+			{
+				return
+			}
 		Else
-		sleep 600
 		sendinput %Reps%{tab}{space}
 		yy += 18
-		sleep 600
+		sleep 400
 		mousemove %xx%, %yy%
 		sendinput {Lbutton}
-		;sendinput {down}
+		sendinput {down}
 		sleep 200
 	}
 	return
@@ -292,12 +288,9 @@ Attatch(SGattachment2, PVattachment2, pickComponent)
 sleep 100
 sendinput, {ctrldown}e{ctrlup}
 return
-Numpadmult & numpad0::
-;InputBox, inputNumberOf, ,How many Measurments?? , , 240, 180,, 0000
-Change_Rep(changerep2, 10, 4)
-return
-Numpadmult & numpad1::Change_Rep(changerep2, 1, 1)
-Numpadmult & numpad2::Change_Rep(changerep2, 2, 1)
+Numpadmult & numpad0::Change_Rep(changerep2, 10)
+Numpadmult & numpad1::Change_Rep(changerep2, 1)
+Numpadmult & numpad2::Change_Rep(changerep2, 2)
 NumpadAdd & NumpadEnter:: ;{
 	sendinput, {space}
 	Auto_Select(Aclass2, Cbox2)
@@ -362,7 +355,7 @@ NumpadAdd & Numpad5:: ;{
 				WinWait, Replicates Number, , 3
 				if ErrorLevel
 				{
-					Change_Rep(changerep2, 10, 1)
+					Change_Rep(changerep2, 10)
 					sleep 200
 					return
 				}

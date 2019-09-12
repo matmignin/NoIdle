@@ -17,79 +17,79 @@ Bulk_Liquid(select, samplegroup, grouptemplate) { ;||||||||||||||||numpad multip
 	Click, %select% Left, 1
 	winwait, Select batches, , 3
 	if ErrorLevel
-	{
-		return
-	}
+		{
+			return
+		}
 	;Else
 	IfWinActive, Select batches,
-	{
-		sleep 200
-		sendinput {tab 3}%bulkLiquid%
-		return
-	}
-	Else
-	{
-		sleep 200
-		ifwinactive, Select Login Method
 		{
-			sleep 150
-			InputBox, Bulknumber, Item Number, Enter the BULK LIQUID Item Number., , 240, 180
-			if ErrorLevel
-				Return
-			else
-				sendinput {tab}{tab}{enter}
+			sleep 200
+			sendinput {tab 3}%bulkLiquid%
+			return
 		}
-		Click, %samplegroup% Left, 1
-		sendinput b{enter}
-		Click, %grouptemplate% Left, 1
-		send %Bulknumber%
-		Sendinput {enter}{tab}%BulkLiquid%
-		return
-	}
+	Else
+		{
+			sleep 200
+			ifwinactive, Select Login Method
+				{
+					sleep 150
+					InputBox, Bulknumber, Item Number, Enter the BULK LIQUID Item Number., , 240, 180
+					if ErrorLevel
+						Return
+					else
+						sendinput {tab}{tab}{enter}
+				}
+			Click, %samplegroup% Left, 1
+			sendinput b{enter}
+			Click, %grouptemplate% Left, 1
+			send %Bulknumber%
+			Sendinput {enter}{tab}%BulkLiquid%
+			return
+		}
 }
 Raw_Material(select, samplegroup, grouptemplate) {   ;||||||||||||||||numpad subtract
 	global
 	Click, %select% Left, 1
 	winwait, Select batches, , 3
 	if ErrorLevel
-	{
-		return
-	}
+		{
+			return
+		}
 	Else
-		IfWinActive, Select batches,
+	IfWinActive, Select batches,
 		{
 			sleep 200
 			sendinput {tab 3}%lotnumber%
 			return
 		}
 	Else
-	{
-		sleep 200
-		ifwinactive, Select Login Method
 		{
-			sleep 150
-			InputBox, itemnumber, Item Number, Enter the RAW MATERIAL Item Number., , 240, 180
-			if ErrorLevel
-				Return
-			else
-				sendinput {tab}{tab}{enter}
+			sleep 200
+			ifwinactive, Select Login Method
+				{
+					sleep 150
+					InputBox, itemnumber, Item Number, Enter the RAW MATERIAL Item Number., , 240, 180
+					if ErrorLevel
+						Return
+					else
+						sendinput {tab}{tab}{enter}
+				}
+			Click, %samplegroup% Left, 1
+			sendinput r{enter}
+			Click, %grouptemplate% Left, 1
+			send %itemnumber%
+			sendinput {enter}{tab}%lotnumber%
+			return
 		}
-		Click, %samplegroup% Left, 1
-		sendinput r{enter}
-		Click, %grouptemplate% Left, 1
-		send %itemnumber%
-		sendinput {enter}{tab}%lotnumber%
-		return
-	}
 }
 Item_Number(select) { ;||||||||||||||||numpad divide
 	global
 	Click, %select% Left, 1
 	winwait, Select batches, , 3
 	if ErrorLevel
-	{
-		return
-	}
+		{
+			return
+		}
 	Else
 		sendinput {right}{tab 2}{enter}{right}mat{space}{enter}{tab 2}{down 3}{right 4}
 	return
@@ -99,61 +99,61 @@ Attatch(SGattachment, PVattachment, pick) {  ;|||||||||||||||||middle mouse & wh
 	click, %SGattachment% Left, 1
 	WinWait, Attachments, , 0.5
 	if ErrorLevel
-	{
-		click, %PVattachment% Left, 1
-		WinWait, Attachments, , 2
-		if ErrorLevel
 		{
-			return
+			click, %PVattachment% Left, 1
+			WinWait, Attachments, , 2
+			if ErrorLevel
+				{
+					return
+				}
+			Else
+				Click, %add% left, 1
+				WinWait, Open, , 3
+				if ErrorLevel
+					{
+						return
+					}
+			Else
+				sleep 200
+				Blockinput, On
+				sendinput {tab 7}%pick%
+				send {enter}{enter}
+				sendinput {tab}
+				Blockinput, off
+				return
 		}
-		Else
-			Click, %add% left, 1
-		WinWait, Open, , 3
-		if ErrorLevel
-		{
-			return
-		}
-		Else
-			sleep 200
-		Blockinput, On
-		sendinput {tab 7}%pick%
-		send {enter}{enter}
-		sendinput {tab}
-		Blockinput, off
-		return
-	}
-	Else
-		Click, %add% left, 1
-	WinWait, Open, , 2
-	if ErrorLevel
-	{
-		return
-	}
-	Else
-		sleep 200
-	sendinput, {tab 7}%pick%
-	send {enter}{enter}
-	sendinput, {tab}
-	sleep 300
-	winwaitclose, Open ahk_class #32770 ahk_exe xv.exe
-	sleep 500
-	winwait, ahk_class WindowsForms10.Window.8.app.0.33c0d9d ahk_exe xv.exe, , 3
-	if ErrorLevel {
-		sleep 400
-		Winactivate, ahk_class WindowsForms10.Window.8.app.0.33c0d9d ahk_exe xv.exe
-		sleep 100
-		ControlClick, Done, ahk_class WindowsForms10.Window.8.app.0.33c0d9d ahk_exe xv.exe
-		return
-	}
-	else
-		ControlClick, Done, ahk_class WindowsForms10.Window.8.app.0.33c0d9d ahk_exe xv.exe
-	return
-	
+			Else
+				Click, %add% left, 1
+				WinWait, Open, , 2
+				if ErrorLevel
+					{
+						return
+					}
+			Else
+				sleep 200
+				sendinput, {tab 7}%pick%
+				send {enter}{enter}
+				sendinput, {tab}
+				sleep 300
+						winwaitclose, Open ahk_class #32770 ahk_exe xv.exe
+						sleep 500
+						winwait, ahk_class WindowsForms10.Window.8.app.0.33c0d9d ahk_exe xv.exe, , 3
+						if ErrorLevel {
+							sleep 400
+							Winactivate, ahk_class WindowsForms10.Window.8.app.0.33c0d9d ahk_exe xv.exe
+							sleep 100
+							ControlClick, Done, ahk_class WindowsForms10.Window.8.app.0.33c0d9d ahk_exe xv.exe
+							return
+						}
+						else
+							ControlClick, Done, ahk_class WindowsForms10.Window.8.app.0.33c0d9d ahk_exe xv.exe
+						return
+
 }
 
 Auto_Select(Aclass, Cbox) {  ;||||||||||||||||Middle Mouse / Numpad plus & numpad enter
 	WinWaitActive, Resent List, , 3
-	if ErrorLevel {
+			if ErrorLevel {
 		return
 	}
 	else
@@ -183,34 +183,26 @@ Auto_Select(Aclass, Cbox) {  ;||||||||||||||||Middle Mouse / Numpad plus & numpa
 		send {enter}
 		return
 	}
-	
+
 }
-Change_Rep(changerep, Reps, numberOf) {  ;|||||||||||||||| Numpadmult + # change reps
+Change_Rep(changerep, Reps) {  ;|||||||||||||||| Numpadmult + # change reps
+loop, 3
+{
 	mousegetpos xx, yy
-	yy -= 18
-	loop, %numberOf%
-	{
-		sleep 400
-		sendinput {Lbutton}
-		click, %changerep% Left, 1
-		sleep 200
-		WinWait, Replicates Number, , 3
-		if ErrorLevel
+	sendinput {Lbutton}
+	click, %changerep% Left, 1
+	WinWait, Replicates Number, , 2
+	if ErrorLevel
 		{
-			sleep 400
-			click, %changerep% Left, 1
-			sleep 200
+			return
 		}
-		Else
-		sleep 600
+	Else
 		sendinput %Reps%{tab}{space}
-		yy += 18
-		sleep 600
-		mousemove %xx%, %yy%
-		sendinput {Lbutton}
-		;sendinput {down}
-		sleep 200
-	}
+	sleep 200
+	mousemove %xx%, %yy%
+	sendinput {Lbutton}
+	sendinput {down}
+}
 	return
 }
 ;}
@@ -292,12 +284,9 @@ Attatch(SGattachment2, PVattachment2, pickComponent)
 sleep 100
 sendinput, {ctrldown}e{ctrlup}
 return
-Numpadmult & numpad0::
-;InputBox, inputNumberOf, ,How many Measurments?? , , 240, 180,, 0000
-Change_Rep(changerep2, 10, 4)
-return
-Numpadmult & numpad1::Change_Rep(changerep2, 1, 1)
-Numpadmult & numpad2::Change_Rep(changerep2, 2, 1)
+Numpadmult & numpad0::Change_Rep(changerep2, 10)
+Numpadmult & numpad1::Change_Rep(changerep2, 1)
+Numpadmult & numpad2::Change_Rep(changerep2, 2)
 NumpadAdd & NumpadEnter:: ;{
 	sendinput, {space}
 	Auto_Select(Aclass2, Cbox2)
@@ -362,7 +351,7 @@ NumpadAdd & Numpad5:: ;{
 				WinWait, Replicates Number, , 3
 				if ErrorLevel
 				{
-					Change_Rep(changerep2, 10, 1)
+					Change_Rep(changerep2, 10)
 					sleep 200
 					return
 				}

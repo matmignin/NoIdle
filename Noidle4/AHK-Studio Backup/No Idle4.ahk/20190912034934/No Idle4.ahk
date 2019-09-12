@@ -294,7 +294,7 @@ sendinput, {ctrldown}e{ctrlup}
 return
 Numpadmult & numpad0::
 ;InputBox, inputNumberOf, ,How many Measurments?? , , 240, 180,, 0000
-Change_Rep(changerep2, 10, 4)
+Change_Rep(changerep2, 10, 3)
 return
 Numpadmult & numpad1::Change_Rep(changerep2, 1, 1)
 Numpadmult & numpad2::Change_Rep(changerep2, 2, 1)
