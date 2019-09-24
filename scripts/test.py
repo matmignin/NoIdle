@@ -15,8 +15,10 @@ def selectJJ():
     # indexedData=data.reset_index()
     indexedData=indexedData.set_index('index')
     # indexedData=data.set_index('MatCodes')
-    indexedData.to_excel('testWorkbook.xlsx', index=False)
-    print(indexedData)
+    # indexedData.to_excel('testWorkbook.xlsx', index=False)
+    print(indexedData.values)
+    dft=indexedData.values
+    dft.to_excel('testbook2.xlsx')
 
 def productList():
     Data2 = pd.read_excel('../Queries/ProductSpecs.xlsx', sheet_name='PRODUCT')
@@ -29,4 +31,5 @@ def productList():
 if __name__== '__main__':
     selectJJ()
 
+dft
 
