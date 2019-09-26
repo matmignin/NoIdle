@@ -139,3 +139,4 @@ terraform.*.backup
 # Ansible retry-files
 *.retry
 #
+Icon
