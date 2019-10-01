@@ -2,6 +2,15 @@ Version = 4.02
 #Persistent
 #SingleInstance force
 #noenv
+SetNumlockState AlwaysOn
+coordmode, mouse,Client
+SetKeyDelay, 500
+SetDefaultMouseSpeed, 0
+DetectHiddenText, On
+SetTitleMatchMode, 2
+SetTimer, MoveMouse
+traytip, , Hit [ Home ] key for more info, 2
+
 #Include other_apps.ahk
 #Include options.ahk
 #Include reviewRun.ahk
@@ -10,29 +19,30 @@ Version = 4.02
 #Include Reps.ahk
 #Include selectAndCreateBatch.ahk
 
-SetNumlockState AlwaysOn
-coordmode, mouse,Client
-SetKeyDelay, 500
-SetDefaultMouseSpeed, 0
-DetectHiddenText, On
-SetTitleMatchMode, 2
+
 FormatTime, Year,,yy
 FormatTime, Today,, dd
 FormatTime, Month,, MM
 Formattime, Date,, MMddyy
-SetTimer, MoveMouse
-Menu, Tray, Icon, H:\QC LAB\MH\Stuff\Icons\Face2.ico,
-Menu, Tray, tip, Press [ Home ] key for more info
-FileReadLine, BPCSPassword, H:\QC LAB\MH\Stuff\Variables.txt, 1
-FileReadLine, PasswordEnd, H:\QC LAB\MH\Stuff\Variables.txt, 2
-traytip, , Hit [ Home ] key for more info, 2
-
 JulianMonth := ["A", "B", "C", "D", "E", "F", "G", "H", "J", "K", "L", "M"]
 LetterMonth := JulianMonth[month]SingleYear = %year%{left}{backspace}{right}
 dailyStdDate = alch{space}std{space}%month%%today%%year%{space}MH
 BPCSdate = %month%{right}%today%{right}%year%{right}{down}{left 8}
 BulkLiquid = %singleYear%%lettermonth%
+Lotnumber = %Year%0001
+
+; attatchmentNumb = 0
+
+Menu, Tray, Icon, H:\QC LAB\MH\Stuff\Icons\Face2.ico,
+Menu, Tray, tip, Press [ Home ] key for more info
+
+FileReadLine, BPCSPassword, H:\QC LAB\MH\Stuff\Variables.txt, 1
+FileReadLine, PasswordEnd, H:\QC LAB\MH\Stuff\Variables.txt, 2
+
 Password = {shiftdown}K{shiftup}ilgore%PasswordEnd%
+
+
+
 select2 = 45, 73
 Search2 = 70, 60
 PVAttachment2 = 650, 334
@@ -48,19 +58,21 @@ OpenFolderX = 40
 ReviewAttachment1 = 130, 277
 ReviewAttachment2 = 136, 316
 ReviewAttachment3 = 131, 210
+ReleaseRun2 = 771, 142
+AdjustA2 = L, 97, 120, 115, 122, 2
+AdjustB2 = L, 96, 342, 2
+
 AttachmentWindow2 = ahk_class WindowsForms10.Window.8.app.0.33c0d9d ahk_exe xv.exe
 Adobe = AcroRd32.exe
 Excel = EXCEL.EXE
 Window = WINWORD.EXE
-ReleaseRun2 = 771, 142
-AdjustA2 = L, 97, 120, 115, 122, 2
-AdjustB2 = L, 96, 342, 2
+
 Cbox1 = WindowsForms10.COMBOBOX.app.0.202c6661
 Aclass1 = ahk_class WindowsForms10.Window.8.app.0.202c666
 Cbox2 = WindowsForms10.COMBOBOX.app.0.33c0d9d1
 Aclass2 = ahk_class WindowsForms10.Window.8.app.0.33c0d9d
-attatchmentNumb = 0
-Lotnumber = %Year%0001
+
+
 
 
 
