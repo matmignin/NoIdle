@@ -1,4 +1,4 @@
-Version = 4.02
+Version = 4.04
 #Persistent
 #SingleInstance force
 #noenv
@@ -36,8 +36,13 @@ Lotnumber = %Year%0001
 Menu, Tray, Icon, H:\QC LAB\MH\Stuff\Icons\Face2.ico,
 Menu, Tray, tip, Press [ Home ] key for more info
 
-FileReadLine, BPCSPassword, H:\QC LAB\MH\Stuff\Variables.txt, 1
-FileReadLine, PasswordEnd, H:\QC LAB\MH\Stuff\Variables.txt, 2
+;FileReadLine, BPCSPassword, H:\QC LAB\MH\Stuff\Variables.txt, 1
+;FileReadLine, PasswordEnd, H:\QC LAB\MH\Stuff\Variables.txt, 2
+
+FileReadLine, userName, %USERPROFILE%\desktop\logInfo.txt, 1
+FileReadLine, userPassword, %USERPROFILE%\desktop\logInfo.txt, 2
+FileReadLine, BPCSPassword, %USERPROFILE%\desktop\logInfo.txt, 3
+
 
 Password = {shiftdown}K{shiftup}ilgore%PasswordEnd%
 
