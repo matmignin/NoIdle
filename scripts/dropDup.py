@@ -2,8 +2,8 @@
 
 import pandas as pd
 
-df = pd.read_excel('RecentProducts.xlsx', sheet_name='Bulk Liquid')
-df.drop_duplicates(['MATCODE'], keep='first', inplace=True)
+df = pd.read_excel('../Queries/FGspecs.xlsx', sheet_name='noComposit')
+df.drop_duplicates(['Mat_MatCode', 'Analyte'], keep='first', inplace=True)
 
-df.to_excel("RecentProductsNew.xlsx", sheet_name='unique')
+df.to_excel('DuplicatesDeleted.xlsx', sheet_name='unique')
 
