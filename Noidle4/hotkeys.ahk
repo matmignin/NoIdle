@@ -1,4 +1,4 @@
-﻿
+
 
 #IfWinActive, STARLIMS10.Live ahk_exe xv.exe
 ;{_________________________XV.exe commands________________________
@@ -58,12 +58,12 @@ NumpadAdd & Numpad5:: ;{
 		sleep 400
 	}
 	return 	
-	Mbutton:: ;{  ||||||||||  autoselect
+Mbutton:: ;{  ||||||||||  autoselect
 		Click,
 		Click, 2
 		Auto_Select(Aclass2, Cbox2)
 	return ;}
-	Numlock & right:: ;{ |||||||||| release run
+Numlock & right:: ;{ |||||||||| release run
 		Click, 771, 141 Left, 1
 	return ;}
 NumpadAdd & NumpadDiv:: ;{
@@ -105,7 +105,9 @@ NumpadAdd & NumpadDiv:: ;{
 	
 ;{
 Numpadsub & Numpaddot:: ; ::::::::::auto add scanned COAs
+  ;attatchmentNumb = 0
 	InputBox, COAcount, COA, how many COAs , , 240, 180,, 0000
+/* 
 	NumberofCOA = %COAcount%
 	COAcount-=1
 	GoDown = {down %COAcount%}
@@ -123,14 +125,16 @@ Numpadsub & Numpaddot:: ; ::::::::::auto add scanned COAs
 		keywait, NumpadEnter
 		SubmitAttatchment()
 		WinWaitActive, STARLIMS10.Live
-		;sleep 1000
+		sleep 500
 	}
-	NumpadAdd & NumpadDot:: ;{  ||||||||||auto attach COA
+*\
+return
+
+NumpadAdd & NumpadDot:: ;{  ||||||||||auto attach COA
 		Raw_Material(select2, samplegroup2, grouptemplate2)
 		WinWaitClose, Select batches
 		sleep 1500
 		AttatchCOA(PVattachment2)
 	return ;}
-	#ifwinactive
 	
 #ifwinactive ;}
