@@ -45,10 +45,12 @@ Numpadsub & Numpaddot::
 
 
 
-
+;#IfWinActive, Attachments ahk_class WindowsForms10
 #ifwinactive, Attachments,
 Numlock::Winclose, Attachments
-;#IfWinActive, Attachments ahk_class WindowsForms10
+NumpadEnter::Winclose, Attachments
+enter::Winclose, Attachments
+
 Mbutton::
 Click, %add% left, 1
 WinWait, Open , , 2
@@ -60,6 +62,7 @@ Else
 	sendinput {tab 7}
 sendinput {up 7}{space}
 Return
+
 
 
 #ifwinactive, Open
