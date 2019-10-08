@@ -1,6 +1,6 @@
-﻿
 
 
+;:::attatch a file
 #IfWinActive, STARLIMS10.Live ahk_exe xv.exe
 Mbutton & WheelDown::Attatch(SGattachment2, PVattachment2, pickScanner)
 Mbutton & Wheelup::
@@ -10,11 +10,8 @@ sendinput, {ctrldown}e{ctrlup}
 return
 
 
-
-
-
-;{
-	Numpadsub & Numpaddot:: ; ::::::::::auto add scanned COAs
+; ::::::::::auto add scanned COAs
+Numpadsub & Numpaddot:: 
 	InputBox, COAcount, COA, how many COAs , , 240, 180,, 0000
 	NumberofCOA = %COAcount%
 	COAcount-=1
@@ -35,28 +32,25 @@ return
 		WinWaitActive, STARLIMS10.Live
 		;sleep 1000
 	}
-	NumpadAdd & NumpadDot:: ;{  ||||||||||auto attach COA
+	return
+	
+;{  ||||||||||auto attach COA
+	NumpadAdd & NumpadDot:: 
 		Raw_Material(select2, samplegroup2, grouptemplate2)
 		WinWaitClose, Select batches
 		sleep 1500
 		AttatchCOA(PVattachment2)
-	return ;}
-	#ifwinactive
-	
-#ifwinactive ;}
+	return 
 
 
 
 
 
-
-;{:::::::::::::::::::::::::::::::::::::attatchments:::::::::::::::::::::::::::::::::::::::::
 #ifwinactive, Attachments,
 Numlock::Winclose, Attachments
-#IfWinActive, Attachments ahk_class WindowsForms10
+;#IfWinActive, Attachments ahk_class WindowsForms10
 Mbutton::
 Click, %add% left, 1
-
 WinWait, Open , , 2
 if ErrorLevel
 {
@@ -66,6 +60,9 @@ Else
 	sendinput {tab 7}
 sendinput {up 7}{space}
 Return
+
+
 #ifwinactive, Open
-Mbutton::Sendinput, {LButton}
-	;NumpadEnter::SubmitAttatchment() ;}
+;Mbutton::Sendinput, {LButton}
+	
+;NumpadEnter::SubmitAttatchment() ;}
