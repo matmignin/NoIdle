@@ -1,4 +1,8 @@
-﻿Numpadmult & numpad0::
+ChangeRep2 = 673, 316
+
+
+
+Numpadmult & numpad0::
 ;InputBox, inputNumberOf, ,How many Measurments?? , , 240, 180,, 0000
 Change_Rep(changerep2, 10, 4)
 return

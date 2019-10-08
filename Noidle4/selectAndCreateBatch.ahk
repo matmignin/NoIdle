@@ -1,4 +1,9 @@
-﻿#IfWinActive, STARLIMS10.Live ahk_exe xv.exe
+samplegroup2 = 268, 83
+grouptemplate2 = 760, 83
+
+
+
+#IfWinActive, STARLIMS10.Live ahk_exe xv.exe
 ;{_________________________XV.exe commands________________________
 NumpadSub::Raw_Material(select2, samplegroup2, grouptemplate2)
 NumpadDiv::Item_Number(select2)

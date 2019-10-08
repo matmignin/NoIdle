@@ -1,4 +1,7 @@
-
+AttachmentWindow2 = ahk_class WindowsForms10.Window.8.app.0.33c0d9d ahk_exe xv.exe
+Adobe = AcroRd32.exe
+Excel = EXCEL.EXE
+Window = WINWORD.EXE
 
 
 ;{:::::::::::::::::::: Vim controls
