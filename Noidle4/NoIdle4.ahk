@@ -1,4 +1,4 @@
-﻿Version = 4.04
+Version = 4.04
 #Persistent
 #SingleInstance force
 #noenv
@@ -13,6 +13,7 @@ traytip, , Hit [ Home ] key for more info, 2
 FileReadLine, userName, %A_Desktop%\logInfo.txt, 1
 FileReadLine, userPassword, %A_Desktop%\logInfo.txt, 2
 FileReadLine, BPCSPassword, %A_Desktop%\logInfo.txt, 3
+FileReadLine, totalChromPassword, %A_Desktop%\logInfo.txt, 4
 
 msgbox, %userName% %userPassword%
 

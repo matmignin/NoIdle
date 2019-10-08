@@ -1,5 +1,10 @@
-﻿
+
 ;{____________________________________________Functions______________________
+login(user, password) {
+  Sendinput %user%{tab}%password%{enter}
+  sleep 200
+}
+
 Bulk_Liquid(select, samplegroup, grouptemplate) { ;||||||||||||||||numpad multiply
 	global
 	Click, %select% Left, 1
