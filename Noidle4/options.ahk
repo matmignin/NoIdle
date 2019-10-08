@@ -21,7 +21,7 @@ Capslock & b::sendinput {CtrlDown}{left}{CtrlUp}
 Numpadadd::Sendinput, {shift down}={shift Up}
 NumpadSub::Sendinput -
 Numpadadd & numpadsub::Sendinput, %Lotnumber%
-Numpadadd & numpadmult::Sendinput, %bulkliquid%
+Numpadadd & numpadmult::Sendinput, %batchNumber%
 NumLock & NumpadDiv::login(PDIuser, PDIpassword)
 return
 F11 & F10::exitapp

@@ -6,7 +6,7 @@ Mbutton & Rbutton::sendinput %month%{right}%today%{right}%year%{right}{down}{lef
 F6::
 Numpadsub::sendinput 02%lotnumber%
 F5::
-numpadmult::sendinput 02%bulkliquid%
+numpadmult::sendinput 02%batchNumber%
 Numlock & Numpadmult::
 Sendinput {enter}{Down 6}{right 11}a{right 52}{down 3}%month%{right}%today%{right}%year%
 sendinput {left 51}{down 3}%BPCSdate%%BPCSdate%%BPCSdate%{down}

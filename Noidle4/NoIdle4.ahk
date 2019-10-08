@@ -29,7 +29,7 @@ LetterMonth := JulianMonth[month]
 SingleYear = %year%{left}{backspace}{right}
 dailyStdDate = alch{space}std{space}%month%%today%%year%{space}MH
 BPCSdate = %month%{right}%today%{right}%year%{right}{down}{left 8}
-BulkLiquid = %singleYear%%lettermonth%
+batchNumber = %singleYear%%lettermonth%
 Lotnumber = %Year%0001
 
 Menu, Tray, Icon, Icons/Boo.ico,

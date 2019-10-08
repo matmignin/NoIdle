@@ -17,7 +17,7 @@ Bulk_Liquid(select, samplegroup, grouptemplate) { ;||||||||||||||||numpad multip
 	IfWinActive, Select batches,
 	{
 		sleep 200
-		sendinput {tab 3}%bulkLiquid%
+		sendinput {tab 3}%batchNumber%
 		return
 	}
 	Else
@@ -36,7 +36,7 @@ Bulk_Liquid(select, samplegroup, grouptemplate) { ;||||||||||||||||numpad multip
 		sendinput b{enter}
 		Click, %grouptemplate% Left, 1
 		send %Bulknumber%
-		Sendinput {enter}{tab}%BulkLiquid%
+		Sendinput {enter}{tab}%batchNumber%
 		return
 	}
 }
