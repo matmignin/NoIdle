@@ -9,8 +9,8 @@ import pandas as pd
 #saveAs = "DropDuplicates"
 
 workbook1 = "productSpecs"
-sheet1 = "rm Product specs (comp)"
-column1 = "testname"
+sheet1 = "RMspecsComp"
+column1 = "TEST_NAME"
 column2 = "PRODUCT_SPEC.COMPONENT"
 saveAs = "rm_componentTests"
 
