@@ -1,7 +1,18 @@
 ChangeRep2 = 673, 316
 
+#IfWinActive, STARLIMS10.Live (Master)
+;:::idk
+Mbutton & Rbutton::Click, 413, 384 L
+
+;{. ||||||||||  autoselect result
+Mbutton:: 
+		Click,
+		Click, 2
+		Auto_Select(Aclass2, Cbox2)
+	return 
 
 
+;::::change test replicates
 Numpadmult & numpad0::
 ;InputBox, inputNumberOf, ,How many Measurments?? , , 240, 180,, 0000
 Change_Rep(changerep2, 10, 4)
@@ -10,7 +21,7 @@ Numpadmult & numpad1::Change_Rep(changerep2, 1, 1)
 Numpadmult & numpad2::Change_Rep(changerep2, 2, 1)
 
 
-
+;::::::autofile results
 NumpadAdd & NumpadDiv:: ;{
 	InputBox, AutoFillCount, AutoFill, how many results? , , 240, 180,, 0000
 	loop, %autofillcount%
@@ -42,21 +53,12 @@ NumpadAdd & NumpadDiv:: ;{
 		sendinput {alt down}o{alt up}
 		sleep 400
 	}
-return ;}
-
-;z{:::::::::::::::::::::::::::::::::::::::repetitive shit:::::::::::::::::::::::::::::::::::::::
-#IfWinActive, STARLIMS10.Live (Master)
-
-
-Mbutton & Rbutton::Click, 413, 384 L
-
-Numpadadd & Right::sendinput, {tab}{right 5}avg of ten{enter}{left 5}
-Mbutton & Wheelup::
-sendinput avg of ten{enter}
-return
+return 
 
 +Tab::Sendinput {tab 2}{down}
 
+
+;{::::::::::::::::::::::::::depending on the numpadenumber you use, enters multiple measurement results 9x in the Quick Results window.::::::::::::::::::::::::::::::::::
 #Ifwinactive, Quick Results
 Numpadmult & Numpad1::
 Inputbox, MultiEnter, Type a value to enter 9x,, , 300, 100, , 0
@@ -66,6 +68,7 @@ loop 9 {
 sleep 200
 sendinput {alt down}o{alt up}
 return
+;::::enter 2 measurement results 9 times
 Numpadmult & Numpad2::
 Inputbox, MultiEnter1, Type 1st value to enter 9x,, , 300, 100, , 0
 Inputbox, MultiEnter2, Type 2nd value to enter 9x,, , 300, 100, , 0
@@ -88,8 +91,6 @@ loop 3 {
 		Sendinput, %ToEnter%{up}{left 2}{down 2}
 	}
 }
-sleep 200
-sendinput {alt down}o{alt up}
 return
 Numpadmult & Numpad4::
 Inputbox, MultiEnter1, Type 1st value to enter 9x,, , 300, 100, , 0
@@ -102,8 +103,6 @@ loop 4 {
 		Sendinput, %ToEnter%{up}{left 2}{down 2}
 	}
 }
-sleep 200
-sendinput {alt down}o{alt up}
 return
 Numpadmult & Numpad5::
 Inputbox, MultiEnter1, Type 1st value to enter 9x,, , 300, 100, , 0
@@ -117,8 +116,6 @@ loop 5 {
 		Sendinput, %ToEnter%{up}{left 2}{down 2}
 	}
 }
-sleep 200
-sendinput {alt down}o{alt up}
 return
 Numpadmult & Numpad6::
 Inputbox, MultiEnter1, Type 1st value to enter 9x,, , 300, 100, , 0
@@ -133,8 +130,6 @@ loop 6 {
 		Sendinput, %ToEnter%{up}{left 2}{down 2}
 	}
 }
-sleep 200
-sendinput {alt down}o{alt up}
 return
 Numpadmult & Numpad7::
 Inputbox, MultiEnter1, Type 1st value to enter 9x,, , 300, 100, , 0
@@ -150,8 +145,6 @@ loop 7 {
 		Sendinput, %ToEnter%{up}{left 2}{down 2}
 	}
 }
-sleep 200
-sendinput {alt down}o{alt up}
 return
 Numpadmult & Numpad8::
 Inputbox, MultiEnter1, Type 1st value to enter 9x,, , 300, 100, , 0
@@ -168,49 +161,47 @@ loop 8 {
 		Sendinput, %ToEnter%{up}{left 2}{down 2}
 	}
 }
-sleep 200
-sendinput {alt down}o{alt up}
 return
 
 
-
-NumpadAdd & NumpadEnter:: ;{
+;::::repeat multiple auto select results
+NumpadAdd & NumpadEnter::
 	sendinput, {space}
 	Auto_Select(Aclass2, Cbox2)
-return ;}
-NumpadAdd & Numpad1:: ;{
+return
+NumpadAdd & Numpad1::
 	loop, 1
 	{
 		sendinput, {space}
 		Auto_Select(Aclass2, Cbox2)
 		sleep 400
 	}
-return ;}
-NumpadAdd & Numpad2:: ;{
+return
+NumpadAdd & Numpad2::
 	loop, 2
 	{
 		sendinput, {space}
 		Auto_Select(Aclass2, Cbox2)
 		sleep 400
 	}
-return ;}
-NumpadAdd & Numpad3:: ;{
+return
+NumpadAdd & Numpad3::
 	loop, 3
 	{
 		sendinput, {space}
 		Auto_Select(Aclass2, Cbox2)
 		sleep 400
 	}
-return ;}
-NumpadAdd & Numpad4:: ;{
+return
+NumpadAdd & Numpad4::
 	loop, 4
 	{
 		sendinput, {space}
 		Auto_Select(Aclass2, Cbox2)
 		sleep 400
 	}
-return ;}
-NumpadAdd & Numpad5:: ;{
+return
+NumpadAdd & Numpad5::
 	loop, 5
 	{
 		sendinput, {space}
@@ -218,10 +209,7 @@ NumpadAdd & Numpad5:: ;{
 		sleep 400
 	}
 	return 	
-	Mbutton:: ;{  ||||||||||  autoselect
-		Click,
-		Click, 2
-		Auto_Select(Aclass2, Cbox2)
-	return ;}
+	
+	
 	
 	

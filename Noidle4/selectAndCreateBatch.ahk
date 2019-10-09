@@ -10,7 +10,7 @@ NumpadMult::Bulk_Liquid(select2, samplegroup2, grouptemplate2)
 
 
 
-;{::::::::::select batches/lots/material number
+;:::::::::select batches/lots/material number
 #IfWinActive, Select batches
 Numlock & numpadmult::
 Click, %Search1% left, 1
@@ -26,9 +26,7 @@ sendinput {right}{tab 2}{enter}{right}mat{space}{enter}{tab 2}{down 3}{right 4}
 return
 numpadenter::
 
-;}
-
-;{::::::::::create batch window::::::
+;::::::::::create batch window::::::
 #IfWinActive, Select Login Method
 numpadMult::
 InputBox, Bulknumber, Item Number, Enter the BULK LIQUID Item Number., , 240, 180
