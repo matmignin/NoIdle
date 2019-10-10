@@ -81,7 +81,6 @@ return
 #IfWinActive, ahk_class AutoHotkeyGUI
 F12::
 sendinput, {ctrldown}s{ctrlup}
-sleep 200
 sendinput {ctrldown}{f7}{ctrlup}
 ExitApp
 return

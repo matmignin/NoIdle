@@ -9,18 +9,18 @@ NumpadMult::Bulk_Liquid(select2, samplegroup2, grouptemplate2)
 ;:::::::::select batches/lots/material number
 #IfWinActive, Select batches
 Numlock & numpadmult::
-Click, %Search1% left, 1
-sendinput {tab 3}%BatchNumber%
-return
+	Click, %Search1% left, 1
+	sendinput {tab 3}%BatchNumber%
+	return
 Numlock & Numpadsub::
-Click, %Search1% left, 1
-sendinput {tab 3}%lotnumber%
-return
+	Click, %Search1% left, 1
+	sendinput {tab 3}%lotnumber%
+	return
 Numpaddiv::
-Click, %Search1% left, 1
-sendinput {right}{tab 2}{enter}{right}mat{space}{enter}{tab 2}{down 3}{right 4}
-return
-numpadenter::click, 589, 391
+	Click, %Search1% left, 1
+	sendinput {right}{tab 2}{enter}{right}mat{space}{enter}{tab 2}{down 3}{right 4}
+	return
+numpadenter::SENDINPUT, {altdown}o{altup}
 
 ;::::::::::create batch window::::::
 #IfWinActive, Select Login Method

@@ -20,7 +20,7 @@ Numpaddiv::
 Click, %Search1% left, 1
 sendinput {right}{tab 2}{enter}{right}mat{space}{enter}{tab 2}{down 3}{right 4}
 return
-numpadenter::click, 589, 391
+numpadenter::SENDINPUT, ControlClick, OK, Select batches ahk_class WindowsForms10.Window.8.app.0.33c0d9d ahk_exe xv.exe,
 
 ;::::::::::create batch window::::::
 #IfWinActive, Select Login Method

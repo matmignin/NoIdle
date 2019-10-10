@@ -80,9 +80,7 @@ return
 ;{:::::::::::editors
 #IfWinActive, ahk_class AutoHotkeyGUI
 F12::
-sendinput, {ctrldown}s{ctrlup}
-sleep 200
-sendinput {ctrldown}{f7}{ctrlup}
+{ctrldown}s{ctrlup}
 ExitApp
 return
 

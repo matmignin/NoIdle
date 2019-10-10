@@ -16,12 +16,12 @@ Numpadsub & Numpaddot::
 	NumberofCOA = %COAcount%
 	COAcount-=1
 	GoDown = {down %COAcount%}
-	;while COAcount > 0
-	;{
-		;WinWaitActive, STARLIMS10.Live
+	while COAcount > 0
+	{
+		WinWaitActive, STARLIMS10.Live
 		sleep 300
 		Raw_Material(select2, samplegroup2, grouptemplate2)
-		;WinWaitClose, Select batches
+		WinWaitClose, Select batches
 		sleep 1500
 		AttatchCOA(PVattachment2)
 		winwait, Select batches
@@ -33,7 +33,7 @@ Numpadsub & Numpaddot::
 		sleep 400
 		IfWinActive, Attachments
 		Winclose, Attachments
-	;}
+	}
 	return
 	
 ;{  ||||||||||auto attach COA
@@ -69,4 +69,5 @@ Return
 
 #ifwinactive, Open
 ;Mbutton::Sendinput, {LButton}
-NumpadEnter::SubmitAttatchment() 
+	
+;NumpadEnter::SubmitAttatchment() ;}

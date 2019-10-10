@@ -20,7 +20,7 @@ Numpaddiv::
 Click, %Search1% left, 1
 sendinput {right}{tab 2}{enter}{right}mat{space}{enter}{tab 2}{down 3}{right 4}
 return
-numpadenter::click, 589, 391
+numpadenter::
 
 ;::::::::::create batch window::::::
 #IfWinActive, Select Login Method
