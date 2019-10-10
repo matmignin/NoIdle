@@ -1,4 +1,4 @@
-
+#IfWinActive, STARLIMS10.Live ahk_exe xv.exe
 ;{____________________________________________Functions______________________
 login(user, password) {
   Sendinput %user%{tab}%password%{enter}

@@ -1,9 +1,4 @@
-select2 = 45, 73
-Add = 55, 55
-PVAttachment2 = 650, 334
-SGAttachment2 = 350, 316
-pickScanner = sc
-pickComponent = com
+
 
 ;:::attatch a file
 #IfWinActive, STARLIMS10.Live ahk_exe xv.exe

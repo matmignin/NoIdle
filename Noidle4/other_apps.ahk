@@ -39,7 +39,7 @@ sendinput, %DailyStdDate%{enter}
 return
 
 #ifwinactive, Electronic Signature ahk_class #32770 ahk_exe SeqEdit.exe
-Numlock & numpaddiv:login(totalChromeUser, totalChromePassword)
+Numlock & numpaddiv::login(totalChromeUser, totalChromePassword)
 
 
 
