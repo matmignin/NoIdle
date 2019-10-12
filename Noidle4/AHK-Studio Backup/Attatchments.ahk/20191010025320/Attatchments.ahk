@@ -69,4 +69,5 @@ Return
 
 #ifwinactive, Open
 ;Mbutton::Sendinput, {LButton}
-NumpadEnter::SubmitAttatchment() 
+	
+;NumpadEnter::SubmitAttatchment() ;}

@@ -9,7 +9,6 @@ SetDefaultMouseSpeed, 0
 DetectHiddenText, On
 SetTitleMatchMode, 2
 SetTimer, MoveMouse
-Menu, Tray, Icon, Icons/Boo.ico,
 traytip, , Hit [ Home ] key for more info, 2
 FileReadLine, PDIuser, %A_Desktop%\logInfo.txt, 1
 FileReadLine, PDIPassword, %A_Desktop%\logInfo.txt, 2
@@ -23,13 +22,23 @@ select2 = 45, 73
 Add = 55, 55
 PVAttachment2 = 650, 334
 SGAttachment2 = 350, 316
-pickScanner = "sc"
-pickComponent = "com"
+pickScanner = sc
+pickComponent = com
 ChangeRep2 = 673, 316
 ReleaseRun2 = 771, 142
 AdjustA2 = L, 97, 120, 115, 122, 2
 AdjustB2 = L, 96, 342, 2
 
+
+
+#Include reviewRun.ahk
+#Include Attatchments.ahk
+#Include Reps.ahk
+#Include selectAndCreateBatch.ahk
+#Include other_apps.ahk
+#Include options.ahk
+
+#Include Functions.ahk
 
 
 
@@ -44,6 +53,7 @@ dailyStdDate = alch{space}std{space}%month%%today%%year%{space}MH
 BPCSdate = %month%{right}%today%{right}%year%{right}{down}{left 8}
 batchNumber = %singleYear%%lettermonth%
 Lotnumber = %Year%0001
+
 Menu, Tray, Icon, Icons/Boo.ico,
 Menu, Tray, tip, Press [ Home ] key for shortcuts
 
@@ -55,6 +65,7 @@ Menu, Tray, tip, Press [ Home ] key for shortcuts
 
 
 
+msgbox, hi, username: %userName% password: %userPassword%
 
 
 MoveMouse:
@@ -63,16 +74,6 @@ If ( A_TimeIdle > 99999 ) {
 	MouseMove, -1,-1,, R
 }
 return
-
-#Include reviewRun.ahk
-#Include Attatchments.ahk
-#Include Reps.ahk
-#Include selectAndCreateBatch.ahk
-#Include other_apps.ahk
-#Include options.ahk
-#Include Functions.ahk
-
-
 
 Home::
 Msgbox, , Things to do, ____________ View Process Sample Tab of LIMS ___________________________________ `n`n -Press [ NumPad( / ) ]  to search for an Item Number `n

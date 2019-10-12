@@ -1,8 +1,8 @@
 #IfWinActive, STARLIMS10.Live ahk_exe xv.exe
 ;{____________________________________________Functions______________________
 login(user, password) {
-	Sendinput %user%{tab}%password%{enter}
-	sleep 200
+  Sendinput %user%{tab}%password%{enter}
+  sleep 200
 }
 
 Bulk_Liquid(select, samplegroup, grouptemplate) { ;||||||||||||||||numpad multiply
@@ -109,7 +109,7 @@ Attatch(SGattachment, PVattachment, pick) {  ;|||||||||||||||||middle mouse & wh
 		Else
 			sleep 200
 		Blockinput, On
-		sendinput, {shiftdown}{tab 3}{shiftup}
+		sendinput, {shiftdown}{tab 8}{shiftup}
 		sleep 100
 		SENDinput, %pick%
 		send {space}{tab}{space}
@@ -125,9 +125,8 @@ Attatch(SGattachment, PVattachment, pick) {  ;|||||||||||||||||middle mouse & wh
 	}
 	Else
 		sleep 200
-	sendinput, {shiftdown}{tab 3}{shiftup}%pick%
-	sleep 100
-	send {space}{TAB}{space}
+	sendinput, {tab 7}%pick%
+	send {enter}{enter}
 	sendinput, {tab}
 	sleep 300
 	winwaitclose, Open ahk_class #32770 ahk_exe xv.exe
@@ -197,7 +196,7 @@ Change_Rep(changerep, Reps, numberOf) {  ;|||||||||||||||| Numpadmult + # change
 			sleep 200
 		}
 		Else
-			sleep 600
+		sleep 600
 		sendinput %Reps%{tab}{space}
 		yy += 18
 		sleep 600
@@ -212,54 +211,46 @@ Change_Rep(changerep, Reps, numberOf) {  ;|||||||||||||||| Numpadmult + # change
 AttatchCOA(PVattachment) {   ;||||||||||||||||Attatch COA loops
 	global
 	click, %PVattachment% Left, 1
-	sleep 400
 	WinWait, Attachments, , 5
 	if ErrorLevel
-	{
-		sleep 300
-		Click, %add% left, 1
-		sleep 200
-		return
-	}
+		{
+			sleep 200
+			Click, %add% left, 1
+			sleep 200
+		}
 	Else
-		SLEEP 200
 		Click, %add% left, 1
-		sleep 200
 		WinWait, Open, , 4
-	if ErrorLevel
-	{
-		sleep 300
-		Click, %add% left, 1
-		return
-	}
+		if ErrorLevel
+		{
+			return
+		}
 	Else
 		sleep 300
 		Blockinput, On
-			sendinput {SHIFTDOWN}{tab 3}{SHIFTUP}sc
-			sleep 100
-			send {sPACE}
-			sendinput {tab}
-			sleep 300
-			sendinput %GoDown%
-			COAcount-=1
-			GoDown = {down %COAcount%}
+		sendinput {tab 7}sc
+		sleep 200
+		send {enter}
+		sendinput {space}{tab}
+		sleep 300
+		sendinput %GoDown%
+		COAcount-=1
+		GoDown = {down %COAcount%}
 		Blockinput, off
-	return
-}
+		return
+		}
 SubmitAttatchment() {
-	Sendinput {enter}
-	sleep 300
-	winwait, Attachments, , 4
-	if ErrorLevel {
-		sleep 400
-		Winclose, Attachments
+		Sendinput {enter}
+		sleep 300
+		winwait, Attachments, , 4
+		if ErrorLevel {
+			ControlClick, Done, Attachments
+			return
+		}
+		else
+			ControlClick, Done, Attachments
 		return
 	}
-	else
-	sleep 200
-	Winclose, Attachments
-	return
-}
 
 Raw_MaterialCOA(select, x) {   ;||||||||||||||||numpad subtract
 	global

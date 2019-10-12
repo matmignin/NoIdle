@@ -212,7 +212,6 @@ Change_Rep(changerep, Reps, numberOf) {  ;|||||||||||||||| Numpadmult + # change
 AttatchCOA(PVattachment) {   ;||||||||||||||||Attatch COA loops
 	global
 	click, %PVattachment% Left, 1
-	sleep 400
 	WinWait, Attachments, , 5
 	if ErrorLevel
 	{
@@ -251,12 +250,12 @@ SubmitAttatchment() {
 	sleep 300
 	winwait, Attachments, , 4
 	if ErrorLevel {
-		sleep 400
+		sleep 200
 		Winclose, Attachments
 		return
 	}
 	else
-	sleep 200
+		sleep 300
 	Winclose, Attachments
 	return
 }

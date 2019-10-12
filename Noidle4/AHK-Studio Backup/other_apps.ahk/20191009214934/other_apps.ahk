@@ -25,21 +25,21 @@ Numlock & Numpaddiv::sendinput, houghm{tab}%bpcsPassword%{enter 2}b83{enter 2}ap
 #IfWinActive, Signon to iSeries ahk_class #32770
 F11 & F12::
 Numlock & Numpaddiv::
-	sendinput, %BPCSpassword%{tab 3}houghm{enter}
-	sleep 300
-	sendinput, houghm{tab}%bpcsPassword%{enter 2}b83{enter 2}api{enter}10{enter}
-	return
+sendinput, %BPCSpassword%{tab 3}houghm{enter}
+sleep 300
+sendinput, houghm{tab}%bpcsPassword%{enter 2}b83{enter 2}api{enter}10{enter}
+return
 
 #IfWinActive, Audit Trail ahk_exe SeqEdit.exe
 Numlock & numpaddiv::
-	sendinput, daily Std
-	ControlClick, Button3, Audit Trail ahk_exe SeqEdit.exe, OK,
-	login(totalChromeUser, totalChromePassword)
-	sendinput, %DailyStdDate%{enter}
-	return
+sendinput, daily Std
+ControlClick, Button3, Audit Trail ahk_exe SeqEdit.exe, OK,
+login(totalChromeUser, totalChromePassword)
+sendinput, %DailyStdDate%{enter}
+return
 
 #ifwinactive, Electronic Signature ahk_class #32770 ahk_exe SeqEdit.exe
-Numlock & numpaddiv::login(totalChromeUser, totalChromePassword)
+Numlock & numpaddiv:login(totalChromeUser, totalChromePassword)
 
 
 
@@ -78,14 +78,6 @@ return
 
 
 ;{:::::::::::editors
-#IfWinActive, ahk_class AutoHotkeyGUI
-F12::
-sendinput, {ctrldown}s{ctrlup}
-sleep 200
-sendinput {ctrldown}{f7}{ctrlup}
-ExitApp
-return
-
 #IfWinActive, ahk_exe Ssms.exe
 F11::
 sendinput, {ctrldown}s{ctrlup}

@@ -1,3 +1,7 @@
+samplegroup2 = 268, 83
+grouptemplate2 = 760, 83
+Search2 = 70, 60
+select2 = 45, 73
 
 #IfWinActive, STARLIMS10.Live ahk_exe xv.exe
 NumpadSub::Raw_Material(select2, samplegroup2, grouptemplate2)
@@ -20,7 +24,7 @@ Numpaddiv::
 Click, %Search1% left, 1
 sendinput {right}{tab 2}{enter}{right}mat{space}{enter}{tab 2}{down 3}{right 4}
 return
-numpadenter::click, 589, 391
+numpadenter::
 
 ;::::::::::create batch window::::::
 #IfWinActive, Select Login Method

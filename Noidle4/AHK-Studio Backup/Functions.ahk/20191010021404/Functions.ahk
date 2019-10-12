@@ -212,54 +212,46 @@ Change_Rep(changerep, Reps, numberOf) {  ;|||||||||||||||| Numpadmult + # change
 AttatchCOA(PVattachment) {   ;||||||||||||||||Attatch COA loops
 	global
 	click, %PVattachment% Left, 1
-	sleep 400
 	WinWait, Attachments, , 5
 	if ErrorLevel
-	{
-		sleep 300
-		Click, %add% left, 1
-		sleep 200
-		return
-	}
+		{
+			sleep 200
+			Click, %add% left, 1
+			sleep 200
+		}
 	Else
-		SLEEP 200
 		Click, %add% left, 1
-		sleep 200
 		WinWait, Open, , 4
-	if ErrorLevel
-	{
-		sleep 300
-		Click, %add% left, 1
-		return
-	}
+		if ErrorLevel
+		{
+			return
+		}
 	Else
 		sleep 300
 		Blockinput, On
-			sendinput {SHIFTDOWN}{tab 3}{SHIFTUP}sc
-			sleep 100
-			send {sPACE}
-			sendinput {tab}
-			sleep 300
-			sendinput %GoDown%
-			COAcount-=1
-			GoDown = {down %COAcount%}
+		sendinput {SHIFTDOWN}{tab 3}{SHIFTUP}sc
+		sleep 100
+		send {sPACE}
+		sendinput {tab}
+		sleep 300
+		sendinput %GoDown%
+		COAcount-=1
+		GoDown = {down %COAcount%}
 		Blockinput, off
-	return
-}
+		return
+		}
 SubmitAttatchment() {
-	Sendinput {enter}
-	sleep 300
-	winwait, Attachments, , 4
-	if ErrorLevel {
-		sleep 400
-		Winclose, Attachments
+		Sendinput {enter}
+		sleep 300
+		winwait, Attachments, , 4
+		if ErrorLevel {
+			ControlClick, Done, Attachments
+			return
+		}
+		else
+			ControlClick, Done, Attachments
 		return
 	}
-	else
-	sleep 200
-	Winclose, Attachments
-	return
-}
 
 Raw_MaterialCOA(select, x) {   ;||||||||||||||||numpad subtract
 	global
