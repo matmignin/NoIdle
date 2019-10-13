@@ -109,9 +109,9 @@ Attatch(SGattachment, PVattachment, pick) {  ;|||||||||||||||||middle mouse & wh
 		Else
 			sleep 200
 		Blockinput, On
-		send, {shiftdown}{tab 3}{shiftup}
+		sendinput, {shiftdown}{tab 3}{shiftup}
 		sleep 100
-		SEND, %pick%
+		SENDinput, %pick%
 		send {space}{tab}{space}
 		Blockinput, off
 		return
@@ -235,10 +235,10 @@ AttatchCOA(PVattachment) {   ;||||||||||||||||Attatch COA loops
 	Else
 		sleep 300
 		Blockinput, On
-			send {shiftdown}{tab 3}{shiftup}
+			sendinput {SHIFTDOWN}{tab 3}{SHIFTUP}sc
 			sleep 100
-			send scan{sPACE}
-			send {tab}{space}
+			send {sPACE}
+			sendinput {tab}
 			sleep 300
 			sendinput %GoDown%
 			COAcount-=1

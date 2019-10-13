@@ -57,10 +57,11 @@ Menu, Tray, tip, Press [ Home ] key for shortcuts
 
 
 Home::
-Msgbox, , Things to do, 	
-, ____________ View Process Sample Tab of LIMS  
-, ___________________________________`n`n ;
-, -Press [ NumPad( / ) ]  to search for an Item Number `n ;
+Msgbox, , Things to do, {
+	
+____________ View Process Sample Tab of LIMS 
+,___________________________________`n`n ;
+, -Press [ NumPad( / ) ]  to search for an Item Number `n;
 , -Press [ NumPad( * )  ]  to  search for Bulk Liquid `n ;
 , -Press and Roll [ Mouse Wheel Down ] to attatch a file `n`n____________ Create Batch Tab of LIMS ___________________________________________ `n(doesnt always work depending on the computer)`n 
 , -Press [ NumPad( * ) ]  to create Bulk Liquid batch `n 
@@ -72,6 +73,7 @@ Msgbox, , Things to do,
 , -The [ Numpad( Enter ) ] is usable in more places `n 
 , -Press [ Numpad( + ) & Numpad( 0 ) ] at the same time to open the calculator`n ;
 , -Press [ Insert ] to set the digits in the middle of the lot# (currently: `"%lotnumber%___`") `n`n`n :::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::`n`nver. %version%
+}
 return   
 
 
