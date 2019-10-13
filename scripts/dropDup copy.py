@@ -2,11 +2,11 @@
 
 import pandas as pd
 
-workbook1 = "BulkTests"
-sheet1 = "Bulkseparated"
-column1 = "TM"
-column2 = "PRODUCT_SPEC.COMPONENT"
-saveAs = "DropDuplicates"
+workbook1 = "ALLSPECs"
+sheet1 = "BL"
+column1 = "SP_TestPlan"
+column2 = "Analyte"
+saveAs = "DROPDUPSPEC"
 
 
 df = pd.read_excel(workbook1 + ".xlsx", sheet_name=sheet1)

@@ -8,14 +8,14 @@ import pandas as pd
 #column2 = "PRODUCT_SPEC.COMPONENT"
 #saveAs = "DropDuplicates"
 
-workbook1 = "NewQ"
-sheet1 = "RMChem"
+workbook1 = "ALLSPECs"
+sheet1 = "RM"
 column1 = "METHOD"
-# column2 = "PRODUCT_SPEC.COMPONENT"
+column2 = "PRODUCT_SPEC.COMPONENT"
 # saveAs = "rm_componentTests"
 
 df = pd.read_excel(workbook1 + ".xlsx", sheet_name=sheet1)
-df.drop_duplicates(column1, keep='first', inplace=True)
+df.drop_duplicates([column1], [columb2], keep='first', inplace=True)
 
 df.to_excel("dupDrop" + sheet1 + ".xlsx")
 
