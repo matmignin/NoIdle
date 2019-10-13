@@ -169,7 +169,7 @@ Auto_Select(Aclass, Cbox) {  ;||||||||||||||||Middle Mouse / Numpad plus & numpa
 		{
 			Pick := Selection[3]
 		}
-		else
+		else if
 		{
 			send {delete}
 		}

@@ -58,8 +58,8 @@ Menu, Tray, tip, Press [ Home ] key for shortcuts
 
 Home::
 Msgbox, , Things to do, 	
-, ____________ View Process Sample Tab of LIMS  
-, ___________________________________`n`n ;
+,____________ View Process Sample Tab of LIMS 
+,___________________________________`n`n ;
 , -Press [ NumPad( / ) ]  to search for an Item Number `n ;
 , -Press [ NumPad( * )  ]  to  search for Bulk Liquid `n ;
 , -Press and Roll [ Mouse Wheel Down ] to attatch a file `n`n____________ Create Batch Tab of LIMS ___________________________________________ `n(doesnt always work depending on the computer)`n 
