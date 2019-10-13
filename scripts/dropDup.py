@@ -8,8 +8,8 @@ import pandas as pd
 #column2 = "PRODUCT_SPEC.COMPONENT"
 #saveAs = "DropDuplicates"
 
-workbook1 = "Master"
-sheet1 = "Convert"
+workbook1 = "NewQ"
+sheet1 = "RMChem"
 column1 = "METHOD"
 # column2 = "PRODUCT_SPEC.COMPONENT"
 # saveAs = "rm_componentTests"
