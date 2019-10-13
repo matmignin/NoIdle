@@ -3,7 +3,7 @@
 import pandas as pd
 
 workbook1 = "ALLSPECs"
-sheet1 = "BL"
+sheet1 = "RM"
 column1 = "SP_TestPlan"
 column2 = "Analyte"
 saveAs = "DROPDUPSPEC"
