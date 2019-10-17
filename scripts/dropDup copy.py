@@ -4,6 +4,7 @@ import pandas as pd
 
 workbook1 = "ALLSPECs"
 sheet1 = "BL"
+
 column1 = "SP_TestPlan"
 column2 = "Analyte"
 saveAs = "DROPDUPSPEC"
