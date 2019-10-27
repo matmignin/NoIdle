@@ -2,22 +2,28 @@
 
 import pandas as pd
 
-workbook1 = "BLPlans"
-sheet1 = "BLlist"
-match1 = "Material"
+from openpyxl import load_workbook
 
-# workbook2 = workbook1
-sheet2 = "Count"
-match2 = "TestPlan.C2"
+book = "x.xlsx"
+sheetL = "ACTIVE"
+match = "PRODUCT_CODE"
 
+sheetR = "Description"
+dfL = pd.read_excel(book, sheet_name=sheetL)
+dfR = pd.read_excel(book, sheet_name=sheetR)
+dfPLAN = pd.read_excel(book, sheet_name="PLAN")
+dfSPECS = pd.read_excel(book, sheet_name="SPECS")
+# df = pd.read_excel(book, sheet_name="")
+# df = pd.read_excel(book, sheet_name="")
+# df = pd.read_excel(book, sheet_name="")
 mode = "outer"
+# saveAs = "mPRODUCT.xlsx"
 
-saveAs = "BLPCount"
+mDES = dfL.merge(dfR, how = mode, left_on =match, right_on=match, indicator=True)
+mPLAN = mDES.merge(dfPLAN, how = mode, left_on =match, right_on=match)
 
-df1 = pd.read_excel(workbook1 + ".xlsx", sheet_name=sheet1)
-df2 = pd.read_excel(workbook1 + ".xlsx", sheet_name=sheet2)
+with pd.ExcelWriter(book, engine='openpyxl') as writer:
+    mDES.to_excel(writer, sheet_name=sheetR)
+    mPLAN.to_excel(writer, sheet_name="PLAN")
+    writer.save()
 
-
-merged_df = df1.merge(df2, how = mode, left_on =match1, right_on=match2, indicator=True)
-
-merged_df.to_excel(saveAs + ".xlsx", sheet_name=saveAs)
