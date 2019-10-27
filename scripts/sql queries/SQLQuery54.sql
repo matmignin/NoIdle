@@ -15,10 +15,5 @@ SELECT [Mat_MatCode]
       ,[High_Release_Limit]
       ,[METHOD]
   FROM [STARLIMSLIVE_DATA].[dbo].[LIMS_Results_old]
-  WHERE Ord_SplLogDate >= '2019-01-01' 
-  And Ord_SplLogDate < '2019-10-01' 
-  -- and Test_Lab = 'NY-Analytical' 
-  and Mat_MatCode NOT Like '[a-x]%_%' 
-  and Bat_Lot NOT Like '9[a-x]%_%'
-  and SP_TestPlan NOT LIKE 'Microbiology%'
+  WHERE Bat_Lot Like '9g413'
   Order By Mat_MatCode;
