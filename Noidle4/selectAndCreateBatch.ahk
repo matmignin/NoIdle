@@ -1,23 +1,23 @@
 
 #IfWinActive, STARLIMS10.Live ahk_exe xv.exe
-NumpadSub::Raw_Material(select2, samplegroup2, grouptemplate2)
-NumpadDiv::Item_Number(select2)
-NumpadMult::Bulk_Liquid(select2, samplegroup2, grouptemplate2)
+NumpadSub::Raw_Material(select, samplegroup, grouptemplate)
+NumpadDiv::Item_Number(select)
+NumpadMult::Bulk_Liquid(select, samplegroup, grouptemplate)
 
 
 
 ;:::::::::select batches/lots/material number
 #IfWinActive, Select batches
 Numlock & numpadmult::
-Click, %Search1% left, 1
+Click, %Search% left, 1
 sendinput {tab 3}%BatchNumber%
 return
 Numlock & Numpadsub::
-Click, %Search1% left, 1
+Click, %Search% left, 1
 sendinput {tab 3}%lotnumber%
 return
 Numpaddiv::
-Click, %Search1% left, 1
+Click, %Search% left, 1
 sendinput {right}{tab 2}{enter}{right}mat{space}{enter}{tab 2}{down 3}{right 4}
 return
 numpadenter::click, 589, 391

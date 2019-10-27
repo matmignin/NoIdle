@@ -43,10 +43,10 @@ Numlock & up:: ;{::::::::::::::::: ::review run Loop
 	ReviewRun:
 	Numlock & pgup::
 ;ReviewRun(ReviewAttachment, AttachmentWindow,
-	Click, %ReviewAttachment2%  Left, 1
+	Click, %ReviewAttachmentA%. Left, 1
 	WinWait, Attachments, , 2
 	if ErrorLevel {
-		Click, %ReviewAttachment3%  Left, 1
+		Click, %ReviewAttachmentB%  Left, 1
 		return
 	}
 	sleep 200

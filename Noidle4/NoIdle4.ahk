@@ -1,4 +1,4 @@
-Version = 4.08
+Version = 4.09
 #Persistent
 #SingleInstance force
 #noenv
@@ -19,19 +19,19 @@ FileReadLine, BPCSPassword, %A_Desktop%\loginfo.txt, 4
 FileReadLine, totalChromUser, %A_Desktop%\loginfo.txt, 5
 FileReadLine, totalChromPassword, %A_Desktop%\loginfo.txt, 6
 FileRead, helptext, *t %A_Desktop%\helptext.txt, 1
-samplegroup2 = 268, 83
-grouptemplate2 = 760, 83
-Search2 = 70, 60
-select2 = 45, 73
+samplegroup = 268, 83
+grouptemplate = 760, 83
+Search = 70, 60
+selech = 45, 73
 Add = 55, 55
-PVAttachment2 = 650, 334
-SGAttachment2 = 350, 316
+PVAttachment = 650, 334
+SGAttachment = 350, 316
 pickScanner = "sc"
 pickComponent = "com"
-ChangeRep2 = 673, 316
-ReleaseRun2 = 771, 142
-AdjustA2 = L, 97, 120, 115, 122, 2
-AdjustB2 = L, 96, 342, 2
+ChangeRep = 673, 316
+ReleaseRun = 771, 142
+AdjustA = L, 97, 120, 115, 122, 2
+AdjustB = L, 96, 342, 2
 
 
 
