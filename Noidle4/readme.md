@@ -9,3 +9,4 @@
 
 [] find a new icon
 
+[] add non-numpad key alternatives
