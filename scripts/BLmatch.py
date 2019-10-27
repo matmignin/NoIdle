@@ -2,17 +2,16 @@
 
 import pandas as pd
 
-workbook1 = "BLPlans"
-sheet1 = "BLlist"
-match1 = "Material"
+workbook1 = "xBL_PRODUCT_CODE"
+sheet1 = "PLAN"
+sheet2 = "ANALYSIS"
+match1 = "PRODUCT_CODE"
 
-# workbook2 = workbook1
-sheet2 = "Count"
-match2 = "TestPlan.C2"
+match2 = match1
 
 mode = "outer"
 
-saveAs = "BLPCount"
+saveAs = "BLx" + sheet2
 
 df1 = pd.read_excel(workbook1 + ".xlsx", sheet_name=sheet1)
 df2 = pd.read_excel(workbook1 + ".xlsx", sheet_name=sheet2)

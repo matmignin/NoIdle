@@ -2,17 +2,18 @@
 
 import pandas as pd
 
-workbook1 = "RMactive"
-sheet1 = "RMspec"
-match1 = "Mat_MatCode"
+workbook1 = "Descriptions"
+sheet1 = "DES"
+match1 = "matcode"
 
 # workbook2 = workbook1
-sheet2 = "Active"
-match2 = "ITEM_NUMBER"
+sheet2 = "Des2"
+match2 = match1
 
 mode = "left"
 
-saveAs = "activeRMspec"
+saveAs = "DES2"
+
 
 df1 = pd.read_excel(workbook1 + ".xlsx", sheet_name=sheet1)
 df2 = pd.read_excel(workbook1 + ".xlsx", sheet_name=sheet2)
