@@ -1,0 +1,37 @@
+/****** Script for SelectTopNRows command from SSMS  ******/
+SELECT [Mat_MatCode]
+      ,[Mat_MatDesc]
+      ,[Bat_Lot]
+      ,[Ord_SampNum]
+      ,[SP_TestPlan]
+      ,[Ord_SplLogDate]
+      ,[Ord_SampStat]
+      ,[Ord_SampDispStat]
+      ,[Test_Lab]
+      ,[Res_TestCode]
+      ,[Res_TestName]
+      ,[TestStatus]
+      ,[Analyte]
+      ,[Numeric_Result]
+      ,[Final_Result]
+      ,[Res_Units]
+      ,[Rounding_Rule]
+      ,[Result_Type]
+      ,[Character_Limits]
+      ,[Low_Release_Limit]
+      ,[High_Release_Limit]
+      ,[Low_Alert_Limit]
+      ,[High_Alert_Limit]
+      ,[Bat_ExpDate]
+      ,[PRINTFLAG]
+      ,[METHOD]
+      ,[ATTACHMENT]
+      ,[ATTBY]
+      ,[ATTDATE]
+      ,[MYCOMMENT]
+  FROM [STARLIMSLIVE_DATA].[dbo].[LIMS_Results_old]
+  WHERE [Mat_MatCode] like '4FQ51801'
+  AND [SP_TestPlan] like 'Analytical - BL_Sani_07C'
+  AND Ord_SplLogDate > 2018
+  AND Ord_SampStat = 'DONE' 
+  ORDER BY Res_TestName 
