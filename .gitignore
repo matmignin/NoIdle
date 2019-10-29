@@ -10,7 +10,8 @@ Thumbs.db
 .LSOverride
 .Ulysses-Group.plist
 *.swo
-
+AHK-Studio Backup\*
+AHK-Studio Backup/*
 creds/serviceaccount.json
 
 # Byte-compiled / optimized / DLL files

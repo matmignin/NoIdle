@@ -51,35 +51,27 @@ Menu, Tray, Icon, Icons/Boo.ico,
 Menu, Tray, tip, Press [ Home ] key for shortcuts
 
 
-#Include reviewRun.ahk
-#Include Attatchments.ahk
-#Include Reps.ahk
-#Include selectAndCreateBatch.ahk
-#Include other_apps.ahk
-#Include options.ahk
-#Include Functions.ahk
 
 
 
 
 
 Home::
-Msgbox, , Things to do, (" 	
-____________ View Process Sample Tab of LIMS  
-___________________________________`n`n ;
--Press [ NumPad( / ) ]  to search for an Item Number `n ;
--Press [ NumPad( * )  ]  to  search for Bulk Liquid `n ;
--Press and Roll [ Mouse Wheel Down ] to attatch a file `n`n____________ Create Batch Tab of LIMS ___________________________________________ `n(doesnt always work depending on the computer)`n 
--Press [ NumPad( * ) ]  to create Bulk Liquid batch `n 
--Press [ NumPad( - ) ] to create a Raw Material  `n`n____________ My Service Group Pending Test tab of LIMS ________________________`n`n 
--Press [ End ] to make the `"Run#`" column fit `n 
--Press [ NumPad( - ) ]  to search ""for"" a Raw Material `n 
--Press [ Middle Click ] ""or"" [ Numpad( + ) & Numpad( Enter ) ] to auto-select result`n 
--Press ""and"" Roll [ Mouse Wheel Down ] to attatch a file `n`n____________ Miscellaneous _______________________________________________________ `n`n 
--The [ Numpad( Enter ) ] is usable in more places `n 
--Press [ Numpad( + ) & Numpad( 0 ) ] at the same time to open the calculator`n ;
--Press [ Insert ] to set the digits in the middle of the lot# (currently: `"%lotnumber%___`") `n`n`n :::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::`n`nver. %version%
-)"
+Msgbox, , Things to do, 	
+, ____________ View Process Sample Tab of LIMS  
+, ___________________________________`n`n ;
+, -Press [ NumPad( / ) ]  to search for an Item Number `n ;
+, -Press [ NumPad( * )  ]  to  search for Bulk Liquid `n ;
+, -Press and Roll [ Mouse Wheel Down ] to attatch a file `n`n____________ Create Batch Tab of LIMS ___________________________________________ `n(doesnt always work depending on the computer)`n 
+, -Press [ NumPad( * ) ]  to create Bulk Liquid batch `n 
+, -Press [ NumPad( - ) ] to create a Raw Material  `n`n____________ My Service Group Pending Test tab of LIMS ________________________`n`n 
+, -Press [ End ] to make the `"Run#`" column fit `n 
+, -Press [ NumPad( - ) ]  to search ""for"" a Raw Material `n 
+, -Press [ Middle Click ] ""or"" [ Numpad( + ) & Numpad( Enter ) ] to auto-select result`n 
+, -Press ""and"" Roll [ Mouse Wheel Down ] to attatch a file `n`n____________ Miscellaneous _______________________________________________________ `n`n 
+, -The [ Numpad( Enter ) ] is usable in more places `n 
+, -Press [ Numpad( + ) & Numpad( 0 ) ] at the same time to open the calculator`n ;
+, -Press [ Insert ] to set the digits in the middle of the lot# (currently: `"%lotnumber%___`") `n`n`n :::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::`n`nver. %version%
 return   
 
 
@@ -91,6 +83,13 @@ If ( A_TimeIdle > 99999 ) {
 }
 return
 
+#Include reviewRun.ahk
+#Include Attatchments.ahk
+#Include Reps.ahk
+#Include selectAndCreateBatch.ahk
+#Include other_apps.ahk
+#Include options.ahk
+#Include Functions.ahk
 
 
 

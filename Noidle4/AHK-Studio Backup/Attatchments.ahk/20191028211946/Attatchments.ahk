@@ -68,6 +68,6 @@ Return
 
 
 
-#ifwinactive, Open
+#SGAttachmentifwinactive, Open
 ;Mbutton::Sendinput, {LButton}
 NumpadEnter::SubmitAttatchment() 

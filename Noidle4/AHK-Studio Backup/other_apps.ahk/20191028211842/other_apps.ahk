@@ -77,18 +77,14 @@ return
 
 
 
-
 ;{:::::::::::editors
 #IfWinActive, ahk_class AutoHotkeyGUI
-Mbutton::
 F12::
 sendinput, {ctrldown}s{ctrlup}
 sleep 200
 sendinput {ctrldown}{f7}{ctrlup}
 ExitApp
 return
-
-
 
 #IfWinActive, ahk_exe Ssms.exe
 F11::
