@@ -7,17 +7,17 @@ Mbutton & Rbutton::Click, 413, 384 L
 Mbutton:: 
 		Click,
 		Click, 2
-		Auto_Select(Aclass2, Cbox2)
+		Auto_Select(Aclass, Cbox)
 	return 
 
 
 ;::::change test replicates
 Numpadmult & numpad0::
 ;InputBox, inputNumberOf, ,How many Measurments?? , , 240, 180,, 0000
-Change_Rep(changerep2, 10, 4)
+Change_Rep(changerep, 10, 4)
 return
-Numpadmult & numpad1::Change_Rep(changerep2, 1, 1)
-Numpadmult & numpad2::Change_Rep(changerep2, 2, 1)
+Numpadmult & numpad1::Change_Rep(changerep, 1, 1)
+Numpadmult & numpad2::Change_Rep(changerep, 2, 1)
 
 
 ;::::::autofile results
@@ -29,11 +29,11 @@ NumpadAdd & NumpadDiv:: ;{
 		WinWaitActive, Resent List ahk_exe xv.exe, , 3
 		If ErrorLevel {
 			sendinput {backspace}{down}
-			click, %changerep2% Left, 1
+			click, %changerep% Left, 1
 			WinWait, Replicates Number, , 3
 			if ErrorLevel
 			{
-				Change_Rep(changerep2, 10, 1)
+				Change_Rep(changerep, 10, 1)
 				sleep 200
 				return
 			}
@@ -47,7 +47,7 @@ NumpadAdd & NumpadDiv:: ;{
 			continue
 		}
 		sleep 200
-		Auto_Select(Aclass2, Cbox2)
+		Auto_Select(Aclass, Cbox)
 		sleep 200
 		sendinput {alt down}o{alt up}
 		sleep 400
@@ -166,13 +166,13 @@ return
 ;::::repeat multiple auto select results
 NumpadAdd & NumpadEnter::
 	sendinput, {space}
-	Auto_Select(Aclass2, Cbox2)
+	Auto_Select(Aclass, Cbox)
 return
 NumpadAdd & Numpad1::
 	loop, 1
 	{
 		sendinput, {space}
-		Auto_Select(Aclass2, Cbox2)
+		Auto_Select(Aclass, Cbox)
 		sleep 400
 	}
 return
@@ -180,7 +180,7 @@ NumpadAdd & Numpad2::
 	loop, 2
 	{
 		sendinput, {space}
-		Auto_Select(Aclass2, Cbox2)
+		Auto_Select(Aclass, Cbox)
 		sleep 400
 	}
 return
@@ -188,7 +188,7 @@ NumpadAdd & Numpad3::
 	loop, 3
 	{
 		sendinput, {space}
-		Auto_Select(Aclass2, Cbox2)
+		Auto_Select(Aclass, Cbox)
 		sleep 400
 	}
 return
@@ -196,7 +196,7 @@ NumpadAdd & Numpad4::
 	loop, 4
 	{
 		sendinput, {space}
-		Auto_Select(Aclass2, Cbox2)
+		Auto_Select(Aclass, Cbox)
 		sleep 400
 	}
 return
@@ -204,7 +204,7 @@ NumpadAdd & Numpad5::
 	loop, 5
 	{
 		sendinput, {space}
-		Auto_Select(Aclass2, Cbox2)
+		Auto_Select(Aclass, Cbox)
 		sleep 400
 	}
 	return 	

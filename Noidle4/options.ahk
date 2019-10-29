@@ -43,7 +43,7 @@ numpadenter::!o
 Enter::!o
 #ifwinactive,
 
-Insert::
+Insert & Home::
 InputBox, FillerZeros, Lot Code, How many filler zeros in the current lot numbers , , 240, 180,, 0000
 Lotnumber = %Year%%FillerZeros%
 return

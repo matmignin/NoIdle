@@ -2,9 +2,10 @@
 
 ;:::attatch a file
 #IfWinActive, STARLIMS10.Live ahk_exe xv.exe
-Mbutton & WheelDown::Attatch(SGattachment2, PVAttachment, pickScanner)
+
+Mbutton & WheelDown::Attatch(SGattachment, PVattachment, pickScanner)
 Mbutton & Wheelup::
-Attatch(SGattachment2, PVAttachment, pickComponent)
+Attatch(SGattachment, PVattachment, pickComponent)
 sleep 100
 sendinput, {ctrldown}e{ctrlup}
 return
@@ -20,10 +21,10 @@ Numpadsub & Numpaddot::
 	;{
 		;WinWaitActive, STARLIMS10.Live
 		sleep 300
-		Raw_Material(select2, samplegroup2, grouptemplate2)
+		Raw_Material(select, samplegroup, grouptemplate)
 		;WinWaitClose, Select batches
 		sleep 1500
-		AttatchCOA(PVAttachment)
+		AttatchCOA(PVattachment)
 		winwait, Select batches
 		;Sleep 2000
 		;send % COAccount[NumberofCOA]
@@ -38,10 +39,10 @@ Numpadsub & Numpaddot::
 	
 ;{  ||||||||||auto attach COA
 	NumpadAdd & NumpadDot:: 
-		Raw_Material(select2, samplegroup2, grouptemplate2)
+		Raw_Material(select, samplegroup, grouptemplate)
 		WinWaitClose, Select batches
 		sleep 1500
-		AttatchCOA(PVAttachment)
+		AttatchCOA(PVattachment)
 	return 
 
 
