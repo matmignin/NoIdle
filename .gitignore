@@ -3,7 +3,7 @@
 Stuff/
 ~$*
 *.ahk.bak
-
+Thumbs.db
 # General
 .DS_Store
 .AppleDouble
