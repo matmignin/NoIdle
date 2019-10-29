@@ -80,7 +80,7 @@ return
 
 ;{:::::::::::editors
 #IfWinActive, ahk_class AutoHotkeyGUI
-Mbutton::
+Mbutton::sendinput !r
 F12::
 sendinput, {ctrldown}s{ctrlup}
 sleep 200
@@ -123,7 +123,9 @@ Numpadadd & numpad0::return
 Numpadadd & numpad0::sendinput {ctrldown}f{ctrlup}{AltDown}th{altup}w{enter}{altdown}n{altup}%lotnumber%
 Numpadadd & NumpadDot::sendinput {ctrldown}f{ctrlup}{AltDown}th{altup}w{enter}{altdown}n{altup}{Delete}
 Capslock::CapsLock
-
+Mbutton::sendinput ^-
+Mbutton & WheelUp::send ^{up}
+Mbutton & Wheeldown::send ^{down}
 
 
 
@@ -161,10 +163,6 @@ ScannerClose:
 IfWinActive, EPSON Scan
 	Send, {ALT DOWN}{TAB}{ALT UP}
 return
-
-#ifwinactive, EPSON Scan
-Numpadsub::Winactivate, STARLIMS10.Live (Master)
-NumpadMult::Winactivate, STARLIMS10.Live (Master)
 
 
 

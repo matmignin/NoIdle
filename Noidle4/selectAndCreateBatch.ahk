@@ -4,6 +4,14 @@ NumpadSub::Raw_Material(select, samplegroup, grouptemplate)
 NumpadDiv::Item_Number(select)
 NumpadMult::Bulk_Liquid(select, samplegroup, grouptemplate)
 
+End::Adjust_Columns()
+
+
+Mbutton::   ;||||||||||  autoselect result
+Click,
+Click, 2
+Auto_Select(Aclass, Cbox)
+return 
 
 
 ;:::::::::select batches/lots/material number

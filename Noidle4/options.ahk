@@ -1,7 +1,3 @@
-AttachmentWindow2 = ahk_class WindowsForms10.Window.8.app.0.33c0d9d ahk_exe xv.exe
-Adobe = AcroRd32.exe
-Excel = EXCEL.EXE
-Window = WINWORD.EXE
 
 
 ;{:::::::::::::::::::: Vim controls
@@ -37,7 +33,8 @@ enter::sendinput {tab}{space}
 #IfWinActive, Select batches 
 Numlock::winclose, Select batches
 numpadenter::!o ;sendinput {tab}{shift down}{tab 6}{shift Up}{enter}
-Enter::!o ;Sendinput {tab}{shift down}{tab 6}{shift Up}{enter}
+;Enter::!o ;Sendinput {tab}{shift down}{tab 6}{shift Up}{enter}
+Enter::ControlClick, WindowsForms10.Window.8.app.0.33c0d9d15 Ok, Select batches,,,
 #ifwinactive, Lot template login,
 numpadenter::!o
 Enter::!o
@@ -59,19 +56,6 @@ ControlClick, WindowsForms10.STATIC.app.0.202c66626 Select, STARLIMS10.Live,,,, 
 return
 
 
-;::::::::::::::::::::: adjust columns width
-End::
-MouseClickDrag, L, 97, 120, 115, 122, 2
-sleep 250
-Mouseclick, L, 96, 342, 2
-Mouseclick, L, 96, 342, 2
-sleep 200
-gosub, ScrollUp2
-return
-Scrollup2:
-loop, 300
-	sendinput {WheelUp}
-Return
 
 
 

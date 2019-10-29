@@ -3,12 +3,6 @@
 ;:::idk
 Mbutton & Rbutton::Click, 413, 384 L
 
-;{. ||||||||||  autoselect result
-Mbutton:: 
-		Click,
-		Click, 2
-		Auto_Select(Aclass, Cbox)
-	return 
 
 
 ;::::change test replicates

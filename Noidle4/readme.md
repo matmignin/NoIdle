@@ -7,6 +7,6 @@
 
 [] fix the method error that happens when hitting enter
 
-[] find a new icon
+[x] find a new icon
 
 [] add non-numpad key alternatives
