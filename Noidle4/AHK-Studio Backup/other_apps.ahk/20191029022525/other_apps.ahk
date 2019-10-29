@@ -113,14 +113,14 @@ Return
 ;::::::EXEL
 
 #IfWinActive, Find and Replace ahk_exe EXCEL.EXE
-numpadEnter::send, !i{200}{esc}^{right}{right}P ;^f%lotnumber%
-numpadsub::sendinput, !n%lotnumber%
-;numpadadd & Numpadenter::sendinput {esc}^{right}{right}P^f%lotnumber%
-
+numpadEnter::sendinput, {alt down}i{alt up}
+numpadsub::sendinput, {alt down}n{alt up}%lotnumber%
+numpadadd & Numpadenter::
+Numpadadd & numpad0::sendinput {esc}{ctrldown}{right}{ctrlup}{right}P{ctrldown}f{CtrlUp}%lotnumber%
 
 
 #ifwinactive, ahk_exe EXCEL.EXE
-Numpadadd & numpadEnter::sendinput ^f{ctrlup}!t!hw{enter}!n%lotnumber%
+Numpadadd & numpad0::sendinput {ctrldown}f{ctrlup}{AltDown}th{altup}w{enter}{altdown}n{altup}%lotnumber%
 Numpadadd & NumpadDot::sendinput {ctrldown}f{ctrlup}{AltDown}th{altup}w{enter}{altdown}n{altup}{Delete}
 Capslock::CapsLock
 Mbutton::sendinput ^-

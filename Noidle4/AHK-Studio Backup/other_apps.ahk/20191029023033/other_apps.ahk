@@ -113,9 +113,9 @@ Return
 ;::::::EXEL
 
 #IfWinActive, Find and Replace ahk_exe EXCEL.EXE
-numpadEnter::send, !i{200}{esc}^{right}{right}P ;^f%lotnumber%
+numpadEnter::sendinput, !i
 numpadsub::sendinput, !n%lotnumber%
-;numpadadd & Numpadenter::sendinput {esc}^{right}{right}P^f%lotnumber%
+numpadadd & Numpadenter::sendinput {esc}^{right}{right}P^f%lotnumber%
 
 
 

@@ -1,10 +1,10 @@
-Version = 4.10
+Version = 4.09
 #Persistent
 #SingleInstance force
 #noenv
 SetNumlockState AlwaysOn
 coordmode, mouse,Client
-SetKeyDelay, 100
+SetKeyDelay, 500
 SetDefaultMouseSpeed, 0
 DetectHiddenText, On
 SetTitleMatchMode, 2

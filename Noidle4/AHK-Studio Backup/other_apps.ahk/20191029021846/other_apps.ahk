@@ -18,25 +18,25 @@ Numpadadd & Numpad0::sendinput {enter}{Down 6}{right 11}a{down 7}{left}%month%{r
 ^Enter::sendinput {Down 6}{right 11}a{down 7}{left}%month%{right}%today%{right}%year%{right}{enter}02%lotnumber%
 Numpadadd & Left::sendinput, b83{enter 2}api{enter}10{enter}
 F11 & F12::
-Numlock & Numpaddiv::sendinput, %BPCSuser%{tab}%bpcsPassword%{enter 2}b83{enter 2}api{enter}10{enter}
+Numlock & Numpaddiv::sendinput, houghm{tab}%bpcsPassword%{enter 2}b83{enter 2}api{enter}10{enter}
+
+
+;::::totalchorms
 #IfWinActive, Signon to iSeries ahk_class #32770
 F11 & F12::
 Numlock & Numpaddiv::
-sendinput, %BPCSpassword%{tab 3}%BPCSuser%{enter}
-sleep 300
-sendinput, %BPCSuser%{tab}%bpcsPassword%{enter 2}b83{enter 2}api{enter}10{enter}
-return
-
-;::::totalchorms
-
+	sendinput, %BPCSpassword%{tab 3}houghm{enter}
+	sleep 300
+	sendinput, houghm{tab}%bpcsPassword%{enter 2}b83{enter 2}api{enter}10{enter}
+	return
 
 #IfWinActive, Audit Trail ahk_exe SeqEdit.exe
 Numlock & numpaddiv::
-sendinput, alch Std
-ControlClick, Button3, Audit Trail ahk_exe SeqEdit.exe, OK,
-login(totalChromeUser, totalChromePassword) 
-sendinput, %DailyStdDate%
-return
+	sendinput, daily Std
+	ControlClick, Button3, Audit Trail ahk_exe SeqEdit.exe, OK,
+	login(totalChromeUser, totalChromePassword)
+	sendinput, %DailyStdDate%{enter}
+	return
 
 #ifwinactive, Electronic Signature ahk_class #32770 ahk_exe SeqEdit.exe
 Numlock & numpaddiv::login(totalChromeUser, totalChromePassword)
@@ -113,14 +113,14 @@ Return
 ;::::::EXEL
 
 #IfWinActive, Find and Replace ahk_exe EXCEL.EXE
-numpadEnter::send, !i{200}{esc}^{right}{right}P ;^f%lotnumber%
-numpadsub::sendinput, !n%lotnumber%
-;numpadadd & Numpadenter::sendinput {esc}^{right}{right}P^f%lotnumber%
-
+numpadEnter::sendinput, {alt down}i{alt up}
+numpadsub::sendinput, {alt down}n{alt up}%lotnumber%
+numpadadd & Numpadenter::sendinput {esc}{ctrldown}{right}{ctrlup}{right}P{ctrldown}f{CtrlUp}%lotnumber%
+Numpadadd & numpad0::return
 
 
 #ifwinactive, ahk_exe EXCEL.EXE
-Numpadadd & numpadEnter::sendinput ^f{ctrlup}!t!hw{enter}!n%lotnumber%
+Numpadadd & numpad0::sendinput {ctrldown}f{ctrlup}{AltDown}th{altup}w{enter}{altdown}n{altup}%lotnumber%
 Numpadadd & NumpadDot::sendinput {ctrldown}f{ctrlup}{AltDown}th{altup}w{enter}{altdown}n{altup}{Delete}
 Capslock::CapsLock
 Mbutton::sendinput ^-
