@@ -18,7 +18,7 @@ Numpadadd::Sendinput, {shift down}={shift Up}
 NumpadSub::Sendinput -
 Numpadadd & numpadsub::Sendinput, %Lotnumber%
 Numpadadd & numpadmult::Sendinput, %batchNumber%
-NumLock & NumpadDiv::login(PDIuser, PDIpassword)
+Numlock & Numpaddiv::login(PDIUser, PDIPassword)
 return
 F11 & F10::exitapp
 #IfWinActive,

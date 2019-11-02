@@ -26,8 +26,8 @@ select = 45, 73
 Add = 55, 55
 PVAttachment = 650, 334
 SGAttachment = 350, 316
-pickScanner = "sc"
-pickComponent = "com"
+pickScanner = sc
+pickComponent = com
 ChangeRep = 673, 316
 ReleaseRun = 771, 142
 AdjustA = L, 97, 120, 115, 122, 2
@@ -107,7 +107,7 @@ return
 #IfWinActive, STARLIMS10.Live ahk_exe xv.exe
 ;{____________________________________________Functions______________________
 login(user, password) {
-	Sendinput %user%{tab}%password%{enter}
+	Sendinput %user%{tab}{200}%password%{enter}
 	sleep 200
 }
 
@@ -293,14 +293,14 @@ Change_Rep(changerep, Reps, numberOf) {  ;|||||||||||||||| Numpadmult + # change
 	yy -= 18
 	loop, %numberOf%
 	{
-		sleep 400
+		sleep 200
 		sendinput {Lbutton}
 		click, %changerep% Left, 1
 		sleep 200
 		WinWait, Replicates Number, , 3
 		if ErrorLevel
 		{
-			sleep 400
+			sleep 200
 			click, %changerep% Left, 1
 			sleep 200
 		}
@@ -345,7 +345,7 @@ AttatchCOA(PVattachment) {   ;||||||||||||||||Attatch COA loops
 		Blockinput, On
 			send {shiftdown}{tab 3}{shiftup}
 			sleep 100
-			send scan{sPACE}
+			send sc{sPACE}
 			send {tab}{space}
 			sleep 300
 			sendinput %GoDown%

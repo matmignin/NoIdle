@@ -23,7 +23,7 @@ Numpadsub & Numpaddot::
 		sleep 300
 		Raw_Material(select, samplegroup, grouptemplate)
 		;WinWaitClose, Select batches
-		sleep 1500
+		sleep 300
 		AttatchCOA(PVattachment)
 		winwait, Select batches
 		;Sleep 2000
