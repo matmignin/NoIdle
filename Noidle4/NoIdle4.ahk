@@ -10,7 +10,7 @@ DetectHiddenText, On
 SetTitleMatchMode, 2
 SetTimer, MoveMouse
 traytip, , Hit [ Home ] key for more info, 1
-Menu, Tray, Icon, Icons/Fish.ico,
+Menu, Tray, Icon, lib\Icons/Fish.ico,
 
 FileReadLine, PDIuser, %A_Desktop%\loginfo.txt, 1
 FileReadLine, PDIPassword, %A_Desktop%\loginfo.txt, 2
@@ -79,13 +79,13 @@ ver. %version%
 
 Home::Msgbox, , Things to do, %HelpBox%
 
-#Include reviewRun.ahk
-#Include Attatchments.ahk
-#Include Reps.ahk
-#Include selectAndCreateBatch.ahk
-#Include other_apps.ahk
-#Include options.ahk
-
+#Include lib\reviewRun.ahk
+#Include lib\Attatchments.ahk
+#Include lib\Reps.ahk
+#Include lib\selectAndCreateBatch.ahk
+#Include lib\other_apps.ahk
+#Include lib\options.ahk
+#Include lib\BPCS.ahk
 
 
 return   
@@ -399,3 +399,4 @@ Adjust_Columns() {
 		sendinput {WheelUp}
 	return
 	}
+
