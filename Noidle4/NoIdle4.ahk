@@ -1,4 +1,4 @@
-Version = 4.10
+Version = 4.11
 #Persistent
 #SingleInstance force
 #noenv
@@ -51,7 +51,7 @@ SingleYear = %year%{left}{backspace}{right}
 dailyStdDate = alch{space}std{space}%month%%today%%year%{space}MH
 BPCSdate = %month%{right}%today%{right}%year%{right}{down}{left 8}
 batchNumber = %singleYear%%lettermonth%
-Lotnumber = %Year%0001
+Lotnumber = %Year%000
 
 HelpBox = 
 ( 	
@@ -78,15 +78,18 @@ ver. %version%
 
 
 Home::Msgbox, , Things to do, %HelpBox%
+Insert & Home::
+InputBox, FillerZeros, Lot Code, enter redundent digits in Lot code that follow %year%   , , 240, 180,, 0000
+Lotnumber = %Year%%FillerZeros%
+return
 
-#Include lib\reviewRun.ahk
+
+
 #Include lib\Attatchments.ahk
 #Include lib\Reps.ahk
 #Include lib\selectAndCreateBatch.ahk
 #Include lib\other_apps.ahk
-#Include lib\options.ahk
-#Include lib\BPCS.ahk
-#Include lib\TotalChrome.ahk
+
 
 
 
@@ -102,12 +105,72 @@ If ( A_TimeIdle > 99999 ) {
 }
 return
 
-
-
-
-       
 #IfWinActive, STARLIMS10.Live ahk_exe xv.exe
-;{____________________________________________Functions______________________
+
+
+
+;{____________________________________________Functions______________________________________________________________
+ReviewRun() {
+	Click, %ReviewAttachmentA%. Left, 1
+	WinWait, Attachments, , 2
+	if ErrorLevel {
+		Click, %ReviewAttachmentB%  Left, 1
+		return
+	}
+	sleep 200
+	WinMove, Attachments,, 861, 605, 798, 385
+	Sendinput {tab 3}{enter}
+	
+	WinWait, ahk_exe AcroRd32.exe, , 2
+	if ErrorLevel {
+		msgbox, there is no attatchment
+		sleep 200
+		winclose, Attachments
+		return
+	}
+	WinMove, ahk_exe AcroRd32.exe,, 5, 332, 950, 684
+	Winwait, STARLIMS10.Live (Master)
+	return
+}
+
+
+ReviewRunLoop() {
+	InputBox, ReviewRunLoop, how many,, , 240, 180
+	if ErrorLevel
+		Return
+	Loop, %reviewRunLoop%
+	{
+		Click, 771, 144 Left, 1
+		sleep 9000
+		winwait, Warning, , 4
+		if errorlevel {
+			sleep 2000
+			sendinput {down}
+			sleep 5000
+			continue
+		}
+		else {
+			winclose, Warning
+			sleep 2000
+			sendinput {down}
+		}
+		sleep 5000
+	}
+	return
+}
+
+
+
+MultipleAutoSelect(NumberOfEntries) {
+	loop, %NumberOfEntries%
+	{
+		sendinput, {space}
+		Auto_Select(Aclass, Cbox)
+		sleep 400
+	}	
+}	
+
+
 ReplicateByNine(NumberOfReps)	{
 	loop %NumberOfReps% {
 		Inputbox, MultiEnter%A_Index%, Type measurment number %A_index% value to enter 9x,, , 300, 100, , 0
@@ -119,8 +182,33 @@ ReplicateByNine(NumberOfReps)	{
 		}
 	}
 }
-	
-	
+
+CreateBatch() {
+	InputBox, itemNumber, Item Number, Enter the Item Number., , 240, 180
+	if ErrorLevel
+		Return
+	else
+		firstNumber := substr(itemNumber, 1)
+	msgbox, %firstNumber%
+	sendinput {tab}{tab}{enter}
+	Click, %samplegroup% Left, 1
+	if (firstNumber="4") {
+		sendinput b{enter}
+		batchOrLot = %batchNumber%
+	}
+	else {
+		sendinput r{enter}
+		batchOrLot = %lotNumber%
+	}
+	Click, %grouptemplate% Left, 1
+	sleep 200
+	send %itemNumber%
+	sendinput {enter}{tab}%batchOrLot%
+	return
+}
+
+
+
 login(user, password) {
 	Sendinput %user%{tab}{200}%password%{enter}
 	sleep 200
@@ -413,5 +501,31 @@ Adjust_Columns() {
 	loop, 300
 		sendinput {WheelUp}
 	return
-	}
+}
+
+
+
+
+;________________________________________Options
+#IfWinActive,
+Numpadadd::Sendinput, {shift down}={shift Up}
+NumpadSub::Sendinput -
+Numpadadd & numpadsub::Sendinput, %Lotnumber%
+Numpadadd & numpadmult::Sendinput, %batchNumber%
+Numlock & Numpaddiv::login(PDIUser, PDIPassword)
+
+;{:::::::::::::::::::: Vim controls
+Capslock & j::sendinput {down}
+Capslock & k::sendinput {up}
+Capslock & h::sendinput {left}
+Capslock & l::sendinput {right}
+Capslock & x::sendinput {Delete}
+Capslock & 4::sendinput {end}
+Capslock & 6::sendinput {Home}
+Capslock & w::sendinput {CtrlDown}{right}{CtrlUp}
+Capslock & d::sendinput {home}{SHIFTDown}{end}{shiftUp}{delete}
+Capslock & o::sendinput {end}{return}{down}
+Capslock & b::sendinput {CtrlDown}{left}{CtrlUp}
+
+
 
