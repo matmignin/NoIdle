@@ -86,6 +86,8 @@ Home::Msgbox, , Things to do, %HelpBox%
 #Include lib\other_apps.ahk
 #Include lib\options.ahk
 #Include lib\BPCS.ahk
+#Include lib\TotalChrome.ahk
+
 
 
 return   
@@ -106,6 +108,19 @@ return
        
 #IfWinActive, STARLIMS10.Live ahk_exe xv.exe
 ;{____________________________________________Functions______________________
+ReplicateByNine(NumberOfReps)	{
+	loop %NumberOfReps% {
+		Inputbox, MultiEnter%A_Index%, Type measurment number %A_index% value to enter 9x,, , 300, 100, , 0
+	}
+	loop %NumberOfReps% {
+		ToEnter := MultiEnter%A_index%
+		loop 9 {
+			Sendinput, %ToEnter%{up}{left 2}{down 2}
+		}
+	}
+}
+	
+	
 login(user, password) {
 	Sendinput %user%{tab}{200}%password%{enter}
 	sleep 200
