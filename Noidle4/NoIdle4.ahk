@@ -10,7 +10,7 @@ DetectHiddenText, On
 SetTitleMatchMode, 2
 SetTimer, MoveMouse
 traytip, , Hit [ Home ] key for more info, 1
-Menu, Tray, Icon, lib\Icons/Fish.ico,
+Menu, Tray, Icon, lib\Icons\Fish.ico,
 
 FileReadLine, PDIuser, %A_Desktop%\loginfo.txt, 1
 FileReadLine, PDIPassword, %A_Desktop%\loginfo.txt, 2
