@@ -1,4 +1,4 @@
-Version = 4.11
+Version = 4.13
 #Persistent
 #SingleInstance force
 #noenv
@@ -75,26 +75,17 @@ ____________ Miscellaneous  `n
 ver. %version%
 )
 
-
-
 Home::Msgbox, , Things to do, %HelpBox%
 Insert & Home::
 InputBox, FillerZeros, Lot Code, enter redundent digits in Lot code that follow %year%   , , 240, 180,, 0000
 Lotnumber = %Year%%FillerZeros%
 return
 
-
-
 #Include lib\Attatchments.ahk
-#Include lib\Reps.ahk
 #Include lib\selectAndCreateBatch.ahk
 #Include lib\other_apps.ahk
 
-
-
-
 return   
-
 
 
 
@@ -105,7 +96,6 @@ If ( A_TimeIdle > 99999 ) {
 }
 return
 
-#IfWinActive, STARLIMS10.Live ahk_exe xv.exe
 
 
 
@@ -529,3 +519,5 @@ Capslock & b::sendinput {CtrlDown}{left}{CtrlUp}
 
 
 
+#IfWinActive, STARLIMS10.Live ahk_exe xv.exe
+End::Adjust_Columns()

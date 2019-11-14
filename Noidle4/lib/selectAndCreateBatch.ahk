@@ -4,8 +4,34 @@ NumpadSub::Raw_Material(select, samplegroup, grouptemplate)
 NumpadDiv::Item_Number(select)
 NumpadMult::Bulk_Liquid(select, samplegroup, grouptemplate)
 
-End::Adjust_Columns()
 
+
+Mbutton::   ;||||||||||  autoselect result
+Click,
+Click, 2
+Auto_Select(Aclass, Cbox)
+return 
+
+;::::change test replicates
+Numpadmult & numpad0::Change_Rep(changerep, 10, 4)
+Numpadmult & numpad1::Change_Rep(changerep, 1, 1)
+Numpadmult & numpad2::Change_Rep(changerep, 2, 1)
+
+;::::repeat multiple auto select results
+NumpadAdd & NumpadEnter::
+sendinput, {space}
+Auto_Select(Aclass, Cbox)
+return
+
+NumpadAdd & Numpad1::MultipleAutoSelect(1)
+NumpadAdd & Numpad2::MultipleAutoSelect(2)
+NumpadAdd & Numpad3::MultipleAutoSelect(3)
+NumpadAdd & Numpad4::MultipleAutoSelect(4)
+NumpadAdd & Numpad5::MultipleAutoSelect(5)
+
+
+;:::slect product 
+Mbutton & Rbutton::Click, 413, 384 L
 #IfWinActive, Select batches 
 Numlock::winclose, Select batches
 numpadenter::!o ;sendinput {tab}{shift down}{tab 6}{shift Up}{enter}
@@ -14,13 +40,6 @@ Enter::ControlClick, WindowsForms10.Window.8.app.0.33c0d9d15 Ok, Select batches,
 #ifwinactive, Lot template login,
 numpadenter::!o
 Enter::!o
-#ifwinactive,
-
-Mbutton::   ;||||||||||  autoselect result
-Click,
-Click, 2
-Auto_Select(Aclass, Cbox)
-return 
 
 
 ;:::::::::select batches/lots/material number
@@ -70,14 +89,25 @@ sendinput {enter}{tab}%lotnumber%
 return
 
 
-
-
-
-
-;{:::::::::::::::::::::::::::::::::::::review Run::::::::::::::::::::::::::::::::::::::::
+;{::::::::::::::::::::review Run
 Numlock & right::Click, 771, 141 Left, 1 ;RELEASE RUN
 Numlock & Down::ReviewRunLoop()
 Numlock & pgup::ReviewRun() 
 
 
-;}
+
+#IfWinActive, Replicates Number
+NumpadEnter::
+enter::sendinput {tab}{space}
+
+#Ifwinactive, Quick Results
+;::::enter 2 measurement results 9 times
+Numpadmult & Numpad1::ReplicateByNine(1)
+Numpadmult & Numpad2::ReplicateByNine(2)
+Numpadmult & Numpad3::ReplicateByNine(3)
+Numpadmult & Numpad4::ReplicateByNine(4)
+Numpadmult & Numpad5::ReplicateByNine(5)
+Numpadmult & Numpad6::ReplicateByNine(6)
+Numpadmult & Numpad7::ReplicateByNine(7)
+Numpadmult & Numpad8::ReplicateByNine(8)
+Numpadmult & Numpad9::ReplicateByNine(9)
