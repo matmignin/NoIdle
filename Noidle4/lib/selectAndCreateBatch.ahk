@@ -60,6 +60,8 @@ numpadenter::click, 589, 391
 
 ;::::::::::create batch window::::::
 #IfWinActive, Select Login Method
+
+Numlock & numpadadd::CreateBatch()
 numpadMult::
 InputBox, Bulknumber, Item Number, Enter the BULK LIQUID Item Number., , 240, 180
 if ErrorLevel
@@ -101,6 +103,7 @@ NumpadEnter::
 enter::sendinput {tab}{space}
 
 #Ifwinactive, Quick Results
+numpadenter::!o
 ;::::enter 2 measurement results 9 times
 Numpadmult & Numpad1::ReplicateByNine(1)
 Numpadmult & Numpad2::ReplicateByNine(2)

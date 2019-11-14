@@ -1,0 +1,7 @@
+﻿<?xml version="1.0"?>
+<gui>
+	<win win="1" pos="x833 y0 w838 h968">
+		<control h="924" w="602" x="0" y="0" type="Scintilla" file="H:\QC LAB\MH\NoIdle\Noidle4\NoIdle4.ahk" hwnd="2" ra="3" last="1"></control>
+		<control h="148" w="236" x="602" y="0" lp="0.71837709" type="Project Explorer" ba="4" hwnd="3"></control>
+		<control h="776" w="236" x="602" y="148" lp="0.71837709" tp="0.16015132" type="Code Explorer" hwnd="4"></control></win>
+</gui>

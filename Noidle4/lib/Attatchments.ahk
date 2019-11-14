@@ -2,7 +2,7 @@
 
 ;:::attatch a file
 #IfWinActive, STARLIMS10.Live ahk_exe xv.exe
-
+;Numpadadd & Numpaddot::
 Mbutton & WheelDown::Attatch(SGattachment, PVattachment, pickScanner)
 Mbutton & Wheelup::
 Attatch(SGattachment, PVattachment, pickComponent)

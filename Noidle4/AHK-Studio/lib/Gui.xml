@@ -1,7 +1,0 @@
-﻿<?xml version="1.0"?>
-<gui>
-	<win win="1" pos="x960 y0 w944 h991">
-		<control h="947" w="758" x="0" y="0" type="Scintilla" file="\\tsclient\PDI\NoIdle4\lib\Attatchments.ahk" hwnd="2" ra="3" last="1"></control>
-		<control h="427" w="186" x="758" y="0" lp="0.80337079" type="Project Explorer" ba="4" hwnd="3"></control>
-		<control h="520" w="186" x="758" y="427" lp="0.80337079" tp="0.45045045" type="Code Explorer" hwnd="4"></control></win>
-</gui>

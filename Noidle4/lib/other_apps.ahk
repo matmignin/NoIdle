@@ -16,10 +16,10 @@ Numpadadd & Left::sendinput, b83{enter 2}api{enter}10{enter}
 Numlock & Numpaddiv::sendinput, %BPCSuser%{tab}%bpcsPassword%{enter 2}b83{enter 2}api{enter}10{enter}
 #IfWinActive, Signon to iSeries ahk_class #32770
 Numlock & Numpaddiv::
-	sendinput, %BPCSpassword%{tab 3}%BPCSuser%{enter}
-	sleep 300
-	sendinput, %BPCSuser%{tab}%bpcsPassword%{enter 2}b83{enter 2}api{enter}10{enter}
-	return
+sendinput, %BPCSpassword%{tab 3}%BPCSuser%{enter}
+sleep 300
+sendinput, %BPCSuser%{tab}%bpcsPassword%{enter 2}b83{enter 2}api{enter}10{enter}
+return
 
 ;:::::::::::::::::::::::::::totalchorms
 
@@ -35,10 +35,6 @@ return
 Numlock & numpaddiv::login(totalChromeUser, totalChromePassword)
 
 ;::::::::::EXEL
-
-#IfWinActive, Find and Replace ahk_exe EXCEL.EXE
-	numpadEnter::send, !i{200}{esc}^{right}{right}P ;^f%lotnumber%
-	numpadsub::sendinput, !n%lotnumber%
 #ifwinactive, ahk_exe EXCEL.EXE
 	Numpadadd & numpadEnter::sendinput ^f{ctrlup}!t!hw{enter}!n%lotnumber%
 	Numpadadd & NumpadDot::sendinput {ctrldown}f{ctrlup}{AltDown}th{altup}w{enter}{altdown}n{altup}{Delete}
@@ -46,6 +42,11 @@ Numlock & numpaddiv::login(totalChromeUser, totalChromePassword)
 	Mbutton::sendinput ^-
 	Mbutton & WheelUp::send ^{up}
 	Mbutton & Wheeldown::send ^{down}
+
+#IfWinActive, Find and Replace ahk_exe EXCEL.EXE
+	numpadEnter::send, !i{200}{esc}^{right}{right}P ;^f%lotnumber%
+	numpadsub::sendinput, !n%lotnumber%
+
 #Ifwinactive, Release update
 	\::Sendinput {tab}%lotnumber%
 #ifwinactive, Property Grid Form
@@ -102,21 +103,19 @@ Winclose, Attachments
 Return
 
 ;:::::: calculator
-#IfWinExist, ahk_exe calc.exe
-NumpadAdd & Numpad0::
-WinActivate, ahk_exe calc.exe
-return
-#ifwinactive
+NumpadAdd & Numpad0::WinActivate, ahk_exe calc.exe
 
-;{:::::::::::AHK studio
+
+;:::::::::::AHK studio
 #IfWinActive, ahk_class AutoHotkeyGUI
 Mbutton::sendinput !r
 F12::
 sendinput, {ctrldown}s{ctrlup}
 sleep 200
-sendinput {ctrldown}{f7}{ctrlup}
+;sendinput {ctrldown}{f7}{ctrlup}
 ExitApp
 return
+Mbutton & WheelDown::winactivate, STARLIMS10.Live
 
 ;:::::::::::::::::Microsoft SQL 
 #IfWinActive, ahk_exe Ssms.exe
@@ -125,5 +124,14 @@ NumpadEnter::Sendinput {F5}
 enter::sendinput {enter}
 
 
+#IfWinActive, ahk_exe NAPS2.exe
+	;:::::::save selected jpeg
+Mbutton::Sendinput {Click, 447, 29}{100}s
 
-
+#IfWinActive, 
+Insert::
+IfWinExist, ahk_exe NAPS2.exe
+	winactivate, ahk_exe NAPS2.exe
+sleep 100
+sendinput {f6}{200}!{tab}
+return

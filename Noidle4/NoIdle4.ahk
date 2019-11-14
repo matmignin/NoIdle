@@ -39,8 +39,6 @@ Adobe = AcroRd32.exe
 Excel = EXCEL.EXE
 Window = WINWORD.EXE
 
-
-
 FormatTime, Year,,yy
 FormatTime, Today,, dd
 FormatTime, Month,, MM
@@ -87,16 +85,12 @@ return
 
 return   
 
-
-
 MoveMouse:
 If ( A_TimeIdle > 99999 ) {
 	MouseMove, 1 , 1,, R
 	MouseMove, -1,-1,, R
 }
 return
-
-
 
 
 ;{____________________________________________Functions______________________________________________________________
@@ -175,16 +169,15 @@ ReplicateByNine(NumberOfReps)	{
 
 CreateBatch() {
 	InputBox, itemNumber, Item Number, Enter the Item Number., , 240, 180
+	firstNumber := substr(itemNumber, 1)
 	if ErrorLevel
-		Return
-	else
-		firstNumber := substr(itemNumber, 1)
-	msgbox, %firstNumber%
-	sendinput {tab}{tab}{enter}
-	Click, %samplegroup% Left, 1
+		exit
+	else {	
+		ControlClick, WindowsForms10.STATIC.app.0.33c0d9d5, Select Login Method, Batch Template
+	}
 	if (firstNumber="4") {
-		sendinput b{enter}
-		batchOrLot = %batchNumber%
+		ControlClick, WindowsForms10.COMBOBOX.app.0.33c0d9d1, Lot template login, Bulk Liquid
+		;batchOrLot = %batchNumber%
 	}
 	else {
 		sendinput r{enter}
@@ -196,9 +189,15 @@ CreateBatch() {
 	sendinput {enter}{tab}%batchOrLot%
 	return
 }
-
-
-
+/*   example of old way of doing it
+	send {tab}{tab}{enter}
+	Click, %samplegroup% Left, 1
+	sendinput b{enter}
+	Click, %grouptemplate% Left, 1
+	send %Bulknumber%
+	Sendinput {enter}{tab}%batchNumber%
+	return
+*/
 login(user, password) {
 	Sendinput %user%{tab}{200}%password%{enter}
 	sleep 200
@@ -383,7 +382,7 @@ Auto_Select(Aclass, Cbox) { ;|||||||||||||||| Numpadmult + # change reps
 
 Change_Rep(changerep, Reps, numberOf) {  ;|||||||||||||||| Numpadmult + # change reps
 	mousegetpos xx, yy
-	yy -= 18
+	;yy -= 18
 	loop, %numberOf%
 	{
 		sleep 200
