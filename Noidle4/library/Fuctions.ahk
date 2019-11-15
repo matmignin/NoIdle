@@ -140,18 +140,15 @@ Raw_MaterialCOA(select, x) {   ;||||||||||||||||numpad subtract
 
 
 
-MultipleAutoSelect(NumberOfEntries) {
-	loop, %NumberOfEntries% {
-		sendinput, {space}
-		sleep 500
-		Auto_Select(AutoSelectWindow, AutoSelectCombobox)
-	}
-}	 
 
-Auto_Select(AutoSelectWindow, AutoSelectCombobox) { ;|||||||||||||||| Numpadmult + # change reps
+Auto_Select(AutoSelectWindow, AutoSelectCombobox) {
+	global 								;|||||||||||||||| Numpadmult + # change reps
 	WinWaitActive, Resent List, , 3
-	if ErrorLevel
-		exit
+	if ErrorLevel {
+		Send {down}
+		sleep 200
+		return
+		}
 	else
 	{
 		ControlGet, ItemList, List,, % AutoSelectCombobox, % AutoSelectWindow
@@ -172,10 +169,10 @@ Auto_Select(AutoSelectWindow, AutoSelectCombobox) { ;|||||||||||||||| Numpadmult
 		}
 		else 
 		{
-			send {delete}
+			sendinput, m
 		}
 		Control, ChooseString, % Pick, % AutoSelectCombobox, % AutoSelectWindow
-		sleep 200
+		sleep 100
 		send {enter}
 		return
 	}
@@ -183,6 +180,13 @@ Auto_Select(AutoSelectWindow, AutoSelectCombobox) { ;|||||||||||||||| Numpadmult
 }
 
 
+MultipleAutoSelect(NumberOfEntries) {
+	Global
+	loop, %NumberOfEntries% {
+		sendinput, {space}
+		Auto_Select(AutoSelectWindow, AutoSelectCombobox)
+	}
+}	 
 
 
 Login(user, password) {

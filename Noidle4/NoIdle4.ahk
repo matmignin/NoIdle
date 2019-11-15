@@ -230,8 +230,12 @@ Capslock & d::sendinput {home}{SHIFTDown}{end}{shiftUp}{delete}
 Capslock & o::sendinput {end}{return}{down}
 Capslock & b::sendinput {CtrlDown}{left}{CtrlUp}
 
+F11 & F12::
+sendinput ^s
+Reload
+return
 
-
+F11::SENDINPUT {f11}
 
 MoveMouse:
 If ( A_TimeIdle > 99999 ) {
