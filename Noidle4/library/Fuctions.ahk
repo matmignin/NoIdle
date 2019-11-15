@@ -309,10 +309,7 @@ Bulk_Liquid(select, samplegroup, grouptemplate) {
 	Click, %select% Left, 1
 	winwait, Select batches, , 3
 	if ErrorLevel
-	{
 		return
-	}
-	;Else
 	IfWinActive, Select batches,
 	{
 		sleep 200
@@ -324,22 +321,14 @@ Bulk_Liquid(select, samplegroup, grouptemplate) {
 		sleep 200
 		ifwinactive, Select Login Method
 		{
-			sleep 150
-			InputBox, Bulknumber, Item Number, Enter the BULK LIQUID Item Number., , 240, 180
-			if ErrorLevel
-				Return
-			else
-				sendinput {tab}{tab}{enter}
+			sleep 300
+			CreateBatch()
+			return
 		}
-		Click, %samplegroup% Left, 1
-		sendinput b{enter}
-		Click, %grouptemplate% Left, 1
-		send %Bulknumber%
-		Sendinput {enter}{tab}%batchNumber%
-		return
 	}
 }
 
+	
 Raw_Material(select, samplegroup, grouptemplate) {   
 	global
 	Click, %select% Left, 1
@@ -358,28 +347,19 @@ Raw_Material(select, samplegroup, grouptemplate) {
 		sleep 200
 		ifwinactive, Select Login Method
 		{
-			sleep 150
-			InputBox, itemnumber, Item Number, Enter the RAW MATERIAL Item Number., , 240, 180
-			if ErrorLevel
-				Return
-			else
-				sendinput {tab}{tab}{enter}
+			sleep 300
+			CreateBatch()
+			return
 		}
-		Click, %samplegroup% Left, 1
-		sendinput r{enter}
-		Click, %grouptemplate% Left, 1
-		send %itemnumber%
-		sendinput {enter}{tab}%lotnumber%
-		return
 	}
 }
 Item_Number(select) { 
-	global
-	Click, %select% Left, 1
-	winwait, Select batches, , 3
-	if ErrorLevel
-		return
-	Else
-		sendinput {right}{tab 2}{enter}{right}mat{space}{enter}{tab 2}{down 3}{right 4}
-	return
-}
+			global
+			Click, %select% Left, 1
+			winwait, Select batches, , 3
+			if ErrorLevel
+				return
+			Else
+				sendinput {right}{tab 2}{enter}{right}mat{space}{enter}{tab 2}{down 3}{right 4}
+			return
+	}

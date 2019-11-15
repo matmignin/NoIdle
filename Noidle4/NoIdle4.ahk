@@ -111,7 +111,9 @@ Enter::ControlClick, WindowsForms10.Window.8.app.0.33c0d9d15 Ok, Select batches,
 ;::::::::::create batch window::::::
 SelectLoginMethod:
 #IfWinActive, Select Login Method
-Numlock & numpadadd::CreateBatch()
+numpadadd::CreateBatch()
+
+/*
 numpadMult::
 InputBox, Bulknumber, Item Number, Enter the BULK LIQUID Item Number., , 240, 180
 if ErrorLevel
@@ -139,6 +141,8 @@ sleep 200
 send %rawMaterialNumber%
 sendinput {enter}{tab}%lotnumber%
 return
+
+*/
 
 
 ;{::::::::::::::::::::review Run
