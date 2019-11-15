@@ -143,3 +143,4 @@ terraform.*.backup
 *.retry
 #
 Icon
+*.xml
