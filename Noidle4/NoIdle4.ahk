@@ -89,8 +89,15 @@ Enter::!o
 SelectBatches:
 #IfWinActive, Select batches
 	;:::::::::select batches/lots/material number
-Numlock & numpadmult::
+NumpadAdd::
 Click, %Search% left, 1
+if swap_code is 0
+	sendinput {tab 3}%BatchNumber%
+if swap_code is 1
+	sendinput {tab 3}%lotnumber%
+
+Numlock & numpadmult::
+
 sendinput {tab 3}%BatchNumber%
 return
 Numlock & Numpadsub::

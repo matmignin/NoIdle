@@ -1,7 +1,7 @@
 ﻿<?xml version="1.0"?>
 <gui>
-	<win win="1" pos="x311 y11 w944 h991" max="1">
-		<control h="638" w="1091" x="0" y="0" type="Scintilla" file="H:\QC LAB\MH\NoIdle\Noidle4\library\CreateBatch.ahk" hwnd="2" ra="3" last="1"></control>
-		<control h="287" w="267" x="1091" y="0" lp="0.80337079" type="Project Explorer" ba="4" hwnd="3"></control>
-		<control h="351" w="267" x="1091" y="287" lp="0.80337079" tp="0.45045045" type="Code Explorer" hwnd="4"></control></win>
+	<win win="1" pos="x-7 y0 w945 h1118" max="1">
+		<control h="1073" w="1542" x="0" y="0" type="Scintilla" file="H:\QC LAB\MH\NoIdle\Noidle4\NoIdle4.ahk" hwnd="2" ra="3" last="1"></control>
+		<control h="483" w="378" x="1542" y="0" lp="0.80337079" type="Project Explorer" ba="4" hwnd="3"></control>
+		<control h="590" w="378" x="1542" y="483" lp="0.80337079" tp="0.45045045" type="Code Explorer" hwnd="4"></control></win>
 </gui>
