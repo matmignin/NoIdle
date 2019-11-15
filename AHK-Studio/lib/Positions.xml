@@ -12,9 +12,19 @@
 	<file file="\\tsclient\PDI\NoIdle4\lib\other_apps.ahk" end="0" scroll="0" start="0"></file>
 	<file file="\\tsclient\PDI\NoIdle4\lib\Reps.ahk" end="1071" scroll="0" start="1071"></file>
 	<file file="\\tsclient\PDI\NoIdle4\lib\selectAndCreateBatch.ahk" end="0" scroll="31" start="0"></file>
-	<file file="H:\QC LAB\MH\NoIdle\Noidle4\NoIdle4.ahk" end="4803" scroll="159" start="4803"></file>
+	<file file="H:\QC LAB\MH\NoIdle\Noidle4\NoIdle4.ahk" end="2734" scroll="90" start="2700"></file>
 	<file file="H:\QC LAB\MH\NoIdle\Noidle4\lib\selectAndCreateBatch.ahk" end="198" scroll="0" start="198"></file>
 	<file file="H:\QC LAB\MH\NoIdle\Noidle4\lib\Attatchments.ahk" end="0" scroll="0" start="0"></file>
 	<file file="H:\QC LAB\MH\NoIdle\Noidle4\lib\other_apps.ahk" end="2137" scroll="18" start="2146"></file>
 	<main file="H:\QC LAB\MH\NoIdle\Noidle4\NoIdle4.ahk" search="control"></main>
+	<file file="H:\QC LAB\MH\NoIdle\Noidle4\lib\CreateBatch.ahk" end="475" scroll="0" start="475"></file>
+	<file file="H:\QC LAB\MH\NoIdle\Noidle4\lib\AutoSelect.ahk" end="0" scroll="0" start="0"></file>
+	<file file="H:\QC LAB\MH\NoIdle\Noidle4\lib\AdjustColumns.ahk" end="0" scroll="0" start="0"></file>
+	<file file="H:\QC LAB\MH\NoIdle\Noidle4\lib\Login.ahk" end="0" scroll="0" start="0"></file>
+	<file file="H:\QC LAB\MH\NoIdle\Noidle4\lib\Replicate.ahk" end="0" scroll="0" start="0"></file>
+	<file file="H:\QC LAB\MH\NoIdle\Noidle4\lib\ReviewRuns.ahk" end="0" scroll="0" start="0"></file>
+	<file file="H:\QC LAB\MH\NoIdle\Noidle4\lib\Variables.ahk" end="737" scroll="12" start="737"></file>
+	<file file="H:\QC LAB\MH\NoIdle\Noidle4\lib\ViewSamples.ahk" end="0" scroll="0" start="0"></file>
+	<file file="H:\QC LAB\MH\NoIdle\Noidle4\library\Variables.ahk" end="239" scroll="0" start="239"></file>
+	<file file="H:\QC LAB\MH\NoIdle\Noidle4\library\CreateBatch.ahk" end="34" scroll="0" start="34"></file>
 </positions>

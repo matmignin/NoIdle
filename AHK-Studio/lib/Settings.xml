@@ -112,10 +112,12 @@
 	</open>
 	<previous_scripts>
 		<script>H:\QC LAB\MH\NoIdle\AHK-Studio\Untitled\Untitled1.ahk</script>
+		<script>H:\QC LAB\MH\NoIdle\Noidle4\NoIdle4.ahk</script>
+		<script>H:\QC LAB\MH\NoIdle\Noidle4\AHK-Studio Backup\NoIdle4.ahk\20191114111414\NoIdle4.ahk</script>
 		<script>\\tsclient\PDI\NoIdle4\NoIdle4.ahk</script>
 		<script>\\tsclient\PDI\NoIdle4\AHK-Studio\Untitled\Untitled1.ahk</script>
 	</previous_scripts>
-	<SaveAs>\\tsclient\PDI\NoIdle4\AHK-Studio\tsclient\PDI\NoIdle4</SaveAs>
+	<SaveAs>H:\QC LAB\MH\NoIdle\Noidle4</SaveAs>
 	<search>
 		<find acdc="0" allfiles="0" Auto_Show="0" cs="0" daioc="0" gr="0" regex="0" sort="0"></find>
 	</search>

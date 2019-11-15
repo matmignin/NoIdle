@@ -87,7 +87,7 @@
 		<key add=")" trigger="("></key>
 		<key add="]" trigger="["></key>
 		<key add="}" trigger="{"></key></autoadd>
-	<options Manual_Continuation_Line="1" Full_Auto_Indentation="1" Focus_Studio_On_Debug_Breakpoint="1" Word_Wrap_Indicators="1" Context_Sensitive_Help="1" Auto_Complete="1" Auto_Complete_In_Quotes="1" Auto_Complete_While_Tips_Are_Visible="1"></options>
+	<options Manual_Continuation_Line="1" Full_Auto_Indentation="1" Focus_Studio_On_Debug_Breakpoint="1" Word_Wrap_Indicators="1" Context_Sensitive_Help="1" Auto_Complete="1" Auto_Complete_In_Quotes="1" Auto_Complete_While_Tips_Are_Visible="1" Auto_Indent_Comment_Lines="1" Hide_Library_Files_In_Code_Explorer="1" Word_Wrap="1"></options>
 	<autodelete>
 		<key close="&quot;" open="&quot;"></key>
 		<key close="%" open="%"></key>
@@ -100,17 +100,26 @@
 		<key close="}" open="{"></key>
 	</autodelete>
 	<gui zoom="0">
-		<position window="1" max="0"></position>
+		<position window="Settings" max="1" lastw="0" lastah="">h953 w900 x502 y84</position>
 		<position window="8">x477 y199 w710 h582</position>
 		<position window="Refresh_Code_Explorer">x721 y411 w231 h168</position>
-		<position window="5">x1087 y355 w390 h372</position></gui>
+		<position window="5">x1087 y355 w390 h372</position>
+		<position window="30">x577 y262 w206 h193</position>
+		<position window="1" max="0"></position></gui>
 	<previous_scripts>
 		<script>H:\QC LAB\MH\NoIdle\AHK-Studio\Older Versions\Untitled\Untitled1.ahk</script>
+		<script>H:\QC LAB\MH\NoIdle\Noidle4\library\CreateBatch.ahk</script>
+		<script>H:\QC LAB\MH\NoIdle\Noidle4\NoIdle4.ahk</script>
+		<script>H:\QC LAB\MH\NoIdle\Noidle4\Lib\Fuctions.ahk</script>
 	</previous_scripts>
 	<open>
 		<file>H:\QC LAB\MH\NoIdle\Noidle4\NoIdle4.ahk</file>
+		<file>C:\Users\mat.hough\Desktop\create batch.ahk</file>
 	</open>
 	<search>
 		<find acdc="0" allfiles="0" Auto_Show="0" cs="0" daioc="0" gr="0" regex="0" sort="0"></find>
 	</search>
+	<findreplace cs="0" currentsel="0" greed="0" Include="0" ml="0" regex="0"></findreplace>
+	<CustomColors Color1="0" Color2="0" Color3="0" Color4="0" Color5="0" Color6="0" Color7="0" Color8="0" Color9="0" Color10="0" Color11="0" Color12="0" Color13="0" Color14="0" Color15="0" Color16="0"></CustomColors>
+	<SaveAs>C:\Users\mat.hough\Desktop</SaveAs>
 </settings>
