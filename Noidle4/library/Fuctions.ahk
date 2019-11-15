@@ -20,7 +20,7 @@ Attatch(SGattachment, PVattachment, pick) {  ;|||||||||||||||||middle mouse & wh
 		WinWait, Attachments, , 2
 		if ErrorLevel
 		{
-			return
+			exit
 		}
 		Else
 			Click, %add% left, 1
@@ -54,10 +54,10 @@ Attatch(SGattachment, PVattachment, pick) {  ;|||||||||||||||||middle mouse & wh
 	sendinput, {tab}
 	sleep 300
 	winwaitclose, Open ahk_class #32770 ahk_exe xv.exe
-	sleep 500
+	sleep 300
 	winwait, ahk_class WindowsForms10.Window.8.app.0.33c0d9d ahk_exe xv.exe, , 3
 	if ErrorLevel {
-		sleep 400
+		sleep 00
 		Winactivate, ahk_class WindowsForms10.Window.8.app.0.33c0d9d ahk_exe xv.exe
 		sleep 100
 		ControlClick, Done, ahk_class WindowsForms10.Window.8.app.0.33c0d9d ahk_exe xv.exe

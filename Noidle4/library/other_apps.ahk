@@ -64,6 +64,7 @@ numpadEnter::send, !i{200}{esc}^{right}{right}P ;^f%lotnumber%
 numpadsub::sendinput, !n%lotnumber%
 */
 #Ifwinactive, Release update
+Numpadadd::
 \::Sendinput {tab}%lotnumber%
 #ifwinactive, Property Grid Form
 Mbutton::sendinput, {backspace 4}
