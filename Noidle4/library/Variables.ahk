@@ -8,7 +8,7 @@ SetDefaultMouseSpeed, 0
 DetectHiddenText, On
 SetTitleMatchMode, 2
 SetTimer, MoveMouse
-traytip, , Hit [ Home ] key for more info, 1
+traytip, , [ Home ] key for more info,
 ;Menu, Tray, Icon, library\Fish.ico,
 
 FileReadLine, PDIuser, %A_Desktop%\loginfo.txt, 1
@@ -35,13 +35,13 @@ AdjustB = L, 96, 342, 2
 BatchTemplateLink = WindowsForms10.STATIC.app.0.33c0d9d4, ahk_class WindowsForms10.Window.8.app.0.33c0d9d, Select Login Method, Batch Template, left, 1 
 AutoSelectCombobox = WindowsForms10.COMBOBOX.app.0.33c0d9d1
 AutoSelectWindow = ahk_class WindowsForms10.Window.8.app.0.33c0d9d
-AttachmentWindow = ahk_class WindowsForms10.Window.8.app.0.33c0d9d ahk_exe xv.exe
+AttachmentWindow = ahk_class WindowsForms10.Window.8.app.0.33c0d9d
+Window_LotTemplateLogin = ahk_class WindowsForms10.Window.8.app.0.33c0d9d
+Control_SampleGroupTemplateBox = WindowsForms10.COMBOBOX.app.0.33c0d9d2
+Control_SampleGroupBox = WindowsForms10.COMBOBOX.app.0.33c0d9d1 
+Click_SampleGroupTemplate = 700, 80
+Click_SampleGroupBox = 220, 80
 
-ControlSampleGroupTemplateBox = WindowsForms10.COMBOBOX.app.0.33c0d9d2, ahk_class WindowsForms10.Window.8.app.0.33c0d9d, Lot template login
-ControlSampleGroupBox = WindowsForms10.COMBOBOX.app.0.33c0d9d1, ahk_class WindowsForms10.Window.8.app.0.33c0d9d, Lot template login
-ClickSampleGroupTemplate = 700, 86 
-ClickSampleGroupBox = 200, 86
-ClickBatchTemplateLink = 343, 44
 
 
 
