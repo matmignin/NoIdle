@@ -1,4 +1,56 @@
 
+AnyWindow:
+#IfWinActive, 
+Insert & home::
+IfWinExist, ahk_exe NAPS2.exe
+	winactivate, ahk_exe NAPS2.exe
+sleep 100
+sendinput {f6}{200}!{tab}
+return
+;_______________Options
+#IfWinActive,
+Numpadadd::Sendinput, {shift down}={shift Up}
+NumpadSub::Sendinput -
+Numpadadd & numpadsub::Sendinput, %Lotnumber%
+Numpadadd & numpadmult::Sendinput, %batchNumber%
+Numlock & Numpaddiv::login(PDIUser, PDIPassword)
+Home::Msgbox, , Things to do, %HelpBox%
+Insert & Numpad0::
+InputBox, FillerZeros, Lot Code, enter redundent digits in Lot code that follow %year%   , , 240, 180,, 0000
+Lotnumber = %Year%%FillerZeros%
+
+
+;{:::::::::::::::::::: Vim controls
+Capslock & j::sendinput {down}
+Capslock & k::sendinput {up}
+Capslock & h::sendinput {left}
+Capslock & l::sendinput {right}
+Capslock & x::sendinput {Delete}
+Capslock & 4::sendinput {end}
+Capslock & 6::sendinput {Home}
+Capslock & w::sendinput {CtrlDown}{right}{CtrlUp}
+Capslock & d::sendinput {home}{SHIFTDown}{end}{shiftUp}{delete}
+Capslock & o::sendinput {end}{return}{down}
+Capslock & b::sendinput {CtrlDown}{left}{CtrlUp}
+
+F11 & F12::
+sendinput ^s
+Reload
+return
+
+F11::SENDINPUT {f11}
+
+MoveMouse:
+If ( A_TimeIdle > 99999 ) {
+	MouseMove, 1 , 1,, R
+	MouseMove, -1,-1,, R
+}
+return
+
+#IfWinActive, ahk_exe NAPS2.exe
+	;:::::::save selected jpeg
+Mbutton::Sendinput {Click, 447, 29}{100}s
+
 
 ;::::::::::::::::::::BPCS
 
@@ -20,6 +72,7 @@ sendinput, %BPCSpassword%{tab 3}%BPCSuser%{enter}
 sleep 300
 sendinput, %BPCSuser%{tab}%bpcsPassword%{enter 2}b83{enter 2}api{enter}10{enter}
 return
+insert::sendinput, !f!p
 
 ;:::::::::::::::::::::::::::totalchorms
 
@@ -49,20 +102,7 @@ Numpadadd & NumpadDot::sendinput {ctrldown}f{ctrlup}{AltDown}th{altup}w{enter}{a
 Capslock::CapsLock
 
 
-/*
 
-#ifwinactive, ahk_exe EXCEL.EXE
-Numpadadd & numpadEnter::sendinput ^f{ctrlup}!t!hw{enter}!n%lotnumber%
-Numpadadd & NumpadDot::sendinput {ctrldown}f{ctrlup}{AltDown}th{altup}w{enter}{altdown}n{altup}{Delete}
-Capslock::CapsLock
-Mbutton::sendinput ^-
-Mbutton & WheelUp::send ^{up}
-Mbutton & Wheeldown::send ^{down}
-
-#IfWinActive, Find and Replace ahk_exe EXCEL.EXE
-numpadEnter::send, !i{200}{esc}^{right}{right}P ;^f%lotnumber%
-numpadsub::sendinput, !n%lotnumber%
-*/
 #Ifwinactive, Release update
 Numpadadd::
 \::Sendinput {tab}%lotnumber%
@@ -118,7 +158,7 @@ WinClose, ahk_exe WINWORD.EXE
 sleep 200
 Winclose, Attachments
 Return
-
+;}
 ;:::::: calculator
 NumpadAdd & Numpad0::WinActivate, ahk_exe calc.exe
 
@@ -140,15 +180,3 @@ NumpadEnter::Sendinput {F5}
 +enter::Sendinput {F5}
 enter::sendinput {enter}
 
-
-#IfWinActive, ahk_exe NAPS2.exe
-	;:::::::save selected jpeg
-Mbutton::Sendinput {Click, 447, 29}{100}s
-
-#IfWinActive, 
-Insert::
-IfWinExist, ahk_exe NAPS2.exe
-	winactivate, ahk_exe NAPS2.exe
-sleep 100
-sendinput {f6}{200}!{tab}
-return

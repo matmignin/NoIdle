@@ -1,9 +1,8 @@
-Version = 4.14
+Version = 4.16
 
 #Include library\Variables.ahk
 #Include library\Fuctions.ahk
-#Include library\CreateBatch.ahk
-#Include library\other_apps.ahk
+#Include library\other.ahk
 
 
 
@@ -89,13 +88,14 @@ Enter::!o
 SelectBatches:
 #IfWinActive, Select batches
 	;:::::::::select batches/lots/material number
+/*
 NumpadAdd::
 Click, %Search% left, 1
 if swap_code is 0
 	sendinput {tab 3}%BatchNumber%
 if swap_code is 1
 	sendinput {tab 3}%lotnumber%
-
+*/
 Numlock & numpadmult::
 
 sendinput {tab 3}%BatchNumber%
@@ -115,41 +115,13 @@ numpadenter::!o ;sendinput {tab}{shift down}{tab 6}{shift Up}{enter}
 Enter::ControlClick, WindowsForms10.Window.8.app.0.33c0d9d15 Ok, Select batches,,,
 
 
-;::::::::::create batch window::::::
+;::::::::::create batch widow::::::
 SelectLoginMethod:
 #IfWinActive, Select Login Method
+numpadmult::
+numpadsub::
 numpadadd::CreateBatch()
 
-/*
-numpadMult::
-InputBox, Bulknumber, Item Number, Enter the BULK LIQUID Item Number., , 240, 180
-if ErrorLevel
-	Return
-else
-	sendinput {tab}{tab}{enter}
-Click, %samplegroup% Left, 1
-sendinput b{enter}
-Click, %grouptemplate% Left, 1
-sleep 200
-send %Bulknumber%
-Sendinput {enter}{tab}%BatchNumber%
-return
-
-numpadSub::
-InputBox, rawMaterialNumber, Item Number, Enter the RAW MATERIAL Item Number., , 240, 180
-if ErrorLevel
-	Return
-else
-	sendinput {tab}{tab}{enter}
-Click, %samplegroup% Left, 1
-sendinput r{enter}
-Click, %grouptemplate% Left, 1
-sleep 200
-send %rawMaterialNumber%
-sendinput {enter}{tab}%lotnumber%
-return
-
-*/
 
 
 ;{::::::::::::::::::::review Run
@@ -178,18 +150,6 @@ Numpadmult & Numpad7::ReplicateByNine(7)
 Numpadmult & Numpad8::ReplicateByNine(8)
 Numpadmult & Numpad9::ReplicateByNine(9)
 
-
-
-
-
-
-
-
-
-
-
-
-
 Attatchments:
 #IfWinActive, Attachments ahk_class WindowsForms10
 Numlock::Winclose, Attachments
@@ -210,47 +170,3 @@ Return
 Open:
 #ifwinactive, Open
 NumpadEnter::SubmitAttatchment() 
-
-
-
-
-AnyWindow:
-;_______________Options
-#IfWinActive,
-Numpadadd::Sendinput, {shift down}={shift Up}
-NumpadSub::Sendinput -
-Numpadadd & numpadsub::Sendinput, %Lotnumber%
-Numpadadd & numpadmult::Sendinput, %batchNumber%
-Numlock & Numpaddiv::login(PDIUser, PDIPassword)
-Home::Msgbox, , Things to do, %HelpBox%
-Insert & Home::
-InputBox, FillerZeros, Lot Code, enter redundent digits in Lot code that follow %year%   , , 240, 180,, 0000
-Lotnumber = %Year%%FillerZeros%
-
-
-;{:::::::::::::::::::: Vim controls
-Capslock & j::sendinput {down}
-Capslock & k::sendinput {up}
-Capslock & h::sendinput {left}
-Capslock & l::sendinput {right}
-Capslock & x::sendinput {Delete}
-Capslock & 4::sendinput {end}
-Capslock & 6::sendinput {Home}
-Capslock & w::sendinput {CtrlDown}{right}{CtrlUp}
-Capslock & d::sendinput {home}{SHIFTDown}{end}{shiftUp}{delete}
-Capslock & o::sendinput {end}{return}{down}
-Capslock & b::sendinput {CtrlDown}{left}{CtrlUp}
-
-F11 & F12::
-sendinput ^s
-Reload
-return
-
-F11::SENDINPUT {f11}
-
-MoveMouse:
-If ( A_TimeIdle > 99999 ) {
-	MouseMove, 1 , 1,, R
-	MouseMove, -1,-1,, R
-}
-return
