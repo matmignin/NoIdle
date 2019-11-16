@@ -11,7 +11,7 @@ Thumbs.db
 .Ulysses-Group.plist
 *.swo
 *\AHK-Studio Backup\*
-AHK-Studio Backup\*
+AHK-Studio*
 */AHK-Studio Backup/*
 AHK-Studio Backup/*
 creds/serviceaccount.json
