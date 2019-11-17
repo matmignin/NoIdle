@@ -11,7 +11,7 @@ Thumbs.db
 .Ulysses-Group.plist
 *.swo
 \*AHK-Studio Backup\*
-AHKstuff\*
+AHKstuff/*
 *\old\AHK-Studio Backup\*
 creds/serviceaccount.json
 
@@ -143,6 +143,3 @@ terraform.*.backup
 #
 Icon
 *.xml
-
-AHK-Studio/*
-AHKstuff/*
