@@ -143,3 +143,6 @@ terraform.*.backup
 #
 Icon
 *.xml
+
+AHK-Studio/*
+AHKstuff/*
