@@ -10,8 +10,8 @@ Thumbs.db
 .LSOverride
 .Ulysses-Group.plist
 *.swo
-AHK-Studio Backup\*
-AHK-Studio Backup/*
+\*AHK-Studio Backup\*
+AHKstuff\*
 *\old\AHK-Studio Backup\*
 creds/serviceaccount.json
 
@@ -142,3 +142,4 @@ terraform.*.backup
 *.retry
 #
 Icon
+*.xml
