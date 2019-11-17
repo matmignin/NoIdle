@@ -1,7 +1,0 @@
-﻿<?xml version="1.0"?>
-<gui>
-	<win win="1" pos="x195 y2 w1523 h839" max="1">
-		<control h="963" w="1542" x="0" y="0" type="Scintilla" file="\\tsclient\noidle\unimportant_code.ahk" hwnd="2" ra="3"></control>
-		<control h="436" w="378" x="1542" y="0" lp="0.803125" type="Project Explorer" hwnd="3" ba="4"></control>
-		<control h="527" w="378" x="1542" y="436" lp="0.803125" tp="0.45265349" type="Code Explorer" hwnd="4"></control></win>
-</gui>

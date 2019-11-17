@@ -147,8 +147,8 @@ Auto_Select(AutoSelectWindow, AutoSelectCombobox) {
 	if ErrorLevel {
 		Send {down}
 		sleep 200
-		return
-		}
+		exit
+	}
 	else
 	{
 		ControlGet, ItemList, List,, % AutoSelectCombobox, % AutoSelectWindow
@@ -167,13 +167,18 @@ Auto_Select(AutoSelectWindow, AutoSelectCombobox) {
 		{
 			Pick := Selection[3]
 		}
+		else if InStr(Selection[4], Done)
+		{
+			Pick := Selection[4]
+		}
 		else 
 		{
 			sendinput, m
 		}
 		Control, ChooseString, % Pick, % AutoSelectCombobox, % AutoSelectWindow
-		sleep 100
+		sleep 300
 		send {enter}
+		sleep 300
 		return
 	}
 	
@@ -185,6 +190,7 @@ MultipleAutoSelect(NumberOfEntries) {
 	loop, %NumberOfEntries% {
 		sendinput, {space}
 		Auto_Select(AutoSelectWindow, AutoSelectCombobox)
+		sleep 200
 	}
 }	 
 

@@ -100,6 +100,7 @@ Numlock & numpaddiv::login(totalChromeUser, totalChromePassword)
 ;::::::::::EXEL
 #IfWinActive, ahk_exe EXCEL.EXE
 	Numlock::Sendinput, {f2}
+	
 
 #IfWinActive, Find and Replace ahk_exe EXCEL.EXE
 numpadEnter::sendinput, {alt down}i{alt up}
