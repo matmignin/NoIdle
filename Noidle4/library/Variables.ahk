@@ -8,7 +8,7 @@ SetDefaultMouseSpeed, 0
 DetectHiddenText, on
 SetTitleMatchMode, 2
 SetTimer, MoveMouse
-Menu, Tray, Icon, library\Fish.ico,
+;Menu, Tray, Icon, library\Fish.ico,
 traytip, Press [ Home ], For help
 
 
