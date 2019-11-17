@@ -20,9 +20,9 @@ NumpadMult::Bulk_Liquid(select, samplegroup, grouptemplate)
 End::Adjust_Columns()
 
 Mbutton::   ;||||||||||  autoselect result
-Click,
-Click, 2
-Auto_Select(AutoSelectWindow, AutoSelectCombobox)
+;Click,
+;Click, 2
+Auto_Select(AutoSelectWindow, AutoSelectCombobox, 2)
 return 
 
 NumpadAdd & Numpad1::MultipleAutoSelect(1)
@@ -31,14 +31,14 @@ NumpadAdd & Numpad3::MultipleAutoSelect(3)
 NumpadAdd & Numpad4::MultipleAutoSelect(4)
 NumpadAdd & Numpad5::MultipleAutoSelect(5)
 ;::::change test replicates
-Numpadmult & numpad0::Change_Rep(changerep, 10, 4)
+Numpadmult & numpad0::Change_Rep(changerep, 10, 1)
 Numpadmult & numpad1::Change_Rep(changerep, 1, 1)
 Numpadmult & numpad2::Change_Rep(changerep, 2, 1)
 
 ;::::repeat multiple auto select results
 NumpadAdd & NumpadEnter::
-sendinput, {space}
-Auto_Select(AutoSelectWindow, AutoSelectCombobox)
+;sendinput, {space}
+Auto_Select(AutoSelectWindow, AutoSelectCombobox, 0)
 return
 
 ;:::attatch a file

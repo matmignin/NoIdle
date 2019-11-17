@@ -192,3 +192,9 @@ NumpadEnter::Sendinput {F5}
 +enter::Sendinput {F5}
 enter::sendinput {enter}
 
+/*
+	;Screen locations
+ClickLink(ScreenLocation) {
+	mouseGetPos, Xpos, Ypos
+	click, %screenLocation%, 
+	MouseMove, Xpos, Ypos

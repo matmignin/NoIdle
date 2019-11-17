@@ -18,12 +18,7 @@ FileReadLine, BPCSPassword, %A_Desktop%\loginfo.txt, 4
 FileReadLine, totalChromUser, %A_Desktop%\loginfo.txt, 5
 FileReadLine, totalChromPassword, %A_Desktop%\loginfo.txt, 6
 
-;Screen locations
-ClickLink(ScreenLocation) {
-click, %screenLocation%
 
-
-}
 
 samplegroup = 268, 83
 Search = 70, 60
