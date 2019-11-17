@@ -41,7 +41,7 @@ return
 F11::SENDINPUT {f11}
 
 MoveMouse:
-If ( A_TimeIdle > 99999 ) {
+If ( A_TimeIdle > 180000 ) {
 	MouseMove, 1 , 1,, R
 	MouseMove, -1,-1,, R
 }
