@@ -10,10 +10,9 @@ Thumbs.db
 .LSOverride
 .Ulysses-Group.plist
 *.swo
-*\AHK-Studio Backup\*
-AHK-Studio*
-*/AHK-Studio Backup/*
+AHK-Studio Backup\*
 AHK-Studio Backup/*
+*\old\AHK-Studio Backup\*
 creds/serviceaccount.json
 
 # Byte-compiled / optimized / DLL files
@@ -23,7 +22,7 @@ __pycache__/
 
 # C extensions
 *.so
-
+*AHK-Studio Backup\*
 # Distribution / packaging
 .Python
 build/
@@ -32,7 +31,7 @@ dist/
 downloads/
 eggs/
 .eggs/
-
+lib/
 lib64/
 parts/
 sdist/
@@ -143,9 +142,3 @@ terraform.*.backup
 *.retry
 #
 Icon
-*.xml
-AHKstuff/AHK studio/Older Versions/Lib/Menus.xml
-AHKstuff/AHK studio/Older Versions/Lib/Settings.xml
-*.xml
-*.xml
-*.xml
