@@ -20,7 +20,7 @@ InputBox, FillerZeros, Lot Code, enter redundent digits in Lot code that follow 
 Lotnumber = %Year%%FillerZeros%
 
 
-;{:::::::::::::::::::: Vim controls
+;:::::::::::::::::::: Vim controls
 Capslock & j::sendinput {down}
 Capslock & k::sendinput {up}
 Capslock & h::sendinput {left}
@@ -47,14 +47,24 @@ If ( A_TimeIdle > 99999 ) {
 }
 return
 
+
+ScannerApp:
 #IfWinActive, ahk_exe NAPS2.exe
 	;:::::::save selected jpeg
+numpadadd::
 Mbutton::Sendinput {Click, 447, 29}{100}s
+Numpadsub::Sendinput {delete}
+Mbutton & Rbutton::sendinput, {click}{delete}{200}{enter}
+#IfWinActive, Save As ahk_exe NAPS2.exe
+Numlock::sendinput {escape}
 
 
 ;::::::::::::::::::::BPCS
 
 #IfWinActive, ahk_exe pcsws.exe
+insert::send, {AltDown}fp{AltUp}
+
+numlock & Numpad0::send, {enter}{AltDown}fp{AltUp}{f3}
 NumpadEnter::sendinput {enter}
 Mbutton & Rbutton::sendinput %month%{right}%today%{right}%year%{right}{down}{left 8}
 Numpadsub::sendinput 02%lotnumber%
@@ -72,7 +82,7 @@ sendinput, %BPCSpassword%{tab 3}%BPCSuser%{enter}
 sleep 300
 sendinput, %BPCSuser%{tab}%bpcsPassword%{enter 2}b83{enter 2}api{enter}10{enter}
 return
-insert::sendinput, !f!p
+
 
 ;:::::::::::::::::::::::::::totalchorms
 
@@ -88,7 +98,8 @@ return
 Numlock & numpaddiv::login(totalChromeUser, totalChromePassword)
 
 ;::::::::::EXEL
-
+#IfWinActive, ahk_exe EXCEL.EXE
+	Numlock::Sendinput, {f2}
 
 #IfWinActive, Find and Replace ahk_exe EXCEL.EXE
 numpadEnter::sendinput, {alt down}i{alt up}
@@ -101,11 +112,11 @@ Numpadadd & numpad0::sendinput {ctrldown}f{ctrlup}{AltDown}th{altup}w{enter}{alt
 Numpadadd & NumpadDot::sendinput {ctrldown}f{ctrlup}{AltDown}th{altup}w{enter}{altdown}n{altup}{Delete}
 Capslock::CapsLock
 
-
-
 #Ifwinactive, Release update
 Numpadadd::
 \::Sendinput {tab}%lotnumber%
+
+
 #ifwinactive, Property Grid Form
 Mbutton::sendinput, {backspace 4}
 NumpadEnter::

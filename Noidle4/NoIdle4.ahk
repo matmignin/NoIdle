@@ -124,7 +124,7 @@ numpadadd::CreateBatch()
 
 
 
-;{::::::::::::::::::::review Run
+;::::::::::::::::::::review Run
 Numlock & right::Click, 771, 141 Left, 1 ;RELEASE RUN
 Numlock & Down::ReviewRunLoop()
 Numlock & pgup::ReviewRun() 
