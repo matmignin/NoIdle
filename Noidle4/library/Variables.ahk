@@ -5,11 +5,12 @@ SetNumlockState AlwaysOn
 coordmode, mouse,Client
 SetKeyDelay, 100
 SetDefaultMouseSpeed, 0
-DetectHiddenText, On
+DetectHiddenText, on
 SetTitleMatchMode, 2
 SetTimer, MoveMouse
-traytip, , [ Home ] key for more info,
-;Menu, Tray, Icon, library\Fish.ico,
+Menu, Tray, Icon, library\Fish.ico,
+traytip, Press [ Home ], For help
+
 
 FileReadLine, PDIuser, %A_Desktop%\loginfo.txt, 1
 FileReadLine, PDIPassword, %A_Desktop%\loginfo.txt, 2
@@ -24,28 +25,16 @@ samplegroup = 268, 83
 Search = 70, 60
 select = 45, 73
 Add = 55, 55
+SelectBatchesOK = 589, 391
 PVAttachment = 650, 334
 SGAttachment = 350, 316
+Login_Link =
 pickScanner = sc
 pickComponent = com
 ChangeRep = 673, 316
 ReleaseRun = 771, 142
 AdjustA = L, 97, 120, 115, 122, 2
 AdjustB = L, 96, 342, 2
-
-
-BatchTemplateLink = WindowsForms10.STATIC.app.0.33c0d9d4, ahk_class WindowsForms10.Window.8.app.0.33c0d9d, Select Login Method, Batch Template, left, 1 
-AutoSelectCombobox = WindowsForms10.COMBOBOX.app.0.33c0d9d1
-AutoSelectWindow = ahk_class WindowsForms10.Window.8.app.0.33c0d9d
-AttachmentWindow = ahk_class WindowsForms10.Window.8.app.0.33c0d9d
-Window_LotTemplateLogin = ahk_class WindowsForms10.Window.8.app.0.33c0d9d
-Control_SampleGroupTemplateBox = WindowsForms10.COMBOBOX.app.0.33c0d9d2
-Control_SampleGroupBox = WindowsForms10.COMBOBOX.app.0.33c0d9d1 
-Click_SampleGroupTemplate = 700, 80
-Click_SampleGroupBox = 220, 80
-
-
-
 
 Adobe = AcroRd32.exe
 Excel = EXCEL.EXE
@@ -60,8 +49,8 @@ LetterMonth := JulianMonth[month]
 SingleYear = %year%{left}{backspace}{right}
 dailyStdDate = alch{space}std{space}%month%%today%%year%{space}MH
 BPCSdate = %month%{right}%today%{right}%year%{right}{down}{left 8}
-batchNumber = %singleYear%%lettermonth%
-Lotnumber = %Year%000
+BatchNumber = %singleYear%%lettermonth%
+LotNumber = %Year%000
 
 HelpBox = 
 ( 	
@@ -84,6 +73,3 @@ ____________ Miscellaneous  `n
          (currently: `"%lotnumber%___`") `n`n`n`n`n 
 ver. %version%
 )
-
-
-

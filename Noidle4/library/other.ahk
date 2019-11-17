@@ -48,6 +48,7 @@ If ( A_TimeIdle > 99999 ) {
 return
 
 
+
 ScannerApp:
 #IfWinActive, ahk_exe NAPS2.exe
 	;:::::::save selected jpeg
@@ -194,7 +195,29 @@ enter::sendinput {enter}
 
 /*
 	;Screen locations
-ClickLink(ScreenLocation) {
-	mouseGetPos, Xpos, Ypos
-	click, %screenLocation%, 
-	MouseMove, Xpos, Ypos
+	ClickLink(ScreenLocation) {
+		mouseGetPos, Xpos, Ypos
+		click, %screenLocation%, 
+		MouseMove, Xpos, Ypos
+		
+		
+
+old select folder thing
+	WinwaitActive, Open ahk_class #32770
+	sendinput, {shiftdown}{tab 3}{shiftup}%pick%
+	sleep 100
+	send {space}{TAB}{space}
+	sendinput, {tab}
+	sleep 300
+	winwaitclose, Open ahk_class #32770 ahk_exe xv.exe
+	sleep 300
+	WinWaitActive ahk_class WindowsForms10.Window.8.app.0.33c0d9d ahk_exe xv.exe, , 3
+	if ErrorLevel {
+		sleep 00
+		Winactivate, ahk_class WindowsForms10.Window.8.app.0.33c0d9d ahk_exe xv.exe
+		sleep 100
+		ControlClick, Done, ahk_class WindowsForms10.Window.8.app.0.33c0d9d ahk_exe xv.exe
+		return
+	}
+	else
+		Cont

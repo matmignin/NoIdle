@@ -4,6 +4,19 @@ Version = 4.16
 #Include library\Fuctions.ahk
 #Include library\other.ahk
 
+/*
+	DetectTab() 
+	if tab contains View Process Samples {
+		
+	}
+	if tab contains Pending Tests {
+
+	}
+	if Tab contains Create Batch {
+		
+		}
+
+*/
 
 
 return
@@ -12,43 +25,73 @@ return
 
 
 
+ViewSample(ProductCode) { 
+	global
+	Click, %select%
+	WinWait Select batches, , 4
+	sleep 200
+	sendinput {tab 3}%ProductCode%
+	If ProductCode = %LotNumber%
+		Swap_code = "Lot"
+	If ProductCode = %BatchNumber%
+		Swap_code = "Batch"
+}
+
 STARLIMS:
 #IfWinActive, STARLIMS10.Live ahk_exe xv.exe
-NumpadSub::Raw_Material(select, samplegroup, grouptemplate)
+Numpadadd::
+NumpadSub::ViewSample(LotNumber)
 NumpadDiv::Item_Number(select)
-NumpadMult::Bulk_Liquid(select, samplegroup, grouptemplate)
+NumpadMult::ViewSample(BatchNumber)
 End::Adjust_Columns()
 
-Mbutton::   ;||||||||||  autoselect result
-;Click,
-;Click, 2
-Auto_Select(AutoSelectWindow, AutoSelectCombobox, 2)
-return 
 
+;:::attatch a file
+numpadAdd & Numpaddot::Attatch("Scanner", 1)
+Mbutton & WheelDown::Attatch("Scanner", 0)
+Mbutton & Wheelup::Attatch("Component", 1)
+
+Attatch(PickFolder, Search) {
+	Global
+	DetectTab() 
+	if tab contains View Process Samples
+		click, %PVattachment%
+	if tab contains Pending Tests
+		click, %SGattachment%
+	Sleep 400
+	Winwait, Attachments,, 5
+	sleep 200
+	Click, %add%
+	Blockinput, on
+	sendinput, {shiftdown}{tab 3}{shiftup}%PickFolder%{300}{space}
+	sleep 200
+	send, {TAB}{space}
+	if Search = 1
+		sendinput, ^e
+	Blockinput, off
+	winwait, Attachments
+	sleep 200
+	WinClose, Attachments
+	return
+	
+}
+
+
+
+Mbutton::Auto_Select(AutoSelectWindow, AutoSelectCombobox, 2)
+NumpadAdd & NumpadEnter::Auto_Select(AutoSelectWindow, AutoSelectCombobox, 0)
 NumpadAdd & Numpad1::MultipleAutoSelect(1)
 NumpadAdd & Numpad2::MultipleAutoSelect(2)
 NumpadAdd & Numpad3::MultipleAutoSelect(3)
 NumpadAdd & Numpad4::MultipleAutoSelect(4)
 NumpadAdd & Numpad5::MultipleAutoSelect(5)
+
 ;::::change test replicates
 Numpadmult & numpad0::Change_Rep(changerep, 10, 1)
 Numpadmult & numpad1::Change_Rep(changerep, 1, 1)
 Numpadmult & numpad2::Change_Rep(changerep, 2, 1)
 
-;::::repeat multiple auto select results
-NumpadAdd & NumpadEnter::
-;sendinput, {space}
-Auto_Select(AutoSelectWindow, AutoSelectCombobox, 0)
-return
 
-;:::attatch a file
-;Numpadadd & Numpaddot::
-Mbutton & WheelDown::Attatch(SGattachment, PVattachment, pickScanner)
-Mbutton & Wheelup::
-Attatch(SGattachment, PVattachment, pickComponent)
-sleep 100
-sendinput, {ctrldown}e{ctrlup}
-return
 
 
 ; ::::::::::auto add scanned COAs
@@ -61,7 +104,7 @@ sleep 300
 Raw_Material(select, samplegroup, grouptemplate)
 sleep 300
 AttatchCOA(PVattachment)
-winwait, Select batches
+WinWaitActive Select batches
 keywait, NumpadEnter
 SubmitAttatchment()
 sleep 400
@@ -69,50 +112,22 @@ IfWinActive, Attachments
 	Winclose, Attachments
 return
 
-;  ||||||||||auto attach COA
-NumpadAdd & NumpadDot:: 
-Raw_Material(select, samplegroup, grouptemplate)
-WinWaitClose, Select batches
-sleep 1500
-AttatchCOA(PVattachment)
-return 
 
-
-return   
 LotTemplateLogin:
 #ifwinactive, Lot template login,
-numpadenter::!o
+numpadenter::
 Enter::!o
 
 
 SelectBatches:
 #IfWinActive, Select batches
-	;:::::::::select batches/lots/material number
-/*
-NumpadAdd::
-Click, %Search% left, 1
-if swap_code is 0
-	sendinput {tab 3}%BatchNumber%
-if swap_code is 1
-	sendinput {tab 3}%lotnumber%
-*/
-Numlock & numpadmult::
-
-sendinput {tab 3}%BatchNumber%
-return
-Numlock & Numpadsub::
-Click, %Search% left, 1
-sendinput {tab 3}%lotnumber%
-return
-Numpaddiv::
-Click, %Search% left, 1
-sendinput {right}{tab 2}{enter}{right}mat{space}{enter}{tab 2}{down 3}{right 4}
-return
-numpadenter::click, 589, 391
+NumpadAdd::SwapCode()
+Numlock & numpadmult::sendinput {click %search%}{tab 3}%BatchNumber%
+Numlock & Numpadsub::sendinput {click %search%}{tab 3}%lotnumber%
+Numpaddiv::sendinput {Click %Search%}{right}{tab 2}{enter}{right}mat{space}{enter}{tab 2}{down 3}{right 4}
+enter::
+numpadenter::click, %SelectBatchesOK%
 Numlock::winclose, Select batches
-numpadenter::!o ;sendinput {tab}{shift down}{tab 6}{shift Up}{enter}
-;Enter::!o ;Sendinput {tab}{shift down}{tab 6}{shift Up}{enter}
-Enter::ControlClick, WindowsForms10.Window.8.app.0.33c0d9d15 Ok, Select batches,,,
 
 
 ;::::::::::create batch widow::::::
@@ -151,14 +166,14 @@ Numpadmult & Numpad8::ReplicateByNine(8)
 Numpadmult & Numpad9::ReplicateByNine(9)
 
 Attatchments:
-#IfWinActive, Attachments ahk_class WindowsForms10
+#IfWinActive, Attachments
 Numlock::Winclose, Attachments
 NumpadEnter::Winclose, Attachments
 enter::Winclose, Attachments
 
 Mbutton::
 Click, %add% left, 1
-WinWait, Open , , 2
+WinWaitActive Open, , 2
 if ErrorLevel
 	return
 Else
