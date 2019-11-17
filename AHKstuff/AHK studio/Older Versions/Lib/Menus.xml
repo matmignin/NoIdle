@@ -158,7 +158,7 @@
 			<menu clean="Custom_Commands" hotkey="" name="Custom Commands" option="" plugin="plugins\Custom Commands.ahk"></menu>
 			<menu name="Personal &amp;Variable List" clean="Personal_Variable_List"></menu>
 			<menu name="Ms&amp;gBox Creator" clean="MsgBox_Creator" option="" plugin="plugins\MsgBox Creator.ahk"></menu>
-			<menu name="Github Repository" hotkey="!^G" clean="Github_Repository" option="" plugin="plugins\Github Repository.ahk"></menu>
+			<menu name="Github Repository" hotkey="!^G" clean="Github_Repository" option="" plugin="plugins\Github Repository.ahk" Plugin="Plugins\Github Repository.ahk"></menu>
 			<menu name="Update Github Info" clean="Update_Github_Info"></menu>
 			<menu name="Post &amp;All In One Gist" clean="Post_All_In_One_Gist" no="1" delete="1"></menu>
 			<menu name="Post &amp;Multiple Include Gist" clean="Post_Multiple_Include_Gist" no="1" delete="1"></menu>
@@ -336,6 +336,7 @@
 				<menu name="&amp;Social" clean="Social" no="1" delete="1"></menu>
 				<menu clean="Testing" name="Testing" hotkey="^K"></menu></menu>
 			<menu name="&amp;About" clean="About"></menu></menu>
+		<menu clean="Plugin" name="P&amp;lugin"></menu>
 	</main>
 	<date>20190509153041</date>
 </menus>

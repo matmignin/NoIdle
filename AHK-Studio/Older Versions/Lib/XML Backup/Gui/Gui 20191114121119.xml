@@ -1,7 +1,0 @@
-﻿<?xml version="1.0"?>
-<gui>
-	<win win="1" pos="x115 y95 w838 h740" max="1">
-		<control h="667" w="981" x="0" y="0" type="Scintilla" file="H:\QC LAB\MH\NoIdle\Noidle4\Lib\Fuctions.ahk" hwnd="2" ra="3" last="1"></control>
-		<control h="228" w="385" x="981" y="0" lp="0.71837709" type="Project Explorer" ba="4" hwnd="3"></control>
-		<control h="439" w="385" x="981" y="228" lp="0.71837709" tp="0.34131737" type="Code Explorer" hwnd="4"></control></win>
-</gui>

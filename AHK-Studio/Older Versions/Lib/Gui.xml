@@ -1,8 +1,0 @@
-﻿<?xml version="1.0"?>
-<gui>
-	<win win="1" pos="x377 y46 w675 h694">
-		<control h="623" w="580" x="0" y="0" type="Scintilla" file="H:\QC LAB\MH\NoIdle\Noidle4\library\CreateBatch.ahk" hwnd="2" ra="3" ba="5" last="1"></control>
-		<control h="223" w="95" x="580" y="0" lp="0.85925926" type="Project Explorer" hwnd="3" ba="4"></control>
-		<control h="430" w="95" x="580" y="223" lp="0.85925926" tp="0.34131737" type="Code Explorer" hwnd="4"></control>
-		<control hwnd="5" type="Debug" h="30" w="580" x="0" y="623" tp="0.95412844" ra="4"></control></win>
-</gui>
