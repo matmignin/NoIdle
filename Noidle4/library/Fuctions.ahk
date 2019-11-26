@@ -142,16 +142,14 @@ Auto_Select(AutoSelectWindow, AutoSelectCombobox, SpaceOrClick){
 	global
 	if (SpaceOrClick = 0)
 		Sendinput, {Space}
-	else {
+	else if (SpaceOrClick = 1) 
+  {
 		Click
 		Click, 2
 	}
 	WinWaitActive, Resent List, , 3
-	if ErrorLevel {
-		Send {down}
-		sleep 200
+	if ErrorLevel 
 		exit
-	}
 	else
 	{
 		ControlGet, ItemList, List,, % AutoSelectCombobox, % AutoSelectWindow
@@ -169,10 +167,6 @@ Auto_Select(AutoSelectWindow, AutoSelectCombobox, SpaceOrClick){
 		else if InStr(Selection[3], Done)
 		{
 			Pick := Selection[3]
-		}
-		else if InStr(Selection[4], Done)
-		{
-			Pick := Selection[4]
 		}
 		else 
 		{
