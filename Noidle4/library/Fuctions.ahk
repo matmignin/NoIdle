@@ -143,7 +143,7 @@ Auto_Select(AutoSelectWindow, AutoSelectCombobox, SpaceOrClick){
 	if (SpaceOrClick = 0)
 		Sendinput, {Space}
 	else if (SpaceOrClick = 1) 
-  {
+	{
 		Click
 		Click, 2
 	}
@@ -160,6 +160,10 @@ Auto_Select(AutoSelectWindow, AutoSelectCombobox, SpaceOrClick){
 		{
 			Pick := Selection[1]
 		}
+		else if InStr(Selection[2], Void)
+		{
+			Pick := Selection[2]
+		}
 		else if InStr(Selection[2], Done)
 		{
 			Pick := Selection[2]
@@ -170,12 +174,11 @@ Auto_Select(AutoSelectWindow, AutoSelectCombobox, SpaceOrClick){
 		}
 		else 
 		{
-			sendinput, m
+			send, m{enter}
 		}
 		Control, ChooseString, % Pick, % AutoSelectCombobox, % AutoSelectWindow
-		sleep 300
+		sleep 200
 		send {enter}
-		sleep 300
 		return
 	}
 	

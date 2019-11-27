@@ -38,7 +38,8 @@ AdjustB = L, 96, 342, 2
 Adobe = AcroRd32.exe
 Excel = EXCEL.EXE
 Window = WINWORD.EXE
-
+AutoSelectCombobox = WindowsForms10.COMBOBOX.app.0.33c0d9d1
+AutoSelectWindow = ahk_class WindowsForms10.Window.8.app.0.33c0d9d
 FormatTime, Year,,yy
 FormatTime, Today,, dd
 FormatTime, Month,, MM

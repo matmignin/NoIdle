@@ -78,7 +78,7 @@ Attatch(PickFolder, Search) {
 
 
 
-Mbutton::Auto_Select(AutoSelectWindow, AutoSelectCombobox, 2)
+Mbutton::Auto_Select(AutoSelectWindow, AutoSelectCombobox, 1) ;*[NoIdle4]
 NumpadAdd & NumpadEnter::Auto_Select(AutoSelectWindow, AutoSelectCombobox, 0)
 NumpadAdd & Numpad1::MultipleAutoSelect(1)
 NumpadAdd & Numpad2::MultipleAutoSelect(2)
