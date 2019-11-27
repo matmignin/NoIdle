@@ -316,7 +316,7 @@ CreateBatch() {
 	if ErrorLevel
 		exit
 	else
-		send {tab}{tab}{100}{enter}
+		send {tab}{tab}{enter}
 	sleep 500
 	click, 220, 80 
 	if firstNumber contains 4 
@@ -328,12 +328,14 @@ CreateBatch() {
 	ControlGet, MatCodeList, List,, WindowsForms10.COMBOBOX.app.0.33c0d9d2, ahk_class WindowsForms10.Window.8.app.0.33c0d9d
 	sleep 400
 	control, ChooseString, %itemNumber%, WindowsForms10.COMBOBOX.app.0.33c0d9d2, ahk_class WindowsForms10.Window.8.app.0.33c0d9d
-	sendinput {enter}{tab}
+	sleep 300
+	sendinput {enter}{tab 3}
 	sleep 200
 	if firstNumber contains 4 
 		sendinput %batchNumber%
 	if firstNumber not contains 4
 		Sendinput %lotnumber%
+	return
 }
 
 	
