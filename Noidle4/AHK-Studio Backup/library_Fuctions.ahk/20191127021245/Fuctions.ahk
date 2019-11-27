@@ -311,8 +311,8 @@ CreateBatch() {
 	firstNumber =
 	SampleGroupSelection =
 	InputBox, itemNumber, Item Number, Enter the Item Number., , 240, 180
-	firstNumber := substr(itemNumber, 1,1)
 	WinActivate, Select Login Method		
+	firstNumber := substr(itemNumber, 1,1)
 	if ErrorLevel
 		exit
 	else
@@ -326,7 +326,6 @@ CreateBatch() {
 	sleep 600
 	Click, 700, 80
 	ControlGet, MatCodeList, List,, WindowsForms10.COMBOBOX.app.0.33c0d9d2, ahk_class WindowsForms10.Window.8.app.0.33c0d9d
-	sleep 400
 	control, ChooseString, %itemNumber%, WindowsForms10.COMBOBOX.app.0.33c0d9d2, ahk_class WindowsForms10.Window.8.app.0.33c0d9d
 	sendinput {enter}{tab}
 	sleep 200
