@@ -47,7 +47,7 @@ F11::SENDINPUT {f11}
 
 ScannerApp:
 #IfWinActive, ahk_exe NAPS2.exe
-
+	Insert & home::	sendinput {f6}{200}!{tab}
 	numpadadd::
 	Mbutton::Sendinput {Click, 447, 29}{100}s  	;:save selected jpeg
 	Numpadsub::Sendinput {delete}
