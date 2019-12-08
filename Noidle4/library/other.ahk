@@ -34,9 +34,10 @@ Capslock & o::sendinput {end}{return}{down}
 Capslock & b::sendinput {CtrlDown}{left}{CtrlUp}
 
 F11 & F12::
-sendinput ^s
-Reload
-return
+	sendinput ^s
+	sleep 300
+	reload
+	return
 
 F11::SENDINPUT {f11}
 
@@ -56,18 +57,24 @@ ScannerApp:
 
 BPCS:
 #IfWinActive, ahk_exe pcsws.exe
+	Numpadadd::
+	if BPCS_swap = 0
+			sendinput 02%batchNumber%
+			
+	BPCS_Swap = 1
+		sendinput 02%batchNumber%	
 	insert::send, {AltDown}fp{AltUp}  ;print screen
-	Numpadsub::sendinput 02%lotnumber%
-	Numpadmult::sendinput 02%batchNumber%
+	Numpadadd & Numpadsub::sendinput 02%lotnumber%
+	Numpadadd & Numpadmult::sendinput 02%batchNumber%
 	NumpadEnter::sendinput {enter}
 	numlock & insert::send, {enter}{AltDown}fp{AltUp}{f3}  ; print screen of lot number and return
 	numpaddiv::
 	Mbutton & Rbutton::sendinput %month%{right}%today%{right}%year%{right}{down}{left 8} ;input todays date
-	Numlock & Numpadmult::Sendinput {enter}{Down 6}{right 11}a{right 52}{down 3}%month%{right}%today%{right}%year%{left 51}{down 3}%BPCSdate%%BPCSdate%%BPCSdate%{down}
-	Numlock & Numpadsub::sendinput {enter}{Down 6}{right 11}a{down 7}{left}%month%{right}%today%{right}%year%{right}
-	Numpadadd & Numpadenter::sendinput {Down 6}{right 11}a{down 7}{left}%month%{right}%today%{right}%year%{right}{down 3}{left 8}
+	;Numlock & Numpadmult::Sendinput {enter}{Down 6}{right 11}a{right 52}{down 3}%month%{right}%today%{right}%year%{left 51}{down 3}%BPCSdate%%BPCSdate%%BPCSdate%{down}
+	;Numlock & Numpadsub::sendinput {enter}{Down 6}{right 11}a{down 7}{left}%month%{right}%today%{right}%year%{right}
+	Numpadsub & NumpadEnter::sendinput {Down 6}{right 11}a{down 7}{left}%BPCSDate%{right 7}{800}{enter}
+	Numpadmult & NumpadEnter::Sendinput {Down 6}{right 11}a{down 3}{right 42}%BPCSDate%{Left 43}{down 2}%BPCSDate%%BPCSDate%%BPCSDate%{down} 
 	Numpadadd & Numpad0::sendinput {enter}{Down 6}{right 11}a{down 7}{left}%month%{right}%today%{right}%year%{right}{enter}02%lotnumber%
-	;^Enter::sendinput {Down 6}{right 11}a{down 7}{left}%month%{right}%today%{right}%year%{right}{enter}02%lotnumber%
 	Numpadadd & Left::sendinput, b83{enter 2}api{enter}10{enter}
 	Numlock & Numpaddiv::sendinput, %BPCSuser%{tab}%bpcsPassword%{enter 2}b83{enter 2}api{enter}10{enter}
 #IfWinActive, Signon to iSeries ahk_class #32770
