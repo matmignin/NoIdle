@@ -51,7 +51,7 @@ dailyStdDate = alch{space}std{space}%month%%today%%year%{space}MH
 BPCSdate = %month%{right}%today%{right}%year%{right}{down}{left 8}
 BatchNumber = %singleYear%%lettermonth%
 LotNumber = %Year%000
-
+BPCSswap = 0
 HelpBox = 
 ( 	
 ____________ View Process Sample Tab  `n

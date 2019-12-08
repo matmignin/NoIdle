@@ -58,15 +58,34 @@ ScannerApp:
 BPCS:
 #IfWinActive, ahk_exe pcsws.exe
 	Numpadadd::
-	if BPCS_swap = 0
-			sendinput 02%batchNumber%
-			
-	BPCS_Swap = 1
-		sendinput 02%batchNumber%	
+	if BPCSSwap = 1
+		{
+		sendinput !{left}{delete 8}%BatchNumber%
+		bpcsswap = 2
+		RETURN
+		}
+	if BPCSSwap = 2
+		{
+		sendinput !{left}{delete 8}%LotNumber%
+		bpcsswap = 1
+		RETURN
+		}
+	if Bpcsswap = 0
+		{
+		sendinput 02%LotNumber%
+		BPCSswap = 1
+		RETURN
+		}
+	else	
+	Return
+	
 	insert::send, {AltDown}fp{AltUp}  ;print screen
 	Numpadadd & Numpadsub::sendinput 02%lotnumber%
 	Numpadadd & Numpadmult::sendinput 02%batchNumber%
-	NumpadEnter::sendinput {enter}
+	NumpadEnter::
+		sendinput {enter}
+		BPCSSwap = 0
+		return
 	numlock & insert::send, {enter}{AltDown}fp{AltUp}{f3}  ; print screen of lot number and return
 	numpaddiv::
 	Mbutton & Rbutton::sendinput %month%{right}%today%{right}%year%{right}{down}{left 8} ;input todays date
