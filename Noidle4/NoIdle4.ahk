@@ -4,23 +4,6 @@ Version = 4.18
 #Include library\Fuctions.ahk
 #Include library\other.ahk
 
-/*
-	DetectTab() 
-	if tab contains View Process Samples {
-		ViewSample(LotNumber)
-	}
-	if tab contains Pending Tests {
-		return
-
-	}
-	if Tab contains Create Batch {
-		Click, %select% Left, 1
-		sleep 500
-		CreateBatch()
-		}
-
-*/
-
 
 return
 
@@ -28,17 +11,6 @@ return
 
 
 
-ViewSample(ProductCode) { 
-	global
-	Click, %select%
-	WinWait Select batches, , 4
-	sleep 200
-	sendinput {tab 3}%ProductCode%
-	If ProductCode = %LotNumber%
-		Swap_code = "Lot"
-	If ProductCode = %BatchNumber%
-		Swap_code = "Batch"
-}
 
 
 
@@ -62,7 +34,7 @@ Numpadadd::
 	else
 		return
 	
-NumpadSub::ViewSample(LotNumber)
+;NumpadSub::ViewSample(LotNumber)
 NumpadDiv::Item_Number(select)
 NumpadMult::ViewSample(BatchNumber)
 End::Adjust_Columns()
@@ -72,32 +44,6 @@ End::Adjust_Columns()
 numpadAdd & Numpaddot::Attatch("Scanner", 1)
 Mbutton & WheelDown::Attatch("Scanner", 0)
 Mbutton & Wheelup::Attatch("Component", 1)
-
-Attatch(PickFolder, Search) {
-	Global
-	DetectTab() 
-	if tab contains View Process Samples
-		click, %PVattachment%
-	if tab contains Pending Tests
-		click, %SGattachment%
-	Sleep 400
-	Winwait, Attachments,, 5
-	sleep 200
-	Click, %add%
-	Blockinput, on
-	sendinput, {shiftdown}{tab 3}{shiftup}%PickFolder%{300}{space}
-	sleep 200
-	send, {TAB}{space}
-	if Search = 1
-		sendinput, ^e
-	Blockinput, off
-	winwait, Attachments
-	sleep 200
-	WinClose, Attachments
-	return
-	
-}
-
 
 
 Mbutton::Auto_Select(AutoSelectWindow, AutoSelectCombobox, 1) ;*[NoIdle4]
@@ -144,8 +90,6 @@ Enter::!o
 Select_Batches:
 #IfWinActive, Select batches
 NumpadAdd::SwapCode()
-Numlock & numpadmult::sendinput {click %search%}{tab 3}%BatchNumber%
-Numlock & Numpadsub::sendinput {click %search%}{tab 3}%lotnumber%
 Numpaddiv::sendinput {Click %Search%}{right}{tab 2}{enter}{right}mat{space}{enter}{tab 2}{down 3}{right 4}
 enter::
 numpadenter::click, %SelectBatchesOK%

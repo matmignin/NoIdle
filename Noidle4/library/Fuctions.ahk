@@ -37,10 +37,44 @@ CreateBatch() {
 
 
 
+Attatch(PickFolder, Search) {
+	Global
+	DetectTab() 
+	if tab contains View Process Samples
+		click, %PVattachment%
+	if tab contains Pending Tests
+		click, %SGattachment%
+	Sleep 400
+	Winwait, Attachments,, 5
+	sleep 200
+	Click, %add%
+	Blockinput, on
+	sendinput, {shiftdown}{tab 3}{shiftup}%PickFolder%{300}{space}
+	sleep 200
+	send, {TAB}{space}
+	if Search = 1
+		sendinput, ^e
+	Blockinput, off
+	winwait, Attachments
+	sleep 200
+	WinClose, Attachments
+	return
+	
+}
 
 
 
-
+ViewSample(ProductCode) { 
+	global
+	Click, %select%
+	WinWait Select batches, , 4
+	sleep 200
+	sendinput {tab 3}%ProductCode%
+	If ProductCode = %LotNumber%
+		Swap_code = "Lot"
+	If ProductCode = %BatchNumber%
+		Swap_code = "Batch"
+}
 
 
 
