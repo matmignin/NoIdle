@@ -46,45 +46,45 @@ F11::SENDINPUT {f11}
 
 ScannerApp:
 #IfWinActive, ahk_exe NAPS2.exe
-	;:::::::save selected jpeg
-numpadadd::
-Mbutton::Sendinput {Click, 447, 29}{100}s
-Numpadsub::Sendinput {delete}
-Mbutton & Rbutton::sendinput, {click}{delete}{200}{enter}
-#IfWinActive, Save As ahk_exe NAPS2.exe
-Numlock::sendinput {escape}
+
+	numpadadd::
+	Mbutton::Sendinput {Click, 447, 29}{100}s  	;:save selected jpeg
+	Numpadsub::Sendinput {delete}
+	Mbutton & Rbutton::sendinput, {click}{delete}{200}{enter}
+	#IfWinActive, Save As ahk_exe NAPS2.exe
+	Numlock::sendinput {escape}
 
 BPCS:
 #IfWinActive, ahk_exe pcsws.exe
-insert::send, {AltDown}fp{AltUp}
-Numpadsub::sendinput 02%lotnumber%
-Numpadmult::sendinput 02%batchNumber%
-NumpadEnter::sendinput {enter}
-numlock & Numpad0::send, {enter}{AltDown}fp{AltUp}{f3}
-Mbutton & Rbutton::sendinput %month%{right}%today%{right}%year%{right}{down}{left 8}
-Numlock & Numpadmult::Sendinput {enter}{Down 6}{right 11}a{right 52}{down 3}%month%{right}%today%{right}%year%{left 51}{down 3}%BPCSdate%%BPCSdate%%BPCSdate%{down}
-Numlock & Numpadsub::sendinput {enter}{Down 6}{right 11}a{down 7}{left}%month%{right}%today%{right}%year%{right}
-Numpadadd & Numpadenter::sendinput {Down 6}{right 11}a{down 7}{left}%month%{right}%today%{right}%year%{right}{down 3}{left 8}
-Numpadadd & Numpad0::sendinput {enter}{Down 6}{right 11}a{down 7}{left}%month%{right}%today%{right}%year%{right}{enter}02%lotnumber%
-^Enter::sendinput {Down 6}{right 11}a{down 7}{left}%month%{right}%today%{right}%year%{right}{enter}02%lotnumber%
-Numpadadd & Left::sendinput, b83{enter 2}api{enter}10{enter}
-Numlock & Numpaddiv::sendinput, %BPCSuser%{tab}%bpcsPassword%{enter 2}b83{enter 2}api{enter}10{enter}
+	insert::send, {AltDown}fp{AltUp}
+	Numpadsub::sendinput 02%lotnumber%
+	Numpadmult::sendinput 02%batchNumber%
+	NumpadEnter::sendinput {enter}
+	numlock & Numpad0::send, {enter}{AltDown}fp{AltUp}{f3}
+	Mbutton & Rbutton::sendinput %month%{right}%today%{right}%year%{right}{down}{left 8}
+	Numlock & Numpadmult::Sendinput {enter}{Down 6}{right 11}a{right 52}{down 3}%month%{right}%today%{right}%year%{left 51}{down 3}%BPCSdate%%BPCSdate%%BPCSdate%{down}
+	Numlock & Numpadsub::sendinput {enter}{Down 6}{right 11}a{down 7}{left}%month%{right}%today%{right}%year%{right}
+	Numpadadd & Numpadenter::sendinput {Down 6}{right 11}a{down 7}{left}%month%{right}%today%{right}%year%{right}{down 3}{left 8}
+	Numpadadd & Numpad0::sendinput {enter}{Down 6}{right 11}a{down 7}{left}%month%{right}%today%{right}%year%{right}{enter}02%lotnumber%
+	^Enter::sendinput {Down 6}{right 11}a{down 7}{left}%month%{right}%today%{right}%year%{right}{enter}02%lotnumber%
+	Numpadadd & Left::sendinput, b83{enter 2}api{enter}10{enter}
+	Numlock & Numpaddiv::sendinput, %BPCSuser%{tab}%bpcsPassword%{enter 2}b83{enter 2}api{enter}10{enter}
 #IfWinActive, Signon to iSeries ahk_class #32770
-Numlock & Numpaddiv::
-sendinput, %BPCSpassword%{tab 3}%BPCSuser%{enter}
-sleep 300
-sendinput, %BPCSuser%{tab}%bpcsPassword%{enter 2}b83{enter 2}api{enter}10{enter}
-return
+	Numlock & Numpaddiv::
+	sendinput, %BPCSpassword%{tab 3}%BPCSuser%{enter}
+	sleep 300
+	sendinput, %BPCSuser%{tab}%bpcsPassword%{enter 2}b83{enter 2}api{enter}10{enter}
+	return
 
 
 TotalChorms:
 #IfWinActive, Audit Trail ahk_exe SeqEdit.exe
-Numlock & numpaddiv::
-sendinput, alch Std
-ControlClick, Button3, Audit Trail ahk_exe SeqEdit.exe, OK,
-login(totalChromeUser, totalChromePassword) 
-sendinput, %DailyStdDate%
-return
+	Numlock & numpaddiv::
+	sendinput, alch Std
+	ControlClick, Button3, Audit Trail ahk_exe SeqEdit.exe, OK,
+	login(totalChromeUser, totalChromePassword) 
+	sendinput, %DailyStdDate%
+	return
 
 #ifwinactive, Electronic Signature ahk_class #32770 ahk_exe SeqEdit.exe
 Numlock & numpaddiv::login(totalChromeUser, totalChromePassword)
@@ -163,11 +163,12 @@ sleep 200
 Winclose, Attachments
 Return
 ;}
-;:::::: calculator
+
+calculator:
 NumpadAdd & Numpad0::WinActivate, ahk_exe calc.exe
 
 
-;:::::::::::AHK studio
+AHK_studio:
 #IfWinActive, ahk_class AutoHotkeyGUI
 Mbutton::sendinput !r
 F12::
@@ -178,7 +179,7 @@ ExitApp
 return
 Mbutton & WheelDown::winactivate, STARLIMS10.Live
 
-;:::::::::::::::::Microsoft SQL 
+Microsoft_SQL: 
 #IfWinActive, ahk_exe Ssms.exe
 NumpadEnter::Sendinput {F5}
 +enter::Sendinput {F5}
