@@ -56,17 +56,18 @@ ScannerApp:
 
 BPCS:
 #IfWinActive, ahk_exe pcsws.exe
-	insert::send, {AltDown}fp{AltUp}
+	insert::send, {AltDown}fp{AltUp}  ;print screen
 	Numpadsub::sendinput 02%lotnumber%
 	Numpadmult::sendinput 02%batchNumber%
 	NumpadEnter::sendinput {enter}
-	numlock & Numpad0::send, {enter}{AltDown}fp{AltUp}{f3}
-	Mbutton & Rbutton::sendinput %month%{right}%today%{right}%year%{right}{down}{left 8}
+	numlock & insert::send, {enter}{AltDown}fp{AltUp}{f3}  ; print screen of lot number and return
+	numpaddiv::
+	Mbutton & Rbutton::sendinput %month%{right}%today%{right}%year%{right}{down}{left 8} ;input todays date
 	Numlock & Numpadmult::Sendinput {enter}{Down 6}{right 11}a{right 52}{down 3}%month%{right}%today%{right}%year%{left 51}{down 3}%BPCSdate%%BPCSdate%%BPCSdate%{down}
 	Numlock & Numpadsub::sendinput {enter}{Down 6}{right 11}a{down 7}{left}%month%{right}%today%{right}%year%{right}
 	Numpadadd & Numpadenter::sendinput {Down 6}{right 11}a{down 7}{left}%month%{right}%today%{right}%year%{right}{down 3}{left 8}
 	Numpadadd & Numpad0::sendinput {enter}{Down 6}{right 11}a{down 7}{left}%month%{right}%today%{right}%year%{right}{enter}02%lotnumber%
-	^Enter::sendinput {Down 6}{right 11}a{down 7}{left}%month%{right}%today%{right}%year%{right}{enter}02%lotnumber%
+	;^Enter::sendinput {Down 6}{right 11}a{down 7}{left}%month%{right}%today%{right}%year%{right}{enter}02%lotnumber%
 	Numpadadd & Left::sendinput, b83{enter 2}api{enter}10{enter}
 	Numlock & Numpaddiv::sendinput, %BPCSuser%{tab}%bpcsPassword%{enter 2}b83{enter 2}api{enter}10{enter}
 #IfWinActive, Signon to iSeries ahk_class #32770
