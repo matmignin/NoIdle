@@ -113,13 +113,13 @@ IfWinActive, Attachments
 return
 
 
-LotTemplateLogin:
+Lot_Template_Login:
 #ifwinactive, Lot template login,
 numpadenter::
 Enter::!o
 
 
-SelectBatches:
+Select_Batches:
 #IfWinActive, Select batches
 NumpadAdd::SwapCode()
 Numlock & numpadmult::sendinput {click %search%}{tab 3}%BatchNumber%
@@ -131,7 +131,7 @@ Numlock::winclose, Select batches
 
 
 ;::::::::::create batch widow::::::
-SelectLoginMethod:
+Select_Login_Method:
 #IfWinActive, Select Login Method
 numpadmult::
 numpadsub::
@@ -145,13 +145,13 @@ Numlock & Down::ReviewRunLoop()
 Numlock & pgup::ReviewRun() 
 
 
-ReplicatesNumber:
+Replicates_Number:
 #IfWinActive, Replicates Number
 NumpadEnter::
 enter::sendinput {tab}{space}
 
 
-QuickResults:
+Quick_Results:
 #Ifwinactive, Quick Results
 numpadenter::!o
 ;::::enter 2 measurement results 9 times

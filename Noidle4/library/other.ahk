@@ -1,5 +1,5 @@
 
-AnyWindow:
+Any_Window:
 #IfWinActive, 
 Insert & home::
 IfWinExist, ahk_exe NAPS2.exe
