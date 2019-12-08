@@ -59,17 +59,15 @@ Mbutton & Rbutton::sendinput, {click}{delete}{200}{enter}
 #IfWinActive, Save As ahk_exe NAPS2.exe
 Numlock::sendinput {escape}
 
-
 ;::::::::::::::::::::BPCS
 
 #IfWinActive, ahk_exe pcsws.exe
 insert::send, {AltDown}fp{AltUp}
-
-numlock & Numpad0::send, {enter}{AltDown}fp{AltUp}{f3}
-NumpadEnter::sendinput {enter}
-Mbutton & Rbutton::sendinput %month%{right}%today%{right}%year%{right}{down}{left 8}
 Numpadsub::sendinput 02%lotnumber%
 Numpadmult::sendinput 02%batchNumber%
+NumpadEnter::sendinput {enter}
+numlock & Numpad0::send, {enter}{AltDown}fp{AltUp}{f3}
+Mbutton & Rbutton::sendinput %month%{right}%today%{right}%year%{right}{down}{left 8}
 Numlock & Numpadmult::Sendinput {enter}{Down 6}{right 11}a{right 52}{down 3}%month%{right}%today%{right}%year%{left 51}{down 3}%BPCSdate%%BPCSdate%%BPCSdate%{down}
 Numlock & Numpadsub::sendinput {enter}{Down 6}{right 11}a{down 7}{left}%month%{right}%today%{right}%year%{right}
 Numpadadd & Numpadenter::sendinput {Down 6}{right 11}a{down 7}{left}%month%{right}%today%{right}%year%{right}{down 3}{left 8}
@@ -100,8 +98,8 @@ Numlock & numpaddiv::login(totalChromeUser, totalChromePassword)
 
 ;::::::::::EXEL
 #IfWinActive, ahk_exe EXCEL.EXE
-	Numlock::Sendinput, {f2}
-	
+Numlock::Sendinput, {f2}
+
 
 #IfWinActive, Find and Replace ahk_exe EXCEL.EXE
 numpadEnter::sendinput, {alt down}i{alt up}
@@ -201,23 +199,23 @@ enter::sendinput {enter}
 		MouseMove, Xpos, Ypos
 		
 		
-
-old select folder thing
-	WinwaitActive, Open ahk_class #32770
-	sendinput, {shiftdown}{tab 3}{shiftup}%pick%
-	sleep 100
-	send {space}{TAB}{space}
-	sendinput, {tab}
-	sleep 300
-	winwaitclose, Open ahk_class #32770 ahk_exe xv.exe
-	sleep 300
-	WinWaitActive ahk_class WindowsForms10.Window.8.app.0.33c0d9d ahk_exe xv.exe, , 3
-	if ErrorLevel {
-		sleep 00
-		Winactivate, ahk_class WindowsForms10.Window.8.app.0.33c0d9d ahk_exe xv.exe
+		
+		old select folder thing
+		WinwaitActive, Open ahk_class #32770
+		sendinput, {shiftdown}{tab 3}{shiftup}%pick%
 		sleep 100
-		ControlClick, Done, ahk_class WindowsForms10.Window.8.app.0.33c0d9d ahk_exe xv.exe
-		return
-	}
-	else
-		Cont
+		send {space}{TAB}{space}
+		sendinput, {tab}
+		sleep 300
+		winwaitclose, Open ahk_class #32770 ahk_exe xv.exe
+		sleep 300
+		WinWaitActive ahk_class WindowsForms10.Window.8.app.0.33c0d9d ahk_exe xv.exe, , 3
+		if ErrorLevel {
+			sleep 00
+			Winactivate, ahk_class WindowsForms10.Window.8.app.0.33c0d9d ahk_exe xv.exe
+			sleep 100
+			ControlClick, Done, ahk_class WindowsForms10.Window.8.app.0.33c0d9d ahk_exe xv.exe
+			return
+		}
+		else
+			Cont
