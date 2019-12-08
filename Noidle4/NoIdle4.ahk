@@ -1,4 +1,4 @@
-Version = 4.16
+Version = 4.18
 
 #Include library\Variables.ahk
 #Include library\Fuctions.ahk
@@ -7,13 +7,16 @@ Version = 4.16
 /*
 	DetectTab() 
 	if tab contains View Process Samples {
-		
+		ViewSample(LotNumber)
 	}
 	if tab contains Pending Tests {
+		return
 
 	}
 	if Tab contains Create Batch {
-		
+		Click, %select% Left, 1
+		sleep 500
+		CreateBatch()
 		}
 
 */
@@ -37,9 +40,28 @@ ViewSample(ProductCode) {
 		Swap_code = "Batch"
 }
 
+
+
+
 STARLIMS:
 #IfWinActive, STARLIMS10.Live ahk_exe xv.exe
 Numpadadd::
+	DetectTab() 
+	if tab contains View Process Samples 
+		{
+		ViewSample(LotNumber)
+		return
+		}
+	else if Tab contains Create Batch 
+	{
+		click, %select%
+		winwait, Select Login Method ahk_class WindowsForms10.Window.8.app.0.33c0d9d
+		CreateBatch()
+		RETURN
+		}
+	else
+		return
+	
 NumpadSub::ViewSample(LotNumber)
 NumpadDiv::Item_Number(select)
 NumpadMult::ViewSample(BatchNumber)
@@ -133,11 +155,9 @@ Numlock::winclose, Select batches
 ;::::::::::create batch widow::::::
 Select_Login_Method:
 #IfWinActive, Select Login Method
-numpadmult::
-numpadsub::
 numpadadd::CreateBatch()
-
-
+#IfWinActive, Lot template login
+numpadadd::CreateBatch()
 
 ;::::::::::::::::::::review Run
 Numlock & right::Click, 771, 141 Left, 1 ;RELEASE RUN

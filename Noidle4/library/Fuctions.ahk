@@ -3,31 +3,35 @@ CreateBatch() {
 	global
 	firstNumber =
 	SampleGroupSelection =
-	InputBox, itemNumber, Item Number, Enter the Item Number., , 240, 180
-	firstNumber := substr(itemNumber, 1,1)
-	WinActivate, Select Login Method		
-	if ErrorLevel
-		exit
-	else
-		send {tab}{tab}{enter}
-	sleep 500
-	click, 220, 80 
-	if firstNumber contains 4 
-		send bu{esc}
-	if firstNumber not contains 4
-		send ra{esc}
-	sleep 600
-	Click, 700, 80
-	ControlGet, MatCodeList, List,, WindowsForms10.COMBOBOX.app.0.33c0d9d2, ahk_class WindowsForms10.Window.8.app.0.33c0d9d
+	
 	sleep 400
-	control, ChooseString, %itemNumber%, WindowsForms10.COMBOBOX.app.0.33c0d9d2, ahk_class WindowsForms10.Window.8.app.0.33c0d9d
-	sleep 300
-	sendinput {enter}{tab 3}
+	click 349, 45
+	sleep 500
+	InputBox, itemNumber, Item Number, Enter the Item Number., , 240, 180
+		if errorlevel 
+			return
+	firstNumber := substr(itemNumber, 1,1)
 	sleep 200
 	if firstNumber contains 4 
+		control, ChooseString, Bulk Liquid, WindowsForms10.COMBOBOX.app.0.33c0d9d1, ahk_class WindowsForms10.Window.8.app.0.33c0d9d
+	else
+		control, ChooseString, Raw Material, WindowsForms10.COMBOBOX.app.0.33c0d9d1, ahk_class WindowsForms10.Window.8.app.0.33c0d9d
+	sleep 200
+	ControlGet, MatCodeList, List,, WindowsForms10.COMBOBOX.app.0.33c0d9d2, ahk_class WindowsForms10.Window.8.app.0.33c0d9d
+	control, ChooseString, %itemNumber%, WindowsForms10.COMBOBOX.app.0.33c0d9d2, ahk_class WindowsForms10.Window.8.app.0.33c0d9d
+	sleep 400
+	controlFocus, WindowsForms10.EDIT.app.0.33c0d9d5, Lot template login
+	if firstNumber contains 4 
+	{
 		sendinput %batchNumber%
-	if firstNumber not contains 4
+		return
+		}
+	else {
 		Sendinput %lotnumber%
+		sleep 400
+		keywait, Right, D T6
+			controlFocus, WindowsForms10.EDIT.app.0.33c0d9d3, Lot template login
+		}
 	return
 }
 
@@ -76,36 +80,6 @@ SwapCode() {
 		Return
 	}
 }
-
-/*
-		click, %SGattachment%
-		WinWait Attachments, , 0.5
-		if ErrorLevel {
-			click, %PVattachment%
-			msgbox, pv atatchment
-			return
-		}
-		else
-			WinWait Attachments, , 
-		if ErrorLevel {
-			MSGBOX, it didnt work [post pvattatchment]
-			return
-		}
-		else	
-			Click, %add%
-		WinWaitActive Open, , 
-		if ErrorLevel {
-			msgbox, it didnt work [post winwait open]
-			return
-		}
-		Else
-			Click, %add% left, 1
-		sleep 200
-		SelectAttatchmentFile(%pickFolder%)
-		
-		}
-		
-	*/
 	
 	
 
@@ -357,26 +331,13 @@ ReviewRunLoop() {
 	Raw_Material(select, samplegroup, grouptemplate) {   
 		global
 		Click, %select% Left, 1
-		WinWaitActive Select batches, , 3
-		if ErrorLevel
-			return
-		Else
-			IfWinActive, Select batches,
-			{
+		sleep 300
+		;WinWaitActive Select batches, , 3
+		If WinActive("Select batches") {
 				sleep 200
 				sendinput {tab 3}%lotnumber%
 				return
 			}
-		Else
-		{
-			sleep 200
-			ifwinactive, Select Login Method
-			{
-				sleep 300
-				CreateBatch()
-				return
-			}
-		}
 	}
 	Item_Number(select) { 
 		global
