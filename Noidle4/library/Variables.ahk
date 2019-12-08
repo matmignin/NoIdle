@@ -73,3 +73,11 @@ ____________ Miscellaneous  `n
          (currently: `"%lotnumber%___`") `n`n`n`n`n 
 ver. %version%
 )
+
+
+MoveMouse:
+	If ( A_TimeIdle > 120000 ) {
+		MouseMove, 1 , 1,, R
+		MouseMove, -1,-1,, R
+	}
+	return

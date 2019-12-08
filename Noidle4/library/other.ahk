@@ -20,7 +20,7 @@ InputBox, FillerZeros, Lot Code, enter redundent digits in Lot code that follow 
 Lotnumber = %Year%%FillerZeros%
 
 
-;:::::::::::::::::::: Vim controls
+Vim_Controls:
 Capslock & j::sendinput {down}
 Capslock & k::sendinput {up}
 Capslock & h::sendinput {left}
@@ -40,12 +40,7 @@ return
 
 F11::SENDINPUT {f11}
 
-MoveMouse:
-If ( A_TimeIdle > 180000 ) {
-	MouseMove, 1 , 1,, R
-	MouseMove, -1,-1,, R
-}
-return
+
 
 
 
@@ -59,8 +54,7 @@ Mbutton & Rbutton::sendinput, {click}{delete}{200}{enter}
 #IfWinActive, Save As ahk_exe NAPS2.exe
 Numlock::sendinput {escape}
 
-;::::::::::::::::::::BPCS
-
+BPCS:
 #IfWinActive, ahk_exe pcsws.exe
 insert::send, {AltDown}fp{AltUp}
 Numpadsub::sendinput 02%lotnumber%
@@ -83,8 +77,7 @@ sendinput, %BPCSuser%{tab}%bpcsPassword%{enter 2}b83{enter 2}api{enter}10{enter}
 return
 
 
-;:::::::::::::::::::::::::::totalchorms
-
+TotalChorms:
 #IfWinActive, Audit Trail ahk_exe SeqEdit.exe
 Numlock & numpaddiv::
 sendinput, alch Std
@@ -96,46 +89,42 @@ return
 #ifwinactive, Electronic Signature ahk_class #32770 ahk_exe SeqEdit.exe
 Numlock & numpaddiv::login(totalChromeUser, totalChromePassword)
 
-;::::::::::EXEL
+EXEL:
 #IfWinActive, ahk_exe EXCEL.EXE
-Numlock::Sendinput, {f2}
-
-
+	Numlock::Sendinput, {f2}
 #IfWinActive, Find and Replace ahk_exe EXCEL.EXE
-numpadEnter::sendinput, {alt down}i{alt up}
-numpadsub::sendinput, {alt down}n{alt up}%lotnumber%
-numpadadd & Numpadenter::sendinput {esc}{ctrldown}{right}{ctrlup}{right}P{ctrldown}f{CtrlUp}%lotnumber%
-Numpadadd & numpad0::Return
-Numpadadd & NumpadDot::return
+	numpadEnter::sendinput, {alt down}i{alt up}
+	numpadsub::sendinput, {alt down}n{alt up}%lotnumber%
+	numpadadd & Numpadenter::sendinput {esc}{ctrldown}{right}{ctrlup}{right}P{ctrldown}f{CtrlUp}%lotnumber%
+	Numpadadd & numpad0::Return
+	Numpadadd & NumpadDot::return
 #ifwinactive, ahk_exe EXCEL.EXE
-Numpadadd & numpad0::sendinput {ctrldown}f{ctrlup}{AltDown}th{altup}w{enter}{altdown}n{altup}%lotnumber%
-Numpadadd & NumpadDot::sendinput {ctrldown}f{ctrlup}{AltDown}th{altup}w{enter}{altdown}n{altup}{Delete}
-Capslock::CapsLock
-
+	Numpadadd & numpad0::sendinput {ctrldown}f{ctrlup}{AltDown}th{altup}w{enter}{altdown}n{altup}%lotnumber%
+	Numpadadd & NumpadDot::sendinput {ctrldown}f{ctrlup}{AltDown}th{altup}w{enter}{altdown}n{altup}{Delete}
+	Capslock::CapsLock
 #Ifwinactive, Release update
-Numpadadd::
-\::Sendinput {tab}%lotnumber%
-
-
+	Numpadadd::
+		\::Sendinput {tab}%lotnumber%
 #ifwinactive, Property Grid Form
-Mbutton::sendinput, {backspace 4}
-NumpadEnter::
-SendInput, {enter}{down 2}1
-sleep 200
-sendinput, {tab 2}{enter}
-return
+	Mbutton::sendinput, {backspace 4}
+	NumpadEnter::
+		SendInput, {enter}{down 2}1
+		sleep 200
+		sendinput, {tab 2}{enter}
+		return
 
-;:::::IR MACINE
+
+IR_machine:
 #IfWinActive, PerkinElmer Spectrum ES
-Numlock & Numpadmult::sendinput, %lotnumber% %Date%{left 8}
-Numpadadd & NumpadEnter::
-sendinput !m{down}{right}{enter}(200)
-sleep 200
-sendinput !m{enter}
-return
+	Numlock & Numpadmult::sendinput, %lotnumber% %Date%{left 8}
+	Numpadadd & NumpadEnter::
+	sendinput !m{down}{right}{enter}(200)
+	sleep 200
+	sendinput !m{enter}
+	return
 
 
-;::::FIREFOX AND CHORME
+FIREFOX_and_CHORME:
 #IfWinActive, iCloud 
 Tab::sendinput {space 4}
 #IfWinActive, ahk_exe chrome.exe
@@ -147,7 +136,11 @@ Return
 #IfWinActive, ahk_exe firefox.exe
 Capslock::return
 
-;{:::::::::::::::::::::::::::::::::::::::open close close apps
+
+
+
+
+Open_Close_Apps:
 #IfWinActive, ahk_exe chrome.exe
 Mbutton & WheelDown::WinActivate, ahk_exe xv.exe
 
