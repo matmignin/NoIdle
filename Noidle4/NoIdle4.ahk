@@ -31,6 +31,11 @@ Numpadadd::
 		CreateBatch()
 		RETURN
 		}
+	else if Tab contains My Service Groups Pending Tests 
+	{
+		Auto_Select(AutoSelectWindow, AutoSelectCombobox, 0)
+		RETURN
+		}
 	else
 		return
 	

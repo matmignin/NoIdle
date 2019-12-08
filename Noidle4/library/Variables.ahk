@@ -55,15 +55,14 @@ BPCSswap = 0
 HelpBox = 
 ( 	
 ____________ View Process Sample Tab  `n
+-Press [ NumPad( + )  ]  to  search for Raw Material `n 
 -Press [ NumPad( / ) ]  to search for an Item Number `n 
 -Press [ NumPad( * )  ]  to  search for Bulk Liquid `n 
 -Press and Roll [ Mouse Wheel Down ] to attatch a file `n`n 
-____________ Create Batch Tab`n`n (wont) always work the 1st time)`n 
--Press [ NumPad( * ) ]  to create Bulk Liquid batch `n 
--Press [ NumPad( - ) ] to create a Raw Material  `n`n 
+____________ Create Batch Tab`n`n (FIXED)`n  
+-Press [ NumPad( + ) ] to create a Bulk Liquid & Raw Material  `n`n 
 ____________ My Service Group Pending Test Tab  `n 
 -Press [ End ] to make the Run# column fit `n 
--Press [ NumPad( - ) ]  to search for a Raw Material `n 
 -Press [ Middle Click ] or [ Numpad( + ) & Numpad( Enter ) ] to auto-select result`n 
 -Press ""and"" Roll [ Mouse Wheel Down ] to attatch a file `n`n 
 ____________ Miscellaneous  `n
