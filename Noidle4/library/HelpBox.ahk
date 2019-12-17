@@ -9,12 +9,12 @@ ____________ Depending on your active window or program `n
 `n
 -Press ""and"" Roll Mouse Wheel Up or Down to attatch a file from a scans folder`n
 `n
-
 -Hold [ Numpad( * ) & Press a Number ] to change the number of test replicates `n
+`n
 -Press [ End ] to make the Run# column fit `n
-
-____________ Miscellaneous  `n
--The [ Numpad( Enter ) ] is usable in more windows and `n
+`n
 -Press [ Numpad( + ) & Numpad( 0 ) ] at the same time to open the calculator`n
+`n
+-Numpad( Enter ) is usable in BPCS and more windows`n
 ver. %version%
 )
