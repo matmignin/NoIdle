@@ -65,13 +65,13 @@ End::Adjust_Columns()
 
 
 ;:::attatch a file
-numpadAdd & Numpaddot::Attatch("Scanner", 1)
+Mbutton & Wheelup::Attatch("Scanner", 1)
 Mbutton & WheelDown::Attatch("Scanner", 0)
-Mbutton & Wheelup::Attatch("Component", 1)
+numpadAdd & Numpaddot::Attatch("Component", 1)
 
 
-Mbutton::Auto_Select(AutoSelectWindow, AutoSelectCombobox, 1) ;*[NoIdle4]
-NumpadAdd & NumpadEnter::Auto_Select(AutoSelectWindow, AutoSelectCombobox, 0)
+;Mbutton::Auto_Select(AutoSelectWindow, AutoSelectCombobox, 1) ;*[NoIdle4]
+;NumpadAdd & NumpadEnter::Auto_Select(AutoSelectWindow, AutoSelectCombobox, 0)
 NumpadAdd & Numpad1::MultipleAutoSelect(1)
 NumpadAdd & Numpad2::MultipleAutoSelect(2)
 NumpadAdd & Numpad3::MultipleAutoSelect(3)

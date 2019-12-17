@@ -11,6 +11,6 @@
 
 [x] add non-numpad key alternatives
 
-[] update Help file
+[x] update Help file
 
 [] bulk file editor
