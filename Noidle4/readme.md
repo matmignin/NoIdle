@@ -9,7 +9,7 @@
 
 [x] find a new icon
 
-[] add non-numpad key alternatives
+[x] add non-numpad key alternatives
 
 [] update Help file
 

@@ -1,4 +1,4 @@
-Version = 4.18
+Version = 4.19
 
 #Include library\Variables.ahk
 #Include library\Fuctions.ahk
@@ -18,28 +18,47 @@ return
 STARLIMS:
 #IfWinActive, STARLIMS10.Live ahk_exe xv.exe
 Numpadadd::
-	DetectTab() 
-	if tab contains View Process Samples 
+	DetectTab()
+	if tab contains View Process Samples
 		{
 		ViewSample(LotNumber)
 		return
 		}
-	else if Tab contains Create Batch 
+	else if Tab contains Create Batch
 	{
 		click, %select%
 		winwait, Select Login Method ahk_class WindowsForms10.Window.8.app.0.33c0d9d
 		CreateBatch()
 		RETURN
 		}
-	else if Tab contains My Service Groups Pending Tests 
+	else if Tab contains My Service Groups Pending Tests
 	{
 		Auto_Select(AutoSelectWindow, AutoSelectCombobox, 0)
 		RETURN
 		}
 	else
 		return
-	
-;NumpadSub::ViewSample(LotNumber)
+
+Mbutton::
+	DetectTab()
+	if tab contains View Process Samples
+		{
+		Attatch("Scanner", 0)
+		return
+		}
+	else if Tab contains Create Batch
+	{
+		RETURN
+		}
+	else if Tab contains My Service Groups Pending Tests
+	{
+		Auto_Select(AutoSelectWindow, AutoSelectCombobox, 0)
+		RETURN
+		}
+	else
+		return
+
+
 NumpadDiv::Item_Number(select)
 NumpadMult::ViewSample(BatchNumber)
 End::Adjust_Columns()
@@ -68,7 +87,7 @@ Numpadmult & numpad2::Change_Rep(changerep, 2, 1)
 
 
 ; ::::::::::auto add scanned COAs
-Numpadsub & Numpaddot:: 
+Numpadsub & Numpaddot::
 InputBox, COAcount, COA, how many COAs , , 240, 180,, 0000
 NumberofCOA = %COAcount%
 COAcount-=1
@@ -111,7 +130,7 @@ numpadadd::CreateBatch()
 ;::::::::::::::::::::review Run
 Numlock & right::Click, 771, 141 Left, 1 ;RELEASE RUN
 Numlock & Down::ReviewRunLoop()
-Numlock & pgup::ReviewRun() 
+Numlock & pgup::ReviewRun()
 
 
 Replicates_Number:
@@ -153,4 +172,4 @@ Return
 
 Open:
 #ifwinactive, Open
-NumpadEnter::SubmitAttatchment() 
+NumpadEnter::SubmitAttatchment()
