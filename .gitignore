@@ -14,7 +14,7 @@ AHK-Studio Backup/*
 AHKstuff/*
 */old/AHK-Studio Backup/*
 creds/serviceaccount.json
-
+AHKstuff/AutoHotkey
 # Byte-compiled / optimized / DLL files
 __pycache__/
 *.py[cod]
