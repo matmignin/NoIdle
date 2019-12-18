@@ -161,7 +161,7 @@ IfEqual MMX,-1, WinRestore, ahk_class IEFrame
 IfEqual MMX,1, WinActivate, ahk_class IEFrame
 Return
 #IfWinActive, ahk_exe firefox.exe
-Capslock::return
+Capslock::Capslock
 
 
 
