@@ -1,4 +1,4 @@
-Version = 4.24
+Version = 4.25
 
 #Include library\Variables.ahk
 #Include library\Fuctions.ahk
@@ -83,7 +83,7 @@ if tab contains View Process Samples
 
 NumpadDiv::Item_Number(select)
 NumpadMult::ViewSample(BatchNumber)
-End::Adjust_Columns()
++end::Adjust_Columns()
 
 
 ;:::attatch a file
@@ -213,7 +213,7 @@ NumpadEnter::SubmitAttatchment()
 
 NumpadDiv::Item_Number(select)
 NumpadMult::ViewSample(BatchNumber)
-End::Adjust_Columns()
++end::Adjust_Columns()
 
 
 ;:::attatch a file
