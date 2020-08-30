@@ -13,7 +13,7 @@ ____________ Depending on your active window or program `n
 `n
 -Press [ End ] to make the Run# column fit `n
 `n
--Press [ Numpad( + ) & Numpad( 0 ) ] at the same time to open the calculator`n
+-Press [ Numpad( + ) & Numpad( 0 ) ] at the same time to open the calculator [[FIXED]] `n
 `n
 -Numpad( Enter ) is usable in BPCS and more windows`n
 ver. %version%
