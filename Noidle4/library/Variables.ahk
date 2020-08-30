@@ -8,7 +8,7 @@ SetDefaultMouseSpeed, 0
 DetectHiddenText, on
 SetTitleMatchMode, 2
 SetTimer, MoveMouse
-traytip, Press [ Home ], For help
+traytip, Press [Shift + Home ], For help screen
 
 
 FileReadLine, PDIuser, %A_Desktop%\loginfo.txt, 1
