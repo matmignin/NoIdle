@@ -56,7 +56,7 @@ Attatch(PickFolder, Search) {
 		sendinput, ^e
 	Blockinput, off
 	winwait, Attachments
-	sleep 200
+	sleep 250
 	WinClose, Attachments
 	return
 	
@@ -199,7 +199,7 @@ Auto_Select(AutoSelectWindow, AutoSelectCombobox, SpaceOrClick){
 		Click
 		Click, 2
 	}
-	WinWaitActive, Resent List, , 3
+	WinWaitActive, Resent List, , 4
 	if ErrorLevel 
 		exit
 	else
@@ -229,7 +229,7 @@ Auto_Select(AutoSelectWindow, AutoSelectCombobox, SpaceOrClick){
 			send, m{enter}
 		}
 		Control, ChooseString, % Pick, % AutoSelectCombobox, % AutoSelectWindow
-		sleep 200
+		sleep 300
 		send {enter}
 		return
 	}
@@ -240,9 +240,9 @@ Auto_Select(AutoSelectWindow, AutoSelectCombobox, SpaceOrClick){
 MultipleAutoSelect(NumberOfEntries) {
 	Global
 	loop, %NumberOfEntries% {
-;sendinput, {space}
+        sendinput, {space}
 		Auto_Select(AutoSelectWindow, AutoSelectCombobox, 0)
-		sleep 200
+		sleep 300
 	}
 }	 
 
