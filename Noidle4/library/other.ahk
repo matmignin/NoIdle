@@ -17,7 +17,13 @@ Numlock & Numpaddiv::login(PDIUser, PDIPassword)
 Insert & Numpad0::
 InputBox, FillerZeros, Lot Code, enter redundent digits in Lot code that follow %year%   , , 240, 180,, 0000
 Lotnumber = %Year%%FillerZeros%
-NumpadAdd & Numpad0::WinActivate, ahk_exe calc.exe
+NumpadAdd & Numpad0::
+WinActivate, ahk_exe calc.exe
+IfWinNotExist Calculator
+	Run calculator://
+WinActivate calculator
+return
+
 
 
 Vim_Controls:
