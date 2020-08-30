@@ -13,7 +13,7 @@ NumpadSub::Sendinput -
 Numpadadd & numpadsub::Sendinput, %Lotnumber%
 Numpadadd & numpadmult::Sendinput, %batchNumber%
 Numlock & Numpaddiv::login(PDIUser, PDIPassword)
-Home::Msgbox, , Things to do, %HelpBox%
++Home::Msgbox, , Things to do, %HelpBox%
 Insert & Numpad0::
 InputBox, FillerZeros, Lot Code, enter redundent digits in Lot code that follow %year%   , , 240, 180,, 0000
 Lotnumber = %Year%%FillerZeros%
@@ -93,7 +93,8 @@ BPCS:
 	;Numlock & Numpadsub::sendinput {enter}{Down 6}{right 11}a{down 7}{left}%month%{right}%today%{right}%year%{right}
 	Numpadsub & NumpadEnter::sendinput {Down 6}{right 11}a{down 7}{left}%BPCSDate%{right 7}{800}{enter}
 	Numpadmult & NumpadEnter::Sendinput {Down 6}{right 11}a{down 3}{right 42}%BPCSDate%{Left 43}{down 2}%BPCSDate%%BPCSDate%%BPCSDate%{down}
-	Numpadadd & Numpad0::sendinput {enter}{Down 6}{right 11}a{down 7}{left}%month%{right}%today%{right}%year%{right}{enter}02%lotnumber%
+	numlock & Numpad0::Sendinput {Down 6}{right 11}a{down 3}{right 42}%BPCSDate%{Left 43}{down 2}%BPCSDate%%BPCSDate%%BPCSDate%{down}00
+        Numpadadd & Numpad0::sendinput {enter}{Down 6}{right 11}a{down 7}{left}%month%{right}%today%{right}%year%{right}{enter}02%lotnumber%
 	Numpadadd & Left::sendinput, b83{enter 2}api{enter}10{enter}
 	Numlock & Numpaddiv::sendinput, %BPCSuser%{tab}%bpcsPassword%{enter 2}b83{enter 2}api{enter}10{enter}
 #IfWinActive, Signon to iSeries ahk_class #32770
@@ -105,16 +106,11 @@ BPCS:
 
 
 TotalChorms:
-#IfWinActive, Audit Trail ahk_exe SeqEdit.exe
-	Numlock & numpaddiv::
-	sendinput, alch Std
-	ControlClick, Button3, Audit Trail ahk_exe SeqEdit.exe, OK,
-	login(totalChromeUser, totalChromePassword)
-	sendinput, %DailyStdDate%
-	return
+#IfWinActive, ahk_class #32770
+	Numlock & numpaddiv::login(totalChromeUser, totalChromePassword)
 
 #ifwinactive, Electronic Signature ahk_class #32770 ahk_exe SeqEdit.exe
-Numlock & numpaddiv::login(totalChromeUser, totalChromePassword)
+        Numlock & numpaddiv::login(totalChromeUser, totalChromePassword)
 
 EXEL:
 #IfWinActive, ahk_exe EXCEL.EXE
