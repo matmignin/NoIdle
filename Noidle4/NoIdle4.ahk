@@ -1,4 +1,4 @@
-Version = 4.25
+Version = 4.26
 
 #Include library\Variables.ahk
 #Include library\Fuctions.ahk
@@ -83,7 +83,29 @@ if tab contains View Process Samples
 
 NumpadDiv::Item_Number(select)
 NumpadMult::ViewSample(BatchNumber)
-+end::Adjust_Columns()
+end::
+DetectTab()
+	if tab contains View Process Samples
+	{
+		Adjust_Columns()
+		return
+	}
+	else if Tab contains Create Batch
+	{
+                sendinput, {end}
+		RETURN
+	}
+	else if Tab contains My Service Groups Pending Tests
+	{
+		Sendinput, {end}
+		Return
+	}
+	else
+        {
+                sendinput, {end}
+                return
+       }
+
 
 
 ;:::attatch a file
@@ -213,7 +235,6 @@ NumpadEnter::SubmitAttatchment()
 
 NumpadDiv::Item_Number(select)
 NumpadMult::ViewSample(BatchNumber)
-+end::Adjust_Columns()
 
 
 ;:::attatch a file
