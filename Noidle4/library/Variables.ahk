@@ -34,6 +34,8 @@ ChangeRep = 673, 316
 ReleaseRun = 771, 142
 AdjustA = L, 97, 120, 115, 122, 2
 AdjustB = L, 96, 342, 2
+RRviewX =
+RRviewy =
 
 Adobe = AcroRd32.exe
 Excel = EXCEL.EXE

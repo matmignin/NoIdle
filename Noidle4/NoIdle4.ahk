@@ -1,4 +1,4 @@
-Version = 4.26
+Version = 4.28
 
 #Include library\Variables.ahk
 #Include library\Fuctions.ahk
@@ -170,11 +170,60 @@ Select_Login_Method:
 numpadadd::CreateBatch()
 #IfWinActive, Lot template login
 numpadadd::CreateBatch()
+#ifwinactive,
 
 ;::::::::::::::::::::review Run
+;#IfWinActive, STARLIMS v10 (Master) - Site ahk_class IEFrame
 Numlock & right::Click, 771, 141 Left, 1 ;RELEASE RUN
 Numlock & Down::ReviewRunLoop()
 Numlock & pgup::ReviewRun()
+
+
+
+
+numlock & up::
+
+Click, 771, 141 Left, 1
+
+sleep 3500
+
+sendinput {down}
+
+return
+
+
+
+numlock & pgdn::
+
+  Click, %RRviewx%, %RRviewy%279 Left, 1
+
+    WinWait, ahk_class WindowsForms10.Window.8.app.0.202c666 ahk_exe IEXPLORE.EXE, , 2
+
+      WinMove, ahk_class WindowsForms10.Window.8.app.0.202c666 ahk_exe IEXPLORE.EXE,, 861, 605, 798, 385
+
+        Sendinput {tab 3}{enter}
+
+          winwait, ahk_class AcrobatSDIWindow ahk_exe AcroRd32.exe, , 2
+
+            WinMove, ahk_class AcrobatSDIWindow ahk_exe AcroRd32.exe,, 5, 332, 550, 684
+              return
+              #ifwinactive
+
+
+
+
+ #IfWinActive, ahk_class AcrobatSDIWindow ahk_exe AcroRd32.exe
+
+numlock & pgup::
+     WinClose, ahk_class AcrobatSDIWindow ahk_exe AcroRd32.exe
+      sleep 200
+      sendinput {tab 4}{enter}
+     Return
+
+Mbutton & Rbutton::WinClose, ahk_class AcrobatSDIWindow ahk_exe AcroRd32.exe
+
+                          #ifwinactive
+
 
 
 Replicates_Number:
