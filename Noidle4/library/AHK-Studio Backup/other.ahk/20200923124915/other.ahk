@@ -17,7 +17,6 @@ Numlock & Numpaddiv::login(PDIUser, PDIPassword)
 Insert & Numpad0::
 InputBox, FillerZeros, Lot Code, enter redundent digits in Lot code that follow %year%   , , 240, 180,, 0000
 Lotnumber = %Year%%FillerZeros%
-
 NumpadAdd & Numpad0::
 WinActivate, ahk_exe calc.exe
 IfWinNotExist Calculator
@@ -82,78 +81,76 @@ BPCS:
 		sendinput 02%LotNumber%
 		BPCSswap = 1
 		RETURN
-}
-else
+		}
+	else
 	Return
 
-insert::send, {AltDown}fp{AltUp}  ;print screen
-Numpadadd & Numpadsub::sendinput 02%lotnumber%
-Numpadadd & Numpadmult::sendinput 02%batchNumber%
-NumpadEnter::
-sendinput {enter}
-BPCSSwap = 0
-return
-numlock & insert::send, {enter}{AltDown}fp{AltUp}{f3}  ; print screen of lot number and return
-numpaddiv::
-Mbutton & Rbutton::sendinput %month%{right}%today%{right}%year%{right}{down}{left 8} ;input todays date
+	insert::send, {AltDown}fp{AltUp}  ;print screen
+	Numpadadd & Numpadsub::sendinput 02%lotnumber%
+	Numpadadd & Numpadmult::sendinput 02%batchNumber%
+	NumpadEnter::
+		sendinput {enter}
+		BPCSSwap = 0
+		return
+	numlock & insert::send, {enter}{AltDown}fp{AltUp}{f3}  ; print screen of lot number and return
+	numpaddiv::
+	Mbutton & Rbutton::sendinput %month%{right}%today%{right}%year%{right}{down}{left 8} ;input todays date
 	;Numlock & Numpadmult::Sendinput {enter}{Down 6}{right 11}a{right 52}{down 3}%month%{right}%today%{right}%year%{left 51}{down 3}%BPCSdate%%BPCSdate%%BPCSdate%{down}
 	;Numlock & Numpadsub::sendinput {enter}{Down 6}{right 11}a{down 7}{left}%month%{right}%today%{right}%year%{right}
-Numpadsub & NumpadEnter::sendinput {Down 6}{right 11}a{down 7}{left}%BPCSDate%{right 7}{800}{enter}
-Numpadmult & NumpadEnter::Sendinput {Down 6}{right 11}a{down 3}{right 42}%BPCSDate%{Left 43}{down 2}%BPCSDate%%BPCSDate%%BPCSDate%{down}
-numlock & Numpad0::Sendinput {Down 6}{right 11}a{down 3}{right 42}%BPCSDate%{Left 43}{down 2}%BPCSDate%%BPCSDate%%BPCSDate%{down}00
-Numpadadd & Numpad0::sendinput {enter}{Down 6}{right 11}a{down 7}{left}%month%{right}%today%{right}%year%{right}{enter}02%lotnumber%
-Numpadadd & Left::sendinput, b83{enter 2}api{enter}10{enter}
-Numlock & Numpaddiv::sendinput, %BPCSuser%{tab}%bpcsPassword%{enter 2}b83{enter 2}api{enter}10{enter}
+	Numpadsub & NumpadEnter::sendinput {Down 6}{right 11}a{down 7}{left}%BPCSDate%{right 7}{800}{enter}
+	Numpadmult & NumpadEnter::Sendinput {Down 6}{right 11}a{down 3}{right 42}%BPCSDate%{Left 43}{down 2}%BPCSDate%%BPCSDate%%BPCSDate%{down}
+	numlock & Numpad0::Sendinput {Down 6}{right 11}a{down 3}{right 42}%BPCSDate%{Left 43}{down 2}%BPCSDate%%BPCSDate%%BPCSDate%{down}00
+        Numpadadd & Numpad0::sendinput {enter}{Down 6}{right 11}a{down 7}{left}%month%{right}%today%{right}%year%{right}{enter}02%lotnumber%
+	Numpadadd & Left::sendinput, b83{enter 2}api{enter}10{enter}
+	Numlock & Numpaddiv::sendinput, %BPCSuser%{tab}%bpcsPassword%{enter 2}b83{enter 2}api{enter}10{enter}
 #IfWinActive, Signon to iSeries ahk_class #32770
-Numlock & Numpaddiv::
-sendinput, %BPCSpassword%{tab 3}%BPCSuser%{enter}
-sleep 300
-sendinput, %BPCSuser%{tab}%bpcsPassword%{enter 2}b83{enter 2}api{enter}10{enter}
-return
+	Numlock & Numpaddiv::
+	sendinput, %BPCSpassword%{tab 3}%BPCSuser%{enter}
+	sleep 300
+	sendinput, %BPCSuser%{tab}%bpcsPassword%{enter 2}b83{enter 2}api{enter}10{enter}
+	return
 
 
 TotalChorms:
 #IfWinActive, ahk_class #32770
-Numlock & numpaddiv::login(totalChromeUser, totalChromePassword)
+	Numlock & numpaddiv::login(totalChromeUser, totalChromePassword)
 
 #ifwinactive, Electronic Signature ahk_class #32770 ahk_exe SeqEdit.exe
-Numlock & numpaddiv::login(totalChromeUser, totalChromePassword)
+        Numlock & numpaddiv::login(totalChromeUser, totalChromePassword)
 
 EXEL:
 #IfWinActive, ahk_exe EXCEL.EXE
-Numlock::Sendinput, {f2}
+	Numlock::Sendinput, {f2}
 #IfWinActive, Find and Replace ahk_exe EXCEL.EXE
-numpadEnter::sendinput, {alt down}i{alt up}
-numpadsub::sendinput, {alt down}n{alt up}%lotnumber%
-numpadadd & Numpadenter::sendinput {esc}{ctrldown}{right}{ctrlup}{right}P{ctrldown}f{CtrlUp}%lotnumber%
-Numpadadd & numpad0::Return
-Numpadadd & NumpadDot::return
+	numpadEnter::sendinput, {alt down}i{alt up}
+	numpadsub::sendinput, {alt down}n{alt up}%lotnumber%
+	numpadadd & Numpadenter::sendinput {esc}{ctrldown}{right}{ctrlup}{right}P{ctrldown}f{CtrlUp}%lotnumber%
+	Numpadadd & numpad0::Return
+	Numpadadd & NumpadDot::return
 #ifwinactive, ahk_exe EXCEL.EXE
-Numpadadd & numpad0::sendinput {ctrldown}f{ctrlup}{AltDown}th{altup}w{enter}{altdown}n{altup}%lotnumber%
-Numpadadd & NumpadDot::sendinput {ctrldown}f{ctrlup}{AltDown}th{altup}w{enter}{altdown}n{altup}{Delete}
-Capslock::CapsLock
+	Numpadadd & numpad0::sendinput {ctrldown}f{ctrlup}{AltDown}th{altup}w{enter}{altdown}n{altup}%lotnumber%
+	Numpadadd & NumpadDot::sendinput {ctrldown}f{ctrlup}{AltDown}th{altup}w{enter}{altdown}n{altup}{Delete}
+	Capslock::CapsLock
 #Ifwinactive, Release update
-Numpadadd::
-\::Sendinput {tab}%lotnumber%
+	Numpadadd::
+		\::Sendinput {tab}%lotnumber%
 #ifwinactive, Property Grid Form
-Mbutton::sendinput, {backspace 4}
-NumpadEnter::
-SendInput, {enter}{down 2}1
-sleep 200
-sendinput, {tab 2}{enter}
-return
-Mbutton & WheelDown::sendinput {ctrldown}{down}{ctrlup}
-Mbutton & Wheelup::sendinput {ctrldown}{up}{ctrlup}
+	Mbutton::sendinput, {backspace 4}
+	NumpadEnter::
+		SendInput, {enter}{down 2}1
+		sleep 200
+		sendinput, {tab 2}{enter}
+		return
 
 
 IR_machine:
 #IfWinActive, PerkinElmer Spectrum ES
-Numlock & Numpadmult::sendinput, %lotnumber% %Date%{left 8}
-Numpadadd & NumpadEnter::
-sendinput !m{down}{right}{enter}(200)
-sleep 200
-sendinput !m{enter}
-return
+	Numlock & Numpadmult::sendinput, %lotnumber% %Date%{left 8}
+	Numpadadd & NumpadEnter::
+	sendinput !m{down}{right}{enter}(200)
+	sleep 200
+	sendinput !m{enter}
+	return
 
 
 FIREFOX_and_CHORME:
@@ -194,7 +191,7 @@ WinClose, ahk_exe WINWORD.EXE
 sleep 200
 Winclose, Attachments
 Return
-
+;}
 
 
 AHK_studio:
@@ -213,13 +210,6 @@ Microsoft_SQL:
 NumpadEnter::Sendinput {F5}
 +enter::Sendinput {F5}
 enter::sendinput {enter}
-
-#IfWinActive,
-;Mbutton & WheelDown::sendinput {ctrldown}{down}{ctrlup}
-;Mbutton & Wheelup::sendinput {ctrldown}{up}{ctrlup}
-XButton1:: Sendinput {altdown}{tab}{altup}
-XButton2:: Sendinput {shiftdown}altdown}{tab}{altup}{shiftup}
-
 
 /*
 	;Screen locations

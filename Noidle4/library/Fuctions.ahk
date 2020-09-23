@@ -334,25 +334,28 @@ ReviewRun() {
 	
 ReviewRunLoop() {
 	InputBox, ReviewRunLoop, how many,, , 240, 180
+	InputBox, ReviewRunLoopTime, how much Time inbetween? in milliseconds `(default 2000`),, , 240, 180
 	if ErrorLevel
 		Return
 	Loop, %reviewRunLoop%
 	{
 		Click, 771, 144 Left, 1
-		sleep 9000
+		sleep %ReviewRunLoopTime%
+		sleep 2000
 		WinWaitActive Warning, , 4
 		if errorlevel {
-			sleep 2000
+			sleep %ReviewRunLoopTime%
 			sendinput {down}
-			sleep 5000
+			sleep %ReviewRunLoopTime%
 			continue
 		}
 		else {
 			winclose, Warning
-			sleep 2000
+			sleep %ReviewRunLoopTime%
 			sendinput {down}
 		}
-		sleep 5000
+		sleep %ReviewRunLoopTime%
+		sleep 2000
 	}
 	return
 }
