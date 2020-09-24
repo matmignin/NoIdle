@@ -28,9 +28,9 @@ CreateBatch() {
 		}
 	else {
 		Sendinput %lotnumber%
-		sleep 400
-		keywait, Right, D T6
-			controlFocus, WindowsForms10.EDIT.app.0.33c0d9d3, Lot template login
+		;sleep 400
+		;keywait, Right, D T6
+		;	controlFocus, WindowsForms10.EDIT.app.0.33c0d9d3, Lot template login
 		}
 	return
 }
@@ -333,10 +333,12 @@ ReviewRun() {
 	
 	
 ReviewRunLoop() {
-	InputBox, ReviewRunLoop, how many,, , 240, 180
-	InputBox, ReviewRunLoopTime, how much Time inbetween? in milliseconds `(default 2000`),, , 240, 180
+	InputBox, ReviewRunLoop, how many loops,, , 280, 180
 	if ErrorLevel
 		Return
+	InputBox, ReviewRunLoopTime, how many milliseconds inbetween? `(default 3000ms`),, , 540, 180
+	if ErrorLevel
+		reviewRunLoop = 3000
 	Loop, %reviewRunLoop%
 	{
 		Click, 771, 144 Left, 1
@@ -349,40 +351,48 @@ ReviewRunLoop() {
 			sleep %ReviewRunLoopTime%
 			continue
 		}
+		If WinActive(error)
+		{
+			sendinput {enter}
+			sleep %ReviewRunLoopTime%
+			sendinput {down}
+			Continue
+		}
 		else {
-			winclose, Warning
+			Sendinput {enter}
 			sleep %ReviewRunLoopTime%
 			sendinput {down}
 		}
-		sleep %ReviewRunLoopTime%
-		sleep 2000
+		return
 	}
 	return
 }
-
-
-
 	
-
 	
-	Raw_Material(select, samplegroup, grouptemplate) {   
-		global
-		Click, %select% Left, 1
-		sleep 300
+		
+		
+		
+		
+		
+		
+		Raw_Material(select, samplegroup, grouptemplate) {   
+			global
+			Click, %select% Left, 1
+			sleep 300
 		;WinWaitActive Select batches, , 3
-		If WinActive("Select batches") {
+			If WinActive("Select batches") {
 				sleep 200
 				sendinput {tab 3}%lotnumber%
 				return
 			}
-	}
-	Item_Number(select) { 
-		global
-		Click, %select% Left, 1
-		WinWaitActive Select batches, , 3
-		if ErrorLevel
+		}
+		Item_Number(select) { 
+			global
+			Click, %select% Left, 1
+			WinWaitActive Select batches, , 3
+			if ErrorLevel
+				return
+			Else
+				sendinput {right}{tab 2}{enter}{right}mat{space}{enter}{tab 2}{down 3}{right 4}
 			return
-		Else
-			sendinput {right}{tab 2}{enter}{right}mat{space}{enter}{tab 2}{down 3}{right 4}
-		return
-	}
+		}

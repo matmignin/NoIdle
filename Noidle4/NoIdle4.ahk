@@ -1,4 +1,4 @@
-Version = 4.29
+Version = 4.31
 
 #Include library\Variables.ahk
 #Include library\Fuctions.ahk
@@ -35,7 +35,11 @@ Numpadadd::
 	{
 		Auto_Select(AutoSelectWindow, AutoSelectCombobox, 0)
 		RETURN
-}
+	}
+	else if WinActive(Select batches)
+	{
+		ViewSample(BatchNumber)
+	}
 else
 	return
 
@@ -97,7 +101,7 @@ DetectTab()
 	}
 	else if Tab contains My Service Groups Pending Tests
 	{
-		Sendinput, {end}
+		Adjust_Columns()
 		Return
 	}
 	else
@@ -190,14 +194,14 @@ return
 
 
 numlock & pgdn::
-  Click, %RRviewx%, %RRviewy% Left, 1
-    WinWait, ahk_class WindowsForms10.Window.8.app.0.202c666 ahk_exe IEXPLORE.EXE, , 2
-      WinMove, ahk_class WindowsForms10.Window.8.app.0.202c666 ahk_exe IEXPLORE.EXE,, 861, 605, 798, 385
-        Sendinput {tab 3}{enter}
-          winwait, ahk_class AcrobatSDIWindow ahk_exe AcroRd32.exe, , 2
-            WinMove, ahk_class AcrobatSDIWindow ahk_exe AcroRd32.exe,, 5, 332, 550, 684
-              return
-              #ifwinactive
+	Click, %RRviewx%, %RRviewy% Left, 1
+	WinWait, ahk_class WindowsForms10.Window.8.app.0.202c666 ahk_exe IEXPLORE.EXE, , 2
+	WinMove, ahk_class WindowsForms10.Window.8.app.0.202c666 ahk_exe IEXPLORE.EXE,, 861, 605, 798, 385
+	Sendinput {tab 3}{enter}
+	winwait, ahk_class AcrobatSDIWindow ahk_exe AcroRd32.exe, , 2
+	WinMove, ahk_class AcrobatSDIWindow ahk_exe AcroRd32.exe,, 5, 332, 550, 684
+	return
+#ifwinactive
 
 
 

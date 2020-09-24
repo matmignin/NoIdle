@@ -218,12 +218,12 @@ enter::sendinput {enter}
 ;Mbutton & WheelDown::sendinput {ctrldown}{down}{ctrlup}
 ;Mbutton & Wheelup::sendinput {ctrldown}{up}{ctrlup}
 XButton1:: Sendinput {altdown}{tab}{altup}
-XButton2:: Sendinput {shiftdown}altdown}{tab}{altup}{shiftup}
+XButton2:: Sendinput {shiftdown}{altdown}{tab}{altup}{shiftup}
 
 
 /*
 	;Screen locations
-	ClickLink(ScreenLocation) {
+	ALTDOWN(ScreenLocation) {
 		mouseGetPos, Xpos, Ypos
 		click, %screenLocation%,
 		MouseMove, Xpos, Ypos

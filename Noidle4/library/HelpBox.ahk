@@ -15,6 +15,16 @@ ____________ Depending on your active window or program `n
 `n
 -Press [ Numpad( + ) & Numpad( 0 ) ] at the same time to open the calculator [[FIXED]] `n
 `n
+-Press [ Numlock & Right Arrow ] to Release a Run
+`n
+-Press [ Numlock & Down Arrow ] to Release multiple Run
+`n
 -Numpad( Enter ) is usable in BPCS and more windows`n
+`n
+
+
 ver. %version%
+-
+
+
 )
