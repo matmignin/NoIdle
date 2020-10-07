@@ -1,4 +1,4 @@
-Version = 4.31
+Version = 5.01
 
 #Include library\Variables.ahk
 #Include library\Fuctions.ahk
