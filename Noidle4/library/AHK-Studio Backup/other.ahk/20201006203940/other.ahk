@@ -39,7 +39,7 @@ Capslock & d::sendinput {home}{SHIFTDown}{end}{shiftUp}{delete}
 Capslock & o::sendinput {end}{return}{down}
 Capslock & b::sendinput {CtrlDown}{left}{CtrlUp}
 
-F11 & F12::
+F11 & F12::ClickLink()
 sleep 300
 reload
 return

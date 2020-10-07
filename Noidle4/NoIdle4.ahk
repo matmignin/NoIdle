@@ -10,11 +10,6 @@ return
 
 
 
-
-
-
-
-
 STARLIMS:
 #IfWinActive, STARLIMS10.Live ahk_exe xv.exe
 Numpadadd::
