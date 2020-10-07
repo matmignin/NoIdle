@@ -90,12 +90,12 @@ DetectTab() {
 
 Adjust_Columns() {
 	MouseClickDrag, L, 97, 120, 115, 122, 2
-	;sleep 250
-	;Mouseclick, L, 96, 342, 2
-	;Mouseclick, L, 96, 342, 2
-	;sleep 200
-	;loop, 300
-	;	sendinput {WheelUp}
+	sleep 250
+	Mouseclick, L, 96, 342, 2
+	Mouseclick, L, 96, 342, 2
+	sleep 200
+	loop, 300
+		sendinput {WheelUp}
 	return
 }
 
@@ -336,7 +336,7 @@ ReviewRunLoop() {
 	InputBox, ReviewRunLoop, how many loops,, , 280, 180
 	if ErrorLevel
 		Return
-	InputBox, ReviewRunLoopTime, how many milliseconds inbetween? `(default 3000ms`),, , 540, 180,,,,,30000
+	InputBox, ReviewRunLoopTime, how many milliseconds inbetween? `(default 3000ms`),, , 540, 180
 	if ErrorLevel
 		reviewRunLoop = 3000
 	Loop, %reviewRunLoop%

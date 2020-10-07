@@ -26,6 +26,7 @@ WinActivate calculator
 return
 
 
+
 Vim_Controls:
 Capslock & j::sendinput {down}
 Capslock & k::sendinput {up}
@@ -39,10 +40,11 @@ Capslock & d::sendinput {home}{SHIFTDown}{end}{shiftUp}{delete}
 Capslock & o::sendinput {end}{return}{down}
 Capslock & b::sendinput {CtrlDown}{left}{CtrlUp}
 
-F11 & F12::ClickLink()
-sleep 300
-reload
-return
+F11 & F12::
+	sendinput ^s
+	sleep 300
+	reload
+	return
 
 F11::SENDINPUT {f11}
 
@@ -52,19 +54,19 @@ F11::SENDINPUT {f11}
 
 ScannerApp:
 #IfWinActive, ahk_exe NAPS2.exe
-Insert & home::	sendinput {f6}{200}!{tab}
-numpadadd::
-Mbutton::Sendinput {Click, 447, 29}{100}s  	;:save selected jpeg
-Numpadsub::Sendinput {delete}
-Mbutton & Rbutton::sendinput, {click}{delete}{200}{enter}
-#IfWinActive, Save As ahk_exe NAPS2.exe
-Numlock::sendinput {escape}
+	Insert & home::	sendinput {f6}{200}!{tab}
+	numpadadd::
+	Mbutton::Sendinput {Click, 447, 29}{100}s  	;:save selected jpeg
+	Numpadsub::Sendinput {delete}
+	Mbutton & Rbutton::sendinput, {click}{delete}{200}{enter}
+	#IfWinActive, Save As ahk_exe NAPS2.exe
+	Numlock::sendinput {escape}
 
 BPCS:
 #IfWinActive, ahk_exe pcsws.exe
-Numpadadd::
-if BPCSSwap = 1
-{
+	Numpadadd::
+	if BPCSSwap = 1
+		{
 		sendinput !{left}{delete 8}%BatchNumber%
 		bpcsswap = 2
 		RETURN

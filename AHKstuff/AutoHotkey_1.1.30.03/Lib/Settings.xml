@@ -43,16 +43,16 @@
 		<keyword set="8" color="15458669"></keyword>
 	</theme>
 	<Languages>
-		<hypertext date="20190917145818" name="HTML">
+		<hypertext date="20200922192918" name="HTML">
 			<font color="7843024" style="2"></font>
 			<font color="13617276" fold="1" style="1"></font></hypertext>
-		<xml date="20190917145819" name="XML">
+		<xml date="20200922192918" name="XML">
 			<font color="16758590" style="1"></font>
 			<font color="14732901" style="3"></font>
 			<font color="0x00FF00" style="11"></font>
 			<font color="0x00FF00" style="12"></font>
 			<font color="0x00FF00" style="13"></font></xml>
-		<ahk date="20190917145817" name="AutoHotkey">
+		<ahk date="20200922192918" name="AutoHotkey">
 			<font style="0" color="12632256"></font>
 			<font style="40" color="65408"></font>
 			<font style="41" color="16776960"></font>
@@ -101,13 +101,19 @@
 	</autodelete>
 	<gui zoom="0">
 		<position window="Settings" max="1" lastw="2097269" lastah="">h953 w900 x382 y14</position>
-		<position window="1" max="1" lastw="7536754" lastah=""></position></gui>
+		<position window="1" max="0"></position>
+		<position window="Refresh_Code_Explorer">x721 y406 w231 h168</position>
+		<position window="5">x637 y299 w390 h372</position></gui>
 	<previous_scripts>
+		<script>\\tsclient\PDI\Noidle4\NoIdle4.ahk</script>
 		<script>\\tsclient\PDI\Noidle4\No Idle4.ahk</script>
 		<script>\\tsclient\PDI\Noidle4\Untitled\Untitled1.ahk</script>
 	</previous_scripts>
 	<open>
-		<file>\\tsclient\PDI\Noidle4\NoIdle4.ahk</file>
+		<file>H:\QC LAB\MH\Github\NoIdle\Noidle4\NoIdle4.ahk</file>
 	</open>
 	<icons last="\\tsclient\PDI\Noidle4\Icons\Boo.ico"></icons>
+	<search>
+		<find acdc="0" allfiles="0" Auto_Show="0" cs="0" daioc="0" gr="0" regex="0" sort="0"></find>
+	</search>
 </settings>

@@ -61,7 +61,5 @@ MoveMouse:
 	If ( A_TimeIdle > 240000 ) {
 		MouseMove, 50 , 50,, R
 		MouseMove, -50,-50,, R
-		;SendInput, {down}{up}
-		sendinput, {PgDn}{PgUp}
 	}
 	return

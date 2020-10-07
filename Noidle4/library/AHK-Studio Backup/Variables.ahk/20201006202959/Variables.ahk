@@ -58,10 +58,8 @@ BPCSswap = 0
 
 
 MoveMouse:
-	If ( A_TimeIdle > 240000 ) {
-		MouseMove, 50 , 50,, R
-		MouseMove, -50,-50,, R
-		;SendInput, {down}{up}
-		sendinput, {PgDn}{PgUp}
+	If ( A_TimeIdle > 120000 ) {
+		MouseMove, 1 , 1,, R
+		MouseMove, -1,-1,, R
 	}
 	return
